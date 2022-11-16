@@ -18,18 +18,18 @@ int main(int argc, char **argv)
     SDL_Plotter g(NUM_ROW, NUM_COL);
     int R=20, G=20, B=255;
     //int xLoc = NUM_COL/2, yLoc = NUM_ROW/2;
-    vector<int> xLoc;
-    vector<int> yLoc;
+    int xLoc[NUM_ROW*NUM_COL/SIZE];
+    int yLoc[NUM_ROW*NUM_COL/SIZE];
     int prevX, prevY;
     Direction dir = RIGHT;
-    int speed = 90;
+    int speed = 60;
     int skip = 0, skip_val = 10;
 
-    xLoc.push_back(NUM_COL/2);//head of snake
-    xLoc.push_back(NUM_COL/2 - SIZE);
+    xLoc[0] = NUM_COL/2;//head of snake
+    xLoc[1] = NUM_COL/2 - SIZE;
 
-    yLoc.push_back(NUM_ROW/2);
-    yLoc.push_back(NUM_ROW/2);
+    yLoc[0] = (NUM_ROW/2);
+    yLoc[1] = (NUM_ROW/2);
 
 //    yLoc[0] = NUM_ROW/2;
 //    yLoc[1] = NUM_ROW/2;
@@ -130,8 +130,8 @@ int main(int argc, char **argv)
 
             /// increment lenght //
             length++;
-            xLoc.push_back(prevX);
-            yLoc.push_back(prevY);
+            xLoc[length] = (prevX);
+            yLoc[length] = (prevY);
         }
 
 
