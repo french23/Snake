@@ -73,6 +73,7 @@ int main(int argc, char **argv)
            }
 
         }
+        // Peter Was here
         // top right
         else if(xLoc[0] + SIZE >= appleX && xLoc[0] + SIZE <= appleX + APPLESIZE){
            if(yLoc[0] >= appleY && yLoc[0] <= appleY + APPLESIZE){

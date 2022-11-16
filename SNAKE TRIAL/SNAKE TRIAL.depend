@@ -36,3 +36,21 @@
 1668015387 source:c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
+1668558035 source:c:\modules\github\snake\snake trial\main.cpp
+	<iostream>
+	"SDL_Plotter.h"
+
+1668558035 c:\modules\github\snake\snake trial\sdl_plotter.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<SDL2/SDL_thread.h>
+	<string.h>
+	<iostream>
+	<string>
+	<string.h>
+	<map>
+	<queue>
+
+1668558035 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
+	"SDL_Plotter.h"
+
