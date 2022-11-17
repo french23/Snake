@@ -14,7 +14,7 @@ enum Direction {UP, DOWN, LEFT, RIGHT,STILL};
 int main(int argc, char **argv)
 {
     char key;
-    int length = 10;
+    int length = 2;
     SDL_Plotter g(NUM_ROW, NUM_COL);
     int R=20, G=20, B=255;
     //int xLoc = NUM_COL/2, yLoc = NUM_ROW/2;
@@ -22,6 +22,7 @@ int main(int argc, char **argv)
     int yLoc[NUM_ROW/SIZE * NUM_COL/SIZE];
     int prevX, prevY;
     Direction dir = RIGHT;
+    Direction prevDir = dir;
     int speed = 90;
     int skip = 0, skip_val = 10;
 
@@ -59,16 +60,32 @@ int main(int argc, char **argv)
             switch(key)
             {
             case UP_ARROW   :
-                dir = UP;
+                if(prevDir!= DOWN)
+                {
+                    dir = UP;
+                    prevDir = UP;
+                }
                 break;
             case DOWN_ARROW :
-                dir = DOWN;
+                if(prevDir!= UP)
+                {
+                    dir = DOWN;
+                    prevDir = DOWN;
+                }
                 break;
             case LEFT_ARROW :
-                dir = LEFT;
+                if(prevDir!= RIGHT)
+                {
+                    dir = LEFT;
+                    prevDir = LEFT;
+                }
                 break;
             case RIGHT_ARROW:
-                dir = RIGHT;
+                if(prevDir!= LEFT)
+                {
+                    dir = RIGHT;
+                    prevDir = RIGHT;
+                }
                 break;
 
             }
@@ -122,8 +139,23 @@ int main(int argc, char **argv)
             }
 
             /// set new apple pos
-            appleX = rand() % 750;
-            appleY = rand() % 750;
+            bool runAgain = true;
+            while(runAgain)
+            {
+                appleX = rand() % 750;
+                appleY = rand() % 750;
+                for(int i = 0; i < length; i++)
+                {
+                    if(appleX == xLoc[i] and appleY == yLoc[i])
+                    {
+                        runAgain = true;
+                    }
+                    else
+                    {
+                        runAgain = false;
+                    }
+                }
+            }
 
             /// Reset apple Eaten
 
@@ -152,12 +184,54 @@ int main(int argc, char **argv)
         }
 
         // Snake self colision
-        if((xLoc[0] >= xLoc[5] and xLoc[0] <= xLoc[5] + SIZE)
-           and (yLoc[0] >= yLoc)) // PICK UP HERE
+//        for(int i = 4; i < length; i++)
+//        {
+//            if((xLoc[0] > xLoc[i] and xLoc[0] < xLoc[i] + SIZE)
+//                and (yLoc[0] > yLoc[i] and yLoc[0] < yLoc[i] + SIZE))
+//            {
+//                cout << "colision!! game over, hit lenght number" << i << endl;
+//                gameover = true;
+//            }
+//        }
+        for(int i = 4; i < length; i++)
         {
-            cout << "colision!! game over, hit lenght number" << 5 << endl;
-            gameover = true;
+            if((dir == RIGHT)
+                    and (xLoc[0] + SIZE == xLoc[i])
+                    and (yLoc[0] == yLoc[i]))
+            {
+                cout << "colision!! game over, hit itself from the right" << endl;
+                gameover = true;
+            }
+            else if((dir == LEFT)
+                    and (xLoc[0] == xLoc[i]+ SIZE)
+                    and (yLoc[0] == yLoc[i]))
+            {
+                cout << "colision!! game over, hit itself from the left" << endl;
+                gameover = true;
+            }
+            else if((dir == UP)
+                    and (xLoc[0] == xLoc[i])
+                    and (yLoc[0] == yLoc[i] + SIZE))
+            {
+                cout << "colision!! game over, hit itself from the up" << endl;
+                gameover = true;
+            }
+            else if((dir == DOWN)
+                    and (xLoc[0] == xLoc[i]+ SIZE)
+                    and (yLoc[0] + SIZE == yLoc[i]))
+            {
+                cout << "colision!! game over, hit itself from the left" << endl;
+                gameover = true;
+            }
         }
+
+
+//        if((xLoc[0] >= xLoc[5] and xLoc[0] <= xLoc[5] + SIZE)
+//           and (yLoc[0] >= yLoc[5] and yLoc[0] <= yLoc[5] + SIZE)) // PICK UP HERE
+//        {
+//            cout << "colision!! game over, hit lenght number" << 5 << endl;
+//            gameover = true;
+//        }
 
 
 
@@ -219,15 +293,18 @@ int main(int argc, char **argv)
             }
         }
 
-        //Draw snake segment lines
-        for(int i = 0; i < NUM_COL;i++)
-        {
-            g.plotPixel(xLoc[5],i);
-            g.plotPixel(xLoc[5] + SIZE,i);
-        }
+//        //Draw snake segment lines
+//        for(int i = 0; i < NUM_COL;i++)
+//        {
+//            g.plotPixel(xLoc[10],i);
+//            g.plotPixel(xLoc[10] + SIZE,i);
+//
+//            g.plotPixel(i,yLoc[10]);
+//            g.plotPixel(i,yLoc[10] + SIZE);
+//        }
 
         g.update();
-        g.clear();
+        //g.clear();
         g.Sleep(speed);//pauses for 'speed' nanoseconds
 
 
