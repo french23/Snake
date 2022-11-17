@@ -220,7 +220,10 @@ int main(int argc, char **argv)
                     and (xLoc[0] == xLoc[i]+ SIZE)
                     and (yLoc[0] + SIZE == yLoc[i]))
             {
-                cout << "colision!! game over, hit itself from the left" << endl;
+                cout << "colision!! game over, hit itself from the down" << endl;
+                cout << "i is" << i << endl;
+                cout << "yLoc[0] + SIZE  = "<< yLoc[0] + SIZE  << endl;
+                cout << "yLoc[i] = "<< yLoc[i] << endl;
                 gameover = true;
             }
         }
