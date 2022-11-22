@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     SDL_Plotter g(NUM_ROW, NUM_COL);
     int R=20, G=20, B=255;
     //int xLoc = NUM_COL/2, yLoc = NUM_ROW/2;
-    int xLoc[10000], yLoc[100000];///large size prevents breaking of snake as length increments. temp solution, but could be perm.
+    int xLoc[100000], yLoc[100000];///large size prevents breaking of snake as length increments. temp solution, but could be perm.
     int prevX, prevY;
     Direction dir = RIGHT;
     int speed = 150;
