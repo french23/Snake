@@ -18,7 +18,7 @@ int main(int argc, char **argv)
     SDL_Plotter g(NUM_ROW, NUM_COL);
     int R=20, G=20, B=255;
     //int xLoc = NUM_COL/2, yLoc = NUM_ROW/2;
-    int xLoc[length], yLoc[length];
+    int xLoc[10000], yLoc[100000];///large size prevents breaking of snake as length increments. temp solution, but could be perm.
     int prevX, prevY;
     Direction dir = RIGHT;
     int speed = 150;
@@ -123,15 +123,7 @@ int main(int argc, char **argv)
 
 
 
-        /// Snake erase
-        for (int i = 0; i < length; i++){
-            for(int y = 0; y < SIZE; y++){
-                for(int x = 0; x < SIZE; x++){
-                    g.plotPixel(xLoc[i] + x, yLoc[i] + y, 255,255,255);
 
-                }
-            }
-        }
 
 
 
@@ -165,6 +157,7 @@ int main(int argc, char **argv)
         }
 
 
+        //Draw Apple
         for(int y = 0; y < APPLESIZE; y++){
             for(int x = 0; x < APPLESIZE; x++){
                 g.plotPixel(appleX + x, appleY + y);
@@ -174,6 +167,15 @@ int main(int argc, char **argv)
         g.update();
         g.Sleep(speed);//pauses for 'speed' nanoseconds
 
+        /// Snake erase
+        for (int i = 0; i < length; i++){
+            for(int y = 0; y < SIZE; y++){
+                for(int x = 0; x < SIZE; x++){
+                    g.plotPixel(xLoc[i] + x, yLoc[i] + y, 255,255,255);
+
+                }
+            }
+        }
 
     }
     return 0;
