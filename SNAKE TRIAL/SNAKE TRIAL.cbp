@@ -36,7 +36,11 @@
 		<Unit filename="Point_T.h" />
 		<Unit filename="SDL_Plotter.cpp" />
 		<Unit filename="SDL_Plotter.h" />
+		<Unit filename="grid_square.cpp" />
+		<Unit filename="grid_square.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="pixel_square.cpp" />
+		<Unit filename="pixel_square.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
