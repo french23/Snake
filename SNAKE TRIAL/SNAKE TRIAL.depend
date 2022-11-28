@@ -50,8 +50,28 @@
 	<map>
 	<queue>
 
-1668726086 source:c:\modules\github\snake\snake trial\point_t.cpp
+1669602467 source:c:\modules\github\snake\snake trial\point_t.cpp
 	"Point_T.h"
 
-1668725909 c:\modules\github\snake\snake trial\point_t.h
+1669602459 c:\modules\github\snake\snake trial\point_t.h
+
+1669605583 source:c:\modules\github\snake\snake trial\grid_square.cpp
+	"grid_square.h"
+
+1669604447 c:\modules\github\snake\snake trial\grid_square.h
+	<vector>
+	"pixel_square.h"
+
+1669606366 source:c:\modules\github\snake\snake trial\main.cpp
+	<iostream>
+	"SDL_Plotter.h"
+	"grid_square.h"
+
+1669602658 c:\modules\github\snake\snake trial\pixel_square.h
+	<iostream>
+	"Point_T.h"
+	"SDL_Plotter.h"
+
+1669605817 source:c:\modules\github\snake\snake trial\pixel_square.cpp
+	"pixel_square.h"
 

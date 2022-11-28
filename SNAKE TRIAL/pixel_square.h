@@ -1,6 +1,8 @@
 #ifndef PIXEL_SQUARE_H_INCLUDED
 #define PIXEL_SQUARE_H_INCLUDED
 
+#include <iostream>
+
 #include "Point_T.h"
 #include "SDL_Plotter.h"
 
@@ -15,7 +17,7 @@ public:
     * postcondition: sets the vars
     *
     */
-    pixel_square(Point_T sqr_origin, int size);
+    pixel_square(Point_T sqr_origin, int input_size);
 
     /*
     * description: constructor to make the pixel grid
@@ -28,15 +30,21 @@ public:
 
     /*
     * description: returns the size of the sqr
-    * return: none
+    * return: int
     * precondition: none
     * postcondition: returns the size val;
     *
     */
-    void get_size();
+    int get_size();
 
-    // needs to take a color and a reference to the screen
-    void fill_with_color()
+    /*
+    * description: fills all the pixels with the color given
+    * return: none
+    * precondition: takes in a color and a SDL_Plotter reffrence
+    * postcondition: returns the size val;
+    *
+    */
+    void fill_with_color(color fill_color, SDL_Plotter& g);
 
 private:
 
