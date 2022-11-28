@@ -9,6 +9,8 @@ const int NUM_COL = 800;
 
 int main(int argc, char **argv)
 {
+
+    // this is here
     char key;
     SDL_Plotter g(NUM_ROW, NUM_COL);
 

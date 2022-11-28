@@ -9,6 +9,8 @@
 
 using namespace std;
 
+// delete me
+
 class Letter
 {
 public:
