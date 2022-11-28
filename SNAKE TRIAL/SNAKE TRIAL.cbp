@@ -32,10 +32,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Letter.cpp" />
+		<Unit filename="Letter.h" />
 		<Unit filename="Point_T.cpp" />
 		<Unit filename="Point_T.h" />
 		<Unit filename="SDL_Plotter.cpp" />
 		<Unit filename="SDL_Plotter.h" />
+		<Unit filename="font.txt" />
 		<Unit filename="grid_square.cpp" />
 		<Unit filename="grid_square.h" />
 		<Unit filename="main.cpp" />

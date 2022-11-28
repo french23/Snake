@@ -1,6 +1,6 @@
 #include <iostream>
 #include "SDL_Plotter.h"
-#include "grid_square.h"
+#include "Letter.h"
 
 using namespace std;
 
@@ -13,7 +13,12 @@ int main(int argc, char **argv)
     SDL_Plotter g(NUM_ROW, NUM_COL);
 
     Point_T starting_location(400,100);
-    grid_square my_letter(8,10, starting_location);
+    Letter letter_A(15, 'A', 8, starting_location);
+
+    letter_A.draw_letter("font.txt",g);
+
+   /*
+    grid_square my_letter(8,15, starting_location);
     color my_color;
 
     my_color.R = 230;
@@ -65,6 +70,8 @@ int main(int argc, char **argv)
     my_letter.color_sqr(Point_T(4,5), my_color, g);
     my_letter.color_sqr(Point_T(4,6), my_color, g);
     my_letter.color_sqr(Point_T(4,7), my_color, g);
+
+    */
 
     while(!g.getQuit())
     {

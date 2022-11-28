@@ -1,4 +1,4 @@
-letter: A
+letter A
 R 222
 G 159
 B 151
@@ -40,4 +40,5 @@ G 151
 4 5
 4 6
 4 7
-endLetter
+endLetter 
+endOfLine 
