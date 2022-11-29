@@ -129,7 +129,7 @@ void Snake::drawSnake(SDL_Plotter& g){
                     break;
 
     }
-    cout << "(" << seg[0].getPoint().getX() << ", " << seg[0].getPoint().getY() << ")" << endl;
+    //cout << "(" << seg[0].getPoint().getX() << ", " << seg[0].getPoint().getY() << ")" << endl;
 
     /// Snake Draw
     for(int i = 0; i < length; i++){
