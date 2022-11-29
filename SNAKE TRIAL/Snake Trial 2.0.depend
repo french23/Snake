@@ -36,3 +36,40 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
+1669680493 source:c:\modules\github\snake\snake trial\main.cpp
+	<iostream>
+	"Segment.h"
+	"SDL_Plotter.h"
+	"Snake.h"
+
+1669680868 c:\modules\github\snake\snake trial\segment.h
+	"Point.h"
+	"SDL_Plotter.h"
+
+1669680681 c:\modules\github\snake\snake trial\point.h
+
+1669680493 c:\modules\github\snake\snake trial\sdl_plotter.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<string.h>
+	<iostream>
+	<string>
+	<string.h>
+	<map>
+	<queue>
+
+1669680493 c:\modules\github\snake\snake trial\snake.h
+	"Segment.h"
+
+1668558035 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
+	"SDL_Plotter.h"
+
+1669680493 source:c:\modules\github\snake\snake trial\segment.cpp
+	"Segment.h"
+
+1669680493 source:c:\modules\github\snake\snake trial\snake.cpp
+	"Snake.h"
+
+1669680724 source:c:\modules\github\snake\snake trial\point.cpp
+	"Point.h"
+

@@ -52,3 +52,12 @@ void Segment::draw(SDL_Plotter& plotter, int r, int g, int b){
 
 }
 
+void Segment::draw(SDL_Plotter& plotter, color input_color){
+    for(int y = 0; y < segS; y++){
+        for(int x = 0; x < segS; x++){
+            plotter.plotPixel(p.getX() + x, p.getY() + y, input_color);
+
+        }
+    }
+
+}

@@ -20,6 +20,9 @@ class Point{
         void setX(const int);
         void setY(const int);
 
+        // Overloaders
+        Point operator=(const Point& other);
+
 };
 
 

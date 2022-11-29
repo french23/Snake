@@ -27,6 +27,7 @@ class Segment{
 
         // Methods
         void draw(SDL_Plotter&, int r = 0, int g = 0, int b = 0);
+        void draw(SDL_Plotter&, color input_color);
 
 
 };
