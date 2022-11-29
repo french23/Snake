@@ -36,11 +36,12 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
-1669680493 source:c:\modules\github\snake\snake trial\main.cpp
+1669681962 source:c:\modules\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
 	"Snake.h"
+	"grid_square.h"
 
 1669680868 c:\modules\github\snake\snake trial\segment.h
 	"Point.h"
@@ -72,4 +73,11 @@
 
 1669680724 source:c:\modules\github\snake\snake trial\point.cpp
 	"Point.h"
+
+1669681701 source:c:\modules\github\snake\snake trial\grid_square.cpp
+	"grid_square.h"
+
+1669681563 c:\modules\github\snake\snake trial\grid_square.h
+	<vector>
+	"Segment.h"
 
