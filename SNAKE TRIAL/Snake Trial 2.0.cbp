@@ -42,6 +42,8 @@
 		<Unit filename="Segment.h" />
 		<Unit filename="Snake.cpp" />
 		<Unit filename="Snake.h" />
+		<Unit filename="grid_square.cpp" />
+		<Unit filename="grid_square.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
