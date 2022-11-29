@@ -32,6 +32,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Apple.cpp" />
 		<Unit filename="Apple.h" />
 		<Unit filename="Game.h" />
 		<Unit filename="Point.cpp" />

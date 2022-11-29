@@ -102,14 +102,15 @@ void Snake::setDirection(Direction d){
 }
 
 /// Methods///
-bool Snake::checkSelfColision(){
+void Snake::checkSelfColision(){
     for(int i = 1; i < length; i++){
-        if(seg[0].getPoint().getX() == seg[i].getPoint().getX()
-           && seg[0].getPoint().getY() == seg[i].getPoint().getY()){
+        if(seg[0].getX() == seg[i].getX()
+           && seg[0].getY() == seg[i].getY()){
             //g.playSound("SnakeDie.wav");
             isDead = true;
         }
     }
+
 }
 void Snake::drawSnake(SDL_Plotter& g){
     //Copy Cell Locations
@@ -129,7 +130,7 @@ void Snake::drawSnake(SDL_Plotter& g){
                     break;
 
     }
-    cout << "(" << seg[0].getPoint().getX() << ", " << seg[0].getPoint().getY() << ")" << endl;
+
 
     /// Snake Draw
     for(int i = 0; i < length; i++){

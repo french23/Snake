@@ -3,6 +3,8 @@
 #include "SDL_Plotter.h"
 #include "Snake.h"
 #include "grid_square.h"
+#include "Apple.h"
+#include <cmath>
 using namespace std;
 
 void draw_letter_A_test(SDL_Plotter& g)
@@ -22,18 +24,18 @@ void draw_letter_A_test(SDL_Plotter& g)
     my_letter.color_sqr(Point(1,3), my_color, g);
     my_letter.color_sqr(Point(1,2), my_color, g);
     my_letter.color_sqr(Point(1,1), my_color, g);
-                        
+
     my_letter.color_sqr(Point(2,0), my_color, g);
     my_letter.color_sqr(Point(3,0), my_color, g);
     my_letter.color_sqr(Point(4,0), my_color, g);
-                        
+
     my_letter.color_sqr(Point(5,6), my_color, g);
     my_letter.color_sqr(Point(5,5), my_color, g);
     my_letter.color_sqr(Point(5,4), my_color, g);
     my_letter.color_sqr(Point(5,3), my_color, g);
     my_letter.color_sqr(Point(5,2), my_color, g);
     my_letter.color_sqr(Point(5,1), my_color, g);
-                        
+
     my_letter.color_sqr(Point(2,3), my_color, g);
     my_letter.color_sqr(Point(3,3), my_color, g);
     my_letter.color_sqr(Point(4,3), my_color, g);
@@ -67,22 +69,44 @@ void draw_letter_A_test(SDL_Plotter& g)
 int main(int argc, char **argv)
 {
     SDL_Plotter g(650, 900);
-    Snake s(4);
+    Snake s(15);
+    Apple a(25, Point(Point(rand() % 825, rand() % 575)));
     char key;
-    s.getSegment(0).setX(650/2);
-    s.getSegment(0).setY(900/2);
+    bool isPaused = false;
 
-    draw_letter_A_test(g);
+    s.setSegment(Segment(25, Point(900/2, 650/2)), 0);
+    s.setSegment(Segment(25, Point(900/2 + 25, 650/2 + 25)), 1);
+
+    //draw_letter_A_test(g);
 
     while(!g.getQuit()){
-        if(g.kbhit()){
-           key = g.getKey();
-           s.setDirection(key);
+        if(!isPaused){
+            if(a.checkAppleCollision(s)){
+                a.eraseApple(g);
+                a.setPoint(Point(rand() % 825, rand() % 575));
+                s.incrementLength();
+
+            }
+            if(g.kbhit()){
+               key = g.getKey();
+               s.setDirection(key);
+            }
+
+            s.checkSelfColision();
+            if(s.isSnakeDead()){
+                isPaused = true;
+
+            }
+            if(!isPaused){
+                s.eraseSnake(g);
+                s.drawSnake(g);
+            }
+
+
+            a.drawApple(g);
+            g.Sleep(125);
+            g.update();
         }
-        s.eraseSnake(g);
-        s.drawSnake(g);
-        g.Sleep(125);
-        g.update();
     }
     return 0;
 }

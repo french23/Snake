@@ -41,7 +41,7 @@ class Snake{
         void setDirection(char k);
 
         /// Methods ///
-        bool checkSelfColision() ;
+        void checkSelfColision();
         void drawSnake(SDL_Plotter&);
         void eraseSnake(SDL_Plotter&);
 
