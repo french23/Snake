@@ -46,7 +46,7 @@ void Snake::setSegment(const Segment s, int i){
 void Snake::setSnakeDeath(const bool b){
     isDead = b;
 }
-void Snake::setDirection(char k){
+void Snake::setDirection(SDL_Plotter& g, char k){
         prevKey = key;
         key = k;
 
@@ -71,28 +71,28 @@ void Snake::setDirection(char k){
             case upKey :
                 dir = UP;
                 if(prevKey != key){
-                    //g.playSound("SnakeGoUp.wav");
+                    g.playSound("SnakeGoUp.wav");
                 }
                 break;
 
             case downKey:
                 dir = DOWN;
                 if(prevKey != key){
-                    //g.playSound("SnakeGoDown.wav");
+                    g.playSound("SnakeGoDown.wav");
                 }
                 break;
 
             case leftKey :
                 dir = LEFT;
                 if(prevKey != key){
-                    //g.playSound("SnakeLeftTurn.wav");
+                    g.playSound("SnakeLeftTurn.wav");
                 }
                 break;
 
             case rightKey:
                 dir = RIGHT;
                 if(prevKey != key){
-                    //g.playSound("SnakeRightTurn.wav");
+                    g.playSound("SnakeRightTurn.wav");
                 }
                 break;
         }
@@ -102,11 +102,11 @@ void Snake::setDirection(Direction d){
 }
 
 /// Methods///
-void Snake::checkSelfColision(){
+void Snake::checkSelfColision(SDL_Plotter& g){
     for(int i = 1; i < length; i++){
         if(seg[0].getX() == seg[i].getX()
            && seg[0].getY() == seg[i].getY()){
-            //g.playSound("SnakeDie.wav");
+            g.playSound("SnakeDie.wav");
             isDead = true;
         }
     }
@@ -156,6 +156,16 @@ void Snake::eraseSnake(SDL_Plotter& g){
     }
 }
 
+void Snake::initSounds(SDL_Plotter& g){
+    /// Initializing Sounds
+    g.initSound("SnakeMunchSound.wav");
+    g.initSound("SnakeLeftTurn.wav");
+    g.initSound("SnakeRightTurn.wav");
+    g.initSound("SnakeGoUp.wav");
+    g.initSound("SnakeGoDown.wav");
+    g.initSound("SnakeDie.wav");
+
+}
 
 
 

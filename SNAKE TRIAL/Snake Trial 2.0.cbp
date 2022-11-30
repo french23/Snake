@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="Apple.cpp" />
 		<Unit filename="Apple.h" />
+		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
 		<Unit filename="Point.cpp" />
 		<Unit filename="Point.h" />

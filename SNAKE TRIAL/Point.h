@@ -22,6 +22,7 @@ class Point{
 
         // Overloaders
         Point operator=(const Point& other);
+        bool operator==(const Point& other);
 
 };
 

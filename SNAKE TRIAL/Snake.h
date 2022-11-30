@@ -10,6 +10,8 @@ const char leftKey = 'a';
 const char rightKey = 'd';
 const int MAX_SIZE = 100;
 const int SIZE = 25;
+
+
 enum Direction {UP, DOWN, LEFT, RIGHT};
 class Snake{
     private:
@@ -38,12 +40,15 @@ class Snake{
         void setSegment(const Segment, const int);
         void setSnakeDeath(const bool);
         void setDirection(const Direction);
-        void setDirection(char k);
+        void setDirection(SDL_Plotter& g, char k);
 
         /// Methods ///
-        void checkSelfColision();
+        void checkSelfColision(SDL_Plotter& g);
         void drawSnake(SDL_Plotter&);
         void eraseSnake(SDL_Plotter&);
+        void initSounds(SDL_Plotter& g);
+
+
 
 
 };

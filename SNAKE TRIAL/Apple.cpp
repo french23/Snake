@@ -51,30 +51,30 @@ void Apple::setAppleColision(const bool b){
 /// Methods ///
 bool Apple::checkAppleCollision(Snake s){
     bool appleEaten = false;
-    // top left, reference point
-    if(s.getSegment(0).getX() >= appSeg.getX() && s.getSegment(0).getX() <= appSeg.getX() + appleSize){
-        if(s.getSegment(0).getY() >= appSeg.getY() && s.getSegment(0).getY() <= appSeg.getY() + appleSize){
-            appleEaten = true;
+
+    //Checks every point of the snake against the evey point of the apple
+    if(s.getSegment(0).getPoint() == appSeg.getPoint() ||
+       s.getSegment(0).getPoint() == Point(appSeg.getX() + appleSize, appSeg.getY())  ||
+       s.getSegment(0).getPoint() == Point(appSeg.getX(), appSeg.getY() + appleSize) ||
+       s.getSegment(0).getPoint() == Point(appSeg.getX() + appleSize, appSeg.getY() + appleSize)){
+        if(Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()) == appSeg.getPoint() ||
+           Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()) == Point(appSeg.getX() + appleSize, appSeg.getY())  ||
+           Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()) == Point(appSeg.getX(), appSeg.getY() + appleSize) ||
+           Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()) == Point(appSeg.getX() + appleSize, appSeg.getY() + appleSize)){
+            if(Point(s.getSegment(0).getX(), s.getSegment(0).getY() + s.getSegment(0).getSize()) == appSeg.getPoint() ||
+               Point(s.getSegment(0).getX(), s.getSegment(0).getY() + s.getSegment(0).getSize()) == Point(appSeg.getX() + appleSize, appSeg.getY())  ||
+               Point(s.getSegment(0).getX(), s.getSegment(0).getY() + s.getSegment(0).getSize()) == Point(appSeg.getX(), appSeg.getY() + appleSize) ||
+               Point(s.getSegment(0).getX(), s.getSegment(0).getY() + s.getSegment(0).getSize()) == Point(appSeg.getX() + appleSize, appSeg.getY() + appleSize)){
+                if(Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()+ s.getSegment(0).getSize()) == appSeg.getPoint() ||
+                   Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()+ s.getSegment(0).getSize()) == Point(appSeg.getX() + appleSize, appSeg.getY())  ||
+                   Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()+ s.getSegment(0).getSize()) == Point(appSeg.getX(), appSeg.getY() + appleSize) ||
+                   Point(s.getSegment(0).getX() + s.getSegment(0).getSize(), s.getSegment(0).getY()+ s.getSegment(0).getSize()) == Point(appSeg.getX() + appleSize, appSeg.getY() + appleSize)){
+                    appleEaten = true;
+                }
+            }
         }
     }
-    // top right
-    if(s.getSegment(0).getX() + SIZE >= appSeg.getX() && s.getSegment(0).getX() + SIZE <= appSeg.getX() + appleSize){
-        if(s.getSegment(0).getY() >= appSeg.getY() && s.getSegment(0).getY() <= appSeg.getY() + appleSize){
-            appleEaten = true;
-        }
-    }
-    // bottom left
-    if(s.getSegment(0).getX() >= appSeg.getX() && s.getSegment(0).getX() <= appSeg.getX() + appleSize){
-        if(s.getSegment(0).getY() + SIZE >= appSeg.getY() && s.getSegment(0).getY() + SIZE <= appSeg.getY() + appleSize){
-            appleEaten = true;
-        }
-    }
-    // bottum right
-    if(s.getSegment(0).getX() + SIZE >= appSeg.getX() && s.getSegment(0).getX() + SIZE <= appSeg.getX() + appleSize){
-        if(s.getSegment(0).getY() + SIZE >= appSeg.getY() && s.getSegment(0).getY() + SIZE <= appSeg.getY() + appleSize){
-            appleEaten = true;
-        }
-    }
+
 
     return appleEaten;
 }
