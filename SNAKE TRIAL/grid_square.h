@@ -2,7 +2,7 @@
 #define GRID_SQUARE_H_INCLUDED
 
 #include <vector>
-#include "pixel_square.h"
+#include "Segment.h"
 
 using namespace std;
 
@@ -26,7 +26,7 @@ public:
     * postcondition: sets size to the input val
     *
     */
-    grid_square(int grid_size, int sqr_size, Point_T location);
+    grid_square(int grid_size, int sqr_size, Point location);
 
     /*
     * description: colors a square
@@ -35,14 +35,14 @@ public:
     * postcondition: colors the sqr to the correct color
     *
     */
-    void color_sqr(Point_T location, color fill_color, SDL_Plotter& g);
+    void color_sqr(Point location, color fill_color, SDL_Plotter& g);
 
 private:
 
     int m_grid_size;
     int m_sqr_size;
-    vector<vector<pixel_square>> m_grid;
-    Point_T m_point;
+    vector<vector<Segment>> m_grid;
+    Point m_point;
 
     /*
     * description: fills the vecor with pixel squares

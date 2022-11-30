@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="SNAKE TRIAL" />
+		<Option title="Snake Trial 2.0" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/SNAKE TRIAL" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/Snake Trial 2" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/SNAKE TRIAL" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/Snake Trial 2" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -32,18 +32,21 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="Letter.cpp" />
-		<Unit filename="Letter.h" />
-		<Unit filename="Point_T.cpp" />
-		<Unit filename="Point_T.h" />
+		<Unit filename="Apple.h" />
+		<Unit filename="Game.h" />
+		<Unit filename="Point.cpp" />
+		<Unit filename="Point.h" />
 		<Unit filename="SDL_Plotter.cpp" />
 		<Unit filename="SDL_Plotter.h" />
-		<Unit filename="font.txt" />
+		<Unit filename="Segment.cpp" />
+		<Unit filename="Segment.h" />
+		<Unit filename="Snake.cpp" />
+		<Unit filename="Snake.h" />
 		<Unit filename="grid_square.cpp" />
 		<Unit filename="grid_square.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="pixel_square.cpp" />
-		<Unit filename="pixel_square.h" />
-		<Extensions />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
