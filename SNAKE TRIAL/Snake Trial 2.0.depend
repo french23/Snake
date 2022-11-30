@@ -1,0 +1,83 @@
+# depslib dependency file v1.0
+1669663923 source:c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\main.cpp
+	<iostream>
+	"Segment.h"
+	"SDL_Plotter.h"
+	"Snake.h"
+
+1668875698 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\sdl_plotter.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<string.h>
+	<iostream>
+	<string>
+	<string.h>
+	<map>
+	<queue>
+
+1668015387 source:c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\sdl_plotter.cpp
+	"SDL_Plotter.h"
+
+1669563623 source:c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\point.cpp
+	"Point.h"
+
+1668872760 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\point.h
+
+1669564401 source:c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\segment.cpp
+	"Segment.h"
+
+1669564401 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\segment.h
+	"Point.h"
+	"SDL_Plotter.h"
+
+1669564763 source:c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.cpp
+	"Snake.h"
+
+1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
+	"Segment.h"
+
+1669681962 source:c:\modules\github\snake\snake trial\main.cpp
+	<iostream>
+	"Segment.h"
+	"SDL_Plotter.h"
+	"Snake.h"
+	"grid_square.h"
+
+1669680868 c:\modules\github\snake\snake trial\segment.h
+	"Point.h"
+	"SDL_Plotter.h"
+
+1669680681 c:\modules\github\snake\snake trial\point.h
+
+1669680493 c:\modules\github\snake\snake trial\sdl_plotter.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<string.h>
+	<iostream>
+	<string>
+	<string.h>
+	<map>
+	<queue>
+
+1669680493 c:\modules\github\snake\snake trial\snake.h
+	"Segment.h"
+
+1668558035 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
+	"SDL_Plotter.h"
+
+1669681089 source:c:\modules\github\snake\snake trial\segment.cpp
+	"Segment.h"
+
+1669694597 source:c:\modules\github\snake\snake trial\snake.cpp
+	"Snake.h"
+
+1669680724 source:c:\modules\github\snake\snake trial\point.cpp
+	"Point.h"
+
+1669681701 source:c:\modules\github\snake\snake trial\grid_square.cpp
+	"grid_square.h"
+
+1669681563 c:\modules\github\snake\snake trial\grid_square.h
+	<vector>
+	"Segment.h"
+
