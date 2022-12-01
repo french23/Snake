@@ -8,6 +8,7 @@ Snake::Snake(){
     R = 255;
     G = 255;
     B = 255;
+    seg[0].setPoint(Point((650 / 2), (900/2)));
 }
 Snake::Snake(int size, int red, int green, int blue){
     length = size;
@@ -17,6 +18,9 @@ Snake::Snake(int size, int red, int green, int blue){
     R = red;
     G = green;
     B = blue;
+    for(int i = 0; i < length; i++){
+        seg[i].setPoint(Point((650 / 2 + (25 * i)), (900/2) + (25 * i)));
+    }
 }
 
 /// Accessors ///
@@ -156,16 +160,7 @@ void Snake::eraseSnake(SDL_Plotter& g){
     }
 }
 
-void Snake::initSounds(SDL_Plotter& g){
-    /// Initializing Sounds
-    g.initSound("SnakeMunchSound.wav");
-    g.initSound("SnakeLeftTurn.wav");
-    g.initSound("SnakeRightTurn.wav");
-    g.initSound("SnakeGoUp.wav");
-    g.initSound("SnakeGoDown.wav");
-    g.initSound("SnakeDie.wav");
 
-}
 
 
 

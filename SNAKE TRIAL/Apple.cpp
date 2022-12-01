@@ -31,7 +31,15 @@ bool Apple::hasBeenHit(){
 int Apple::getAppleSize(){
     return appleSize;
 }
-
+int Apple::getR(){
+    return R;
+}
+int Apple::getG(){
+    return G;
+}
+int Apple::getB(){
+    return B;
+}
 /// Mutators ///
 void Apple::setSegment(const Segment s){
     appSeg = s;

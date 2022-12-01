@@ -9,13 +9,15 @@ class Game{
     private:
         Snake s;
         Apple a;
-
         int score;
         bool gameOver;
+        bool isPaused;
+        bool isReset;
+        char key;
     public:
         ///Constructors///
         Game();
-        Game(Snake snk = Snake(), Apple app = Apple());
+        Game(Snake snk, Apple app );
 
         ///Accessors ///
         Snake getSnake()const;
@@ -24,6 +26,8 @@ class Game{
         int getCol()const;
         int getScore() const;
         bool getGameCond()const;
+        bool getIsPaused();
+        char getKey();
 
         ///Mutators///
         void setSnake(const Snake snk);
@@ -31,11 +35,14 @@ class Game{
         void setScore(const int s);
         void incrementScore();
         void setGameCond(const bool b);
+        void setPause(const bool b);
+        void setKey(const char c);
 
         ///Methods///
         void checkBoarderCollision(SDL_Plotter& g);
         void playClassicSnake(SDL_Plotter& g);
         void resetGame(SDL_Plotter& g);
+        void initSounds(SDL_Plotter& g);
 
 
 

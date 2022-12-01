@@ -19,6 +19,9 @@ class Apple{
         Segment getSegment();
         bool hasBeenHit();
         int getAppleSize();
+        int getR();
+        int getG();
+        int getB();
 
         /// Mutators ///
         void setSegment(const Segment);

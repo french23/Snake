@@ -113,13 +113,13 @@
 1669690953 source:c:\users\peter\onedrive\documents\github\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1669851394 source:c:\users\peter\onedrive\documents\github\snake\snake trial\snake.cpp
+1669853851 source:c:\users\peter\onedrive\documents\github\snake\snake trial\snake.cpp
 	"Snake.h"
 
-1669851393 c:\users\peter\onedrive\documents\github\snake\snake trial\snake.h
+1669857928 c:\users\peter\onedrive\documents\github\snake\snake trial\snake.h
 	"Segment.h"
 
-1669851641 source:c:\users\peter\onedrive\documents\github\snake\snake trial\main.cpp
+1669857673 source:c:\users\peter\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -129,16 +129,16 @@
 	"Game.h"
 	<cmath>
 
-1669850933 source:c:\users\peter\onedrive\documents\github\snake\snake trial\apple.cpp
+1669854718 source:c:\users\peter\onedrive\documents\github\snake\snake trial\apple.cpp
 	"Apple.h"
 
-1669694441 c:\users\peter\onedrive\documents\github\snake\snake trial\apple.h
+1669857263 c:\users\peter\onedrive\documents\github\snake\snake trial\apple.h
 	"Snake.h"
 
-1669851362 source:c:\users\peter\onedrive\documents\github\snake\snake trial\game.cpp
+1669857835 source:c:\users\peter\onedrive\documents\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1669846227 c:\users\peter\onedrive\documents\github\snake\snake trial\game.h
+1669859502 c:\users\peter\onedrive\documents\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
