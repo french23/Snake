@@ -27,6 +27,14 @@ public:
     */
     void draw_symbol(SDL_Plotter& g);
 
+    /*
+    * description: erase the temple
+    * return: none
+    * precondition: g is given to the function and the backgroud color
+    * postcondition: erasees the letter to the screen
+    *
+    */
+    void erase_symbol(SDL_Plotter& g, color background_color);
 
 private:
     //grid_square m_canvas;

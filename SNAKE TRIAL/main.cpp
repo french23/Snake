@@ -69,24 +69,47 @@ void draw_letter_A_test(SDL_Plotter& g)
 
 void draw_word_snake(SDL_Plotter& g,int font_size)
 {
-    //system("PAUSE");
-    symbol letterS("font.txt",'S',font_size,Point(200,250));
-    letterS.draw_symbol(g);
+    char key;
+    color backgroud_color;
+    backgroud_color.R = 55;
+    backgroud_color.G = 2;
+    backgroud_color.B = 82;
+    bool print = true;
+            symbol letterS("font.txt",'S',font_size,Point(200,250));
+            symbol letterN("font.txt",'N',font_size,Point(300,250));
+            symbol letterA("font.txt",'A',font_size,Point(400,250));
+            symbol letterK("font.txt",'K',font_size,Point(500,250));
+            symbol letterE("font.txt",'E',font_size,Point(600,250));
+            symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
 
-    symbol letterN("font.txt",'N',font_size,Point(300,250));
-    letterN.draw_symbol(g);
+    while(!g.getQuit())
+    {
+        if(g.kbhit())
+           key = g.getKey();
+        if(print == true)
+        {
+            letterS.draw_symbol(g);
+            letterN.draw_symbol(g);
+            letterA.draw_symbol(g);
+            letterK.draw_symbol(g);
+            letterE.draw_symbol(g);
+            letterExclomation.draw_symbol(g);
+            print = false;
+        }
+        else
+        {
+            letterS.erase_symbol(g,backgroud_color);
+            letterN.erase_symbol(g,backgroud_color);
+            letterA.erase_symbol(g,backgroud_color);
+            letterK.erase_symbol(g,backgroud_color);
+            letterE.erase_symbol(g,backgroud_color);
+            letterExclomation.erase_symbol(g,backgroud_color);
+            print = true;
+        }
+        g.update();
 
-    symbol letterA("font.txt",'A',font_size,Point(400,250));
-    letterA.draw_symbol(g);
-
-    symbol letterK("font.txt",'K',font_size,Point(500,250));
-    letterK.draw_symbol(g);
-
-    symbol letterE("font.txt",'E',font_size,Point(600,250));
-    letterE.draw_symbol(g);
-
-    symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
-    letterExclomation.draw_symbol(g);
+        g.Sleep(700);
+    }
 }
 
 void draw_background(SDL_Plotter& g){
@@ -106,7 +129,6 @@ int main(int argc, char **argv)
     /*s.getSegment(0).setX(650/2);
     s.getSegment(0).setY(900/2);*/
 
-    //draw_letter_A_test(g);
     draw_background(g);
     draw_word_snake(g,8);
 

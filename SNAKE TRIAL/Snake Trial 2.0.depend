@@ -36,7 +36,7 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
-1669876803 source:c:\modules\github\snake\snake trial\main.cpp
+1669910213 source:c:\modules\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -82,10 +82,10 @@
 	<vector>
 	"Segment.h"
 
-1669876237 source:c:\modules\github\snake\snake trial\symbol.cpp
+1669910338 source:c:\modules\github\snake\snake trial\symbol.cpp
 	"symbol.h"
 
-1669876237 c:\modules\github\snake\snake trial\symbol.h
+1669909655 c:\modules\github\snake\snake trial\symbol.h
 	"grid_square.h"
 	<fstream>
 
