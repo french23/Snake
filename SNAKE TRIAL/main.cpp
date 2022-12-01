@@ -12,9 +12,11 @@ void draw_letter_A_test(SDL_Plotter& g)
     grid_square my_letter(8,15, starting_location);
     color my_color;
 
+
+    //237, 5, 156
     my_color.R = 230;
-    my_color.B = 49;
     my_color.G = 21;
+    my_color.B = 49;
 
     my_letter.color_sqr(Point(1,6), my_color, g);
     my_letter.color_sqr(Point(1,5), my_color, g);
@@ -22,18 +24,18 @@ void draw_letter_A_test(SDL_Plotter& g)
     my_letter.color_sqr(Point(1,3), my_color, g);
     my_letter.color_sqr(Point(1,2), my_color, g);
     my_letter.color_sqr(Point(1,1), my_color, g);
-                        
+
     my_letter.color_sqr(Point(2,0), my_color, g);
     my_letter.color_sqr(Point(3,0), my_color, g);
     my_letter.color_sqr(Point(4,0), my_color, g);
-                        
+
     my_letter.color_sqr(Point(5,6), my_color, g);
     my_letter.color_sqr(Point(5,5), my_color, g);
     my_letter.color_sqr(Point(5,4), my_color, g);
     my_letter.color_sqr(Point(5,3), my_color, g);
     my_letter.color_sqr(Point(5,2), my_color, g);
     my_letter.color_sqr(Point(5,1), my_color, g);
-                        
+
     my_letter.color_sqr(Point(2,3), my_color, g);
     my_letter.color_sqr(Point(3,3), my_color, g);
     my_letter.color_sqr(Point(4,3), my_color, g);
