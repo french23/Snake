@@ -3,6 +3,7 @@
 #include "SDL_Plotter.h"
 #include "Snake.h"
 #include "grid_square.h"
+#include "symbol.h"
 using namespace std;
 
 void draw_letter_A_test(SDL_Plotter& g)
@@ -66,6 +67,12 @@ void draw_letter_A_test(SDL_Plotter& g)
 
 }
 
+void draw_letter_A_with_letter_class(SDL_Plotter& g)
+{
+     Point starting_location(200,400);
+    symbol letterA("font.txt", 'A', 15, starting_location);
+    letterA.draw_symbol(g);
+}
 int main(int argc, char **argv)
 {
     SDL_Plotter g(650, 900);
@@ -74,7 +81,8 @@ int main(int argc, char **argv)
     s.getSegment(0).setX(650/2);
     s.getSegment(0).setY(900/2);
 
-    draw_letter_A_test(g);
+    //draw_letter_A_test(g);
+    draw_letter_A_with_letter_class(g);
 
     while(!g.getQuit()){
         if(g.kbhit()){

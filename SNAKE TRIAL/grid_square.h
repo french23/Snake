@@ -37,6 +37,15 @@ public:
     */
     void color_sqr(Point location, color fill_color, SDL_Plotter& g);
 
+    /*
+    * description: coppy operator
+    * return: grid_square
+    * precondition: another grid_square is given
+    * postcondition: the grid_square is set
+    *
+    */
+    grid_square operator=(const grid_square& other);
+
 private:
 
     int m_grid_size;
