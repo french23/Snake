@@ -36,14 +36,14 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
-1669850157 source:c:\modules\github\snake\snake trial\main.cpp
+1669853532 source:c:\modules\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
 	"Snake.h"
 	"grid_square.h"
 
-1669848662 c:\modules\github\snake\snake trial\segment.h
+1669853532 c:\modules\github\snake\snake trial\segment.h
 	"Point.h"
 	"SDL_Plotter.h"
 

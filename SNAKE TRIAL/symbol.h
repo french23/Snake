@@ -31,6 +31,7 @@ private:
     int m_size;
     char m_input_symbol;
     string m_fileName;
+    vector<color> m_colors;
 
 };
 
