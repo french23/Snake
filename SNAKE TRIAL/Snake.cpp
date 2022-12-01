@@ -8,6 +8,7 @@ Snake::Snake(){
     R = 255;
     G = 255;
     B = 255;
+    seg[0].setPoint(Point((650 / 2), (900/2)));
 }
 Snake::Snake(int size, int red, int green, int blue){
     length = size;
@@ -17,6 +18,9 @@ Snake::Snake(int size, int red, int green, int blue){
     R = red;
     G = green;
     B = blue;
+    for(int i = 0; i < length; i++){
+        seg[i].setPoint(Point((650 / 2 + (25 * i)), (900/2) + (25 * i)));
+    }
 }
 
 /// Accessors ///
@@ -46,7 +50,7 @@ void Snake::setSegment(const Segment s, int i){
 void Snake::setSnakeDeath(const bool b){
     isDead = b;
 }
-void Snake::setDirection(char k){
+void Snake::setDirection(SDL_Plotter& g, char k){
         prevKey = key;
         key = k;
 
@@ -71,28 +75,28 @@ void Snake::setDirection(char k){
             case upKey :
                 dir = UP;
                 if(prevKey != key){
-                    //g.playSound("SnakeGoUp.wav");
+                    g.playSound("SnakeGoUp.wav");
                 }
                 break;
 
             case downKey:
                 dir = DOWN;
                 if(prevKey != key){
-                    //g.playSound("SnakeGoDown.wav");
+                    g.playSound("SnakeGoDown.wav");
                 }
                 break;
 
             case leftKey :
                 dir = LEFT;
                 if(prevKey != key){
-                    //g.playSound("SnakeLeftTurn.wav");
+                    g.playSound("SnakeLeftTurn.wav");
                 }
                 break;
 
             case rightKey:
                 dir = RIGHT;
                 if(prevKey != key){
-                    //g.playSound("SnakeRightTurn.wav");
+                    g.playSound("SnakeRightTurn.wav");
                 }
                 break;
         }
@@ -102,14 +106,15 @@ void Snake::setDirection(Direction d){
 }
 
 /// Methods///
-bool Snake::checkSelfColision(){
+void Snake::checkSelfColision(SDL_Plotter& g){
     for(int i = 1; i < length; i++){
-        if(seg[0].getPoint().getX() == seg[i].getPoint().getX()
-           && seg[0].getPoint().getY() == seg[i].getPoint().getY()){
-            //g.playSound("SnakeDie.wav");
+        if(seg[0].getX() == seg[i].getX()
+           && seg[0].getY() == seg[i].getY()){
+            g.playSound("SnakeDie.wav");
             isDead = true;
         }
     }
+
 }
 void Snake::drawSnake(SDL_Plotter& g){
     //Copy Cell Locations
@@ -129,7 +134,7 @@ void Snake::drawSnake(SDL_Plotter& g){
                     break;
 
     }
-    //cout << "(" << seg[0].getPoint().getX() << ", " << seg[0].getPoint().getY() << ")" << endl;
+
 
     /// Snake Draw
     for(int i = 0; i < length; i++){
@@ -154,6 +159,7 @@ void Snake::eraseSnake(SDL_Plotter& g){
         }
     }
 }
+
 
 
 

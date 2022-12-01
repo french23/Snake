@@ -3,7 +3,9 @@
 #include "SDL_Plotter.h"
 #include "Snake.h"
 #include "grid_square.h"
-#include "symbol.h"
+#include "Apple.h"
+#include "Game.h"
+#include <cmath>
 using namespace std;
 
 void draw_letter_A_test(SDL_Plotter& g)
@@ -13,11 +15,9 @@ void draw_letter_A_test(SDL_Plotter& g)
     grid_square my_letter(8,15, starting_location);
     color my_color;
 
-
-    //237, 5, 156
     my_color.R = 230;
-    my_color.G = 21;
     my_color.B = 49;
+    my_color.G = 21;
 
     my_letter.color_sqr(Point(1,6), my_color, g);
     my_letter.color_sqr(Point(1,5), my_color, g);
@@ -67,97 +67,71 @@ void draw_letter_A_test(SDL_Plotter& g)
 
 }
 
-void blink_snake(SDL_Plotter& g,int font_size)
-{
-    char key;
-    color backgroud_color;
-    backgroud_color.R = 55;
-    backgroud_color.G = 2;
-    backgroud_color.B = 82;
-    bool print = true;
-            symbol letterS("font.txt",'S',font_size,Point(200,250));
-            symbol letterN("font.txt",'N',font_size,Point(300,250));
-            symbol letterA("font.txt",'A',font_size,Point(400,250));
-            symbol letterK("font.txt",'K',font_size,Point(500,250));
-            symbol letterE("font.txt",'E',font_size,Point(600,250));
-            symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
-
-    while(!g.getQuit())
-    {
-        if(g.kbhit())
-           key = g.getKey();
-        if(print == true)
-        {
-            letterS.draw_symbol(g);
-            letterN.draw_symbol(g);
-            letterA.draw_symbol(g);
-            letterK.draw_symbol(g);
-            letterE.draw_symbol(g);
-            letterExclomation.draw_symbol(g);
-            print = false;
-        }
-        else
-        {
-            letterS.erase_symbol(g,backgroud_color);
-            letterN.erase_symbol(g,backgroud_color);
-            letterA.erase_symbol(g,backgroud_color);
-            letterK.erase_symbol(g,backgroud_color);
-            letterE.erase_symbol(g,backgroud_color);
-            letterExclomation.erase_symbol(g,backgroud_color);
-            print = true;
-        }
-        g.update();
-
-        g.Sleep(700);
-    }
-}
-
-void draw_background(SDL_Plotter& g){
-    for(int i = 0; i < 900; i++){
-        for(int j = 0; j < 650; j++){
-            g.plotPixel(i, j, 55, 2, 82);
-        }
-    }
-
-}
-
-void draw_word_snake(SDL_Plotter&g, int font_size)
-{
-    symbol letterS("font.txt",'S',font_size,Point(200,250));
-    symbol letterN("font.txt",'N',font_size,Point(300,250));
-    symbol letterA("font.txt",'A',font_size,Point(400,250));
-    symbol letterK("font.txt",'K',font_size,Point(500,250));
-    symbol letterE("font.txt",'E',font_size,Point(600,250));
-    symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
-
-    letterS.draw_symbol(g);
-    letterN.draw_symbol(g);
-    letterA.draw_symbol(g);
-    letterK.draw_symbol(g);
-    letterE.draw_symbol(g);
-    letterExclomation.draw_symbol(g);
-}
 int main(int argc, char **argv)
 {
+
     SDL_Plotter g(650, 900);
-    Snake s(4);
+    Snake s(2);
+    Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
+
     char key;
-    s.getSegment(0).setX(650/2);
-    s.getSegment(0).setY(900/2);
+    Game gm(s,a);
 
-    draw_background(g);
-    //blink_snake(g,8);
-    draw_word_snake(g,8);
 
+
+    gm.initSounds(g);
+    g.Sleep(3000);
     while(!g.getQuit()){
-        if(g.kbhit()){
-           key = g.getKey();
-           s.setDirection(key);
-        }
-        s.eraseSnake(g);
-        s.drawSnake(g);
-        g.Sleep(125);
-        g.update();
+        gm.playClassicSnake(g);
     }
+
+
+//    SDL_Plotter g(650, 900);
+//    Snake s(5);
+//    Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
+//    char key;
+//    bool isPaused = false;
+//
+//    s.setSegment(Segment(25, Point(900/2, 650/2)), 0);
+//    s.setSegment(Segment(25, Point(900/2 + 25, 650/2 + 25)), 1);
+//
+//    //draw_letter_A_test(g);
+//    s.initSounds(g);
+
+//    while(!g.getQuit()){
+//        if(!isPaused){
+//            if(a.checkAppleCollision(s)){
+//                a.eraseApple(g);
+//                a.setPoint(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25)));
+//                s.incrementLength();
+//                g.playSound("SnakeMunchSound.wav");
+//
+//            }
+//            if(g.kbhit()){
+//               key = g.getKey();
+//               s.setDirection(g, key);
+//            }
+//
+//            s.checkSelfColision(g);
+//            if(s.isSnakeDead()){
+//                isPaused = true;
+//
+//            }
+//
+//            a.drawApple(g);
+//            if(!isPaused){
+//                s.eraseSnake(g);
+//                s.drawSnake(g);
+//            }
+//
+//
+//            g.Sleep(100);
+//            g.update();
+//        }
+//    }
+//
+
+
+
     return 0;
 }

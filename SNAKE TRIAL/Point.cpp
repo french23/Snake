@@ -28,10 +28,20 @@ void Point::setY(const int yVal){
     y = yVal;
 }
 
- Point Point::operator=(const Point& other)
- {
+Point Point::operator=(const Point& other)
+{
      this->x = other.getX();
      this->y = other.getY();
- }
+}
+
+bool Point::operator==(const Point& other){
+    bool isEqual = false;
+    if(x == other.getX() && y == other.getY()){
+        isEqual = true;
+    }
+    return isEqual;
+}
+
+
 
 
