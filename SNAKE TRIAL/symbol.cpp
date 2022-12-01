@@ -19,7 +19,7 @@ grid_square symbol::parse_and_fill_file()
         cin >> input_str;
         // take in m_size
         cin >> m_size;
-        //pick up here
+
 
     }
 }
