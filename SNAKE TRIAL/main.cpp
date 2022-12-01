@@ -40,6 +40,7 @@ void draw_letter_A_test(SDL_Plotter& g, int x, int y)
     my_color.B = 163;
 
     my_letter.color_sqr(Point(1,6), my_color, g);
+    my_letter.color_sqr(Point(1,7), my_color, g);
     my_letter.color_sqr(Point(1,5), my_color, g);
     my_letter.color_sqr(Point(1,4), my_color, g);
     my_letter.color_sqr(Point(1,3), my_color, g);
@@ -50,6 +51,7 @@ void draw_letter_A_test(SDL_Plotter& g, int x, int y)
     my_letter.color_sqr(Point(3,0), my_color, g);
     my_letter.color_sqr(Point(4,0), my_color, g);
 
+    my_letter.color_sqr(Point(5,7), my_color, g);
     my_letter.color_sqr(Point(5,6), my_color, g);
     my_letter.color_sqr(Point(5,5), my_color, g);
     my_letter.color_sqr(Point(5,4), my_color, g);
@@ -71,7 +73,7 @@ void draw_letter_A_test(SDL_Plotter& g, int x, int y)
     my_letter.color_sqr(Point(0,4), my_color, g);
     my_letter.color_sqr(Point(0,5), my_color, g);
     my_letter.color_sqr(Point(0,6), my_color, g);
-    //my_letter.color_sqr(Point(0,7), my_color, g);
+    my_letter.color_sqr(Point(0,7), my_color, g);
 
     my_letter.color_sqr(Point(2,1), my_color, g);
     my_letter.color_sqr(Point(3,1), my_color, g);
