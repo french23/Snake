@@ -152,7 +152,7 @@ void Snake::drawSnake(SDL_Plotter& g){
                     g.plotPixel(seg[0].getPoint().getX() + j+8, seg[0].getPoint().getY() + k+5);
                 }
             }//Tongue Right
-            if(dir == RIGHT){
+            /*if(dir == RIGHT){
                 for(int x = 0; x < 10; x++){
                     for(int y = 0; y < 4; y++){
                         g.plotPixel(seg[0].getPoint().getX() + x+25, seg[0].getPoint().getY() + y+11);
@@ -167,7 +167,7 @@ void Snake::drawSnake(SDL_Plotter& g){
                         g.plotPixel(seg[0].getPoint().getX() + x-19, seg[0].getPoint().getY() + y+9);
                     }
                 }
-            }
+            }*/
         }//EYES-Up-Down
         else{
             for(int j = 0; j < 4; j++){
@@ -179,13 +179,23 @@ void Snake::drawSnake(SDL_Plotter& g){
                 for(int k = 0; k < 10; k++){
                     g.plotPixel(seg[0].getPoint().getX() + j+5, seg[0].getPoint().getY() + k+8);
                 }
-            }
-            for(int x = 0; x < 4; x++){
-                for(int y = 0; y < 10; y++){
-                    g.plotPixel(seg[0].getPoint().getX() + x+11, seg[0].getPoint().getY() + y+25);
-                    g.plotPixel(seg[0].getPoint().getX() + x+9, seg[0].getPoint().getY() + y+31);
+            }//Tongue Down
+            /*if(dir == DOWN){
+                for(int x = 0; x < 4; x++){
+                    for(int y = 0; y < 10; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x+11, seg[0].getPoint().getY() + y+25);
+                        g.plotPixel(seg[0].getPoint().getX() + x+9, seg[0].getPoint().getY() + y+31);
+                    }
                 }
-            }
+            }//Tongue Up
+            else{
+                for(int x = 0; x < 4; x++){
+                    for(int y = 0; y < 10; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x+11, seg[0].getPoint().getY() + y-9);
+                        g.plotPixel(seg[0].getPoint().getX() + x+9, seg[0].getPoint().getY() + y-19);
+                    }
+                }
+            }*/
         }
 
 
@@ -202,6 +212,63 @@ void Snake::eraseSnake(SDL_Plotter& g){
                             seg[i].getPoint().getY() + y, 255,255,255);
 
             }
+        }
+        //EYES-Left-Right
+        if(dir == RIGHT || dir == LEFT){
+            for(int j = 0; j < 10; j++){
+                for(int k = 0; k < 4; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+8, seg[0].getPoint().getY() + k+16, 255, 255, 255);
+                }
+            }
+            for(int j = 0; j < 10; j++){
+                for(int k = 0; k < 4; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+8, seg[0].getPoint().getY() + k+5, 255, 255, 255);
+                }
+            }//Tongue Right
+            /*if(dir != RIGHT){
+                for(int x = 0; x < 10; x++){
+                    for(int y = 0; y < 4; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x+25, seg[0].getPoint().getY() + y+11, 255, 255, 255);
+                        g.plotPixel(seg[0].getPoint().getX() + x+31, seg[0].getPoint().getY() + y+9, 255, 255, 255);
+                    }
+                }
+            }//Tongue Left
+            if(dir != LEFT){
+                for(int x = 0; x < 10; x++){
+                    for(int y = 0; y < 4; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x-9, seg[0].getPoint().getY() + y+11, 255, 255, 255);
+                        g.plotPixel(seg[0].getPoint().getX() + x-19, seg[0].getPoint().getY() + y+9, 255, 255, 255);
+                    }
+                }
+            }*/
+        }//EYES-Up-Down
+        else{
+            for(int j = 0; j < 4; j++){
+                for(int k = 0; k < 10; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+16, seg[0].getPoint().getY() + k+8, 255, 255, 255);
+                }
+            }
+            for(int j = 0; j < 4; j++){
+                for(int k = 0; k < 10; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+5, seg[0].getPoint().getY() + k+8, 255, 255, 255);
+                }
+            }
+            /*if(dir != DOWN){
+                for(int x = 0; x < 4; x++){
+                    for(int y = 0; y < 10; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x+11, seg[0].getPoint().getY() + y+25, 255, 255, 255);
+                        g.plotPixel(seg[0].getPoint().getX() + x+9, seg[0].getPoint().getY() + y+31, 255, 255, 255);
+                    }
+                }
+            }
+            else{
+                for(int x = 0; x < 4; x++){
+                    for(int y = 0; y < 10; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x+11, seg[0].getPoint().getY() + y-9, 255, 255, 255);
+                        g.plotPixel(seg[0].getPoint().getX() + x+9, seg[0].getPoint().getY() + y-19, 255, 255, 255);
+                    }
+                }
+            }*/
         }
     }
 }
