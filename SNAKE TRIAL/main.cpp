@@ -22,18 +22,18 @@ void draw_letter_A_test(SDL_Plotter& g)
     my_letter.color_sqr(Point(1,3), my_color, g);
     my_letter.color_sqr(Point(1,2), my_color, g);
     my_letter.color_sqr(Point(1,1), my_color, g);
-                        
+
     my_letter.color_sqr(Point(2,0), my_color, g);
     my_letter.color_sqr(Point(3,0), my_color, g);
     my_letter.color_sqr(Point(4,0), my_color, g);
-                        
+
     my_letter.color_sqr(Point(5,6), my_color, g);
     my_letter.color_sqr(Point(5,5), my_color, g);
     my_letter.color_sqr(Point(5,4), my_color, g);
     my_letter.color_sqr(Point(5,3), my_color, g);
     my_letter.color_sqr(Point(5,2), my_color, g);
     my_letter.color_sqr(Point(5,1), my_color, g);
-                        
+
     my_letter.color_sqr(Point(2,3), my_color, g);
     my_letter.color_sqr(Point(3,3), my_color, g);
     my_letter.color_sqr(Point(4,3), my_color, g);
@@ -72,7 +72,6 @@ int main(int argc, char **argv)
     s.getSegment(0).setX(650/2);
     s.getSegment(0).setY(900/2);
 
-    draw_letter_A_test(g);
 
     while(!g.getQuit()){
         if(g.kbhit()){

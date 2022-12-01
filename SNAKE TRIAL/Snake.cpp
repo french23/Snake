@@ -140,7 +140,58 @@ void Snake::drawSnake(SDL_Plotter& g){
 
             }
         }
+        //EYES-Left-Right
+        if(dir == RIGHT || dir == LEFT){
+            for(int j = 0; j < 10; j++){
+                for(int k = 0; k < 4; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+8, seg[0].getPoint().getY() + k+16);
+                }
+            }
+            for(int j = 0; j < 10; j++){
+                for(int k = 0; k < 4; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+8, seg[0].getPoint().getY() + k+5);
+                }
+            }//Tongue Right
+            if(dir == RIGHT){
+                for(int x = 0; x < 10; x++){
+                    for(int y = 0; y < 4; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x+25, seg[0].getPoint().getY() + y+11);
+                        g.plotPixel(seg[0].getPoint().getX() + x+31, seg[0].getPoint().getY() + y+9);
+                    }
+                }
+            }//Tongue Left
+            if(dir == LEFT){
+                for(int x = 0; x < 10; x++){
+                    for(int y = 0; y < 4; y++){
+                        g.plotPixel(seg[0].getPoint().getX() + x-9, seg[0].getPoint().getY() + y+11);
+                        g.plotPixel(seg[0].getPoint().getX() + x-19, seg[0].getPoint().getY() + y+9);
+                    }
+                }
+            }
+        }//EYES-Up-Down
+        else{
+            for(int j = 0; j < 4; j++){
+                for(int k = 0; k < 10; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+16, seg[0].getPoint().getY() + k+8);
+                }
+            }
+            for(int j = 0; j < 4; j++){
+                for(int k = 0; k < 10; k++){
+                    g.plotPixel(seg[0].getPoint().getX() + j+5, seg[0].getPoint().getY() + k+8);
+                }
+            }
+            for(int x = 0; x < 4; x++){
+                for(int y = 0; y < 10; y++){
+                    g.plotPixel(seg[0].getPoint().getX() + x+11, seg[0].getPoint().getY() + y+25);
+                    g.plotPixel(seg[0].getPoint().getX() + x+9, seg[0].getPoint().getY() + y+31);
+                }
+            }
+        }
+
+
     }
+
+
 }
 void Snake::eraseSnake(SDL_Plotter& g){
     /// Snake erase
