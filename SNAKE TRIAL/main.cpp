@@ -67,7 +67,7 @@ void draw_letter_A_test(SDL_Plotter& g)
 
 }
 
-void draw_word_snake(SDL_Plotter& g,int font_size)
+void blink_snake(SDL_Plotter& g,int font_size)
 {
     char key;
     color backgroud_color;
@@ -121,24 +121,41 @@ void draw_background(SDL_Plotter& g){
 
 }
 
+void draw_word_snake(SDL_Plotter&g, int font_size)
+{
+    symbol letterS("font.txt",'S',font_size,Point(200,250));
+    symbol letterN("font.txt",'N',font_size,Point(300,250));
+    symbol letterA("font.txt",'A',font_size,Point(400,250));
+    symbol letterK("font.txt",'K',font_size,Point(500,250));
+    symbol letterE("font.txt",'E',font_size,Point(600,250));
+    symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
+
+    letterS.draw_symbol(g);
+    letterN.draw_symbol(g);
+    letterA.draw_symbol(g);
+    letterK.draw_symbol(g);
+    letterE.draw_symbol(g);
+    letterExclomation.draw_symbol(g);
+}
 int main(int argc, char **argv)
 {
     SDL_Plotter g(650, 900);
-   // Snake s(4);
+    Snake s(4);
     char key;
-    /*s.getSegment(0).setX(650/2);
-    s.getSegment(0).setY(900/2);*/
+    s.getSegment(0).setX(650/2);
+    s.getSegment(0).setY(900/2);
 
     draw_background(g);
+    //blink_snake(g,8);
     draw_word_snake(g,8);
 
     while(!g.getQuit()){
         if(g.kbhit()){
            key = g.getKey();
-          // s.setDirection(key);
+           s.setDirection(key);
         }
-       /* s.eraseSnake(g);
-        s.drawSnake(g);*/
+        s.eraseSnake(g);
+        s.drawSnake(g);
         g.Sleep(125);
         g.update();
     }
