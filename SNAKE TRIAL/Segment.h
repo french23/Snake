@@ -30,6 +30,5 @@ class Segment{
         void draw(SDL_Plotter&, color input_color);
 
 
-
 };
 #endif // SEGMENT_H_INCLUDED

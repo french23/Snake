@@ -3,44 +3,23 @@
 #include "SDL_Plotter.h"
 #include "Snake.h"
 #include "grid_square.h"
+#include "symbol.h"
 using namespace std;
 
-void draw_background(SDL_Plotter& g){
-    for(int i = 0; i < 650; i++){
-        for(int j = 0; j < 900; j++){
-            g.plotPixel(i, j, 55, 2, 82);
-        }
-    }
-
-}
-
-void draw_letter_A_test(SDL_Plotter& g, int x, int y)
+void draw_letter_A_test(SDL_Plotter& g)
 {
-    Point starting_location(x,y);
+    Point starting_location(400,100);
 
-    grid_square my_letter(8,10, starting_location);
+    grid_square my_letter(8,15, starting_location);
     color my_color;
 
-//    my_color.R = 150;
-//    my_color.G = 150;
-//    my_color.B = 150;
-//
-//    for(int i = 0; i < 8; i++){
-//        for (int j = 0; j < 8; j++){
-//            my_letter.color_sqr(Point(i,j), my_color, g);
-//        }
-//    }
 
-//    my_color.R = 3;
-//    my_color.G = 200;
-//    my_color.B = 200;
-
-    my_color.R = 166;
-    my_color.G = 2;
-    my_color.B = 163;
+    //237, 5, 156
+    my_color.R = 230;
+    my_color.G = 21;
+    my_color.B = 49;
 
     my_letter.color_sqr(Point(1,6), my_color, g);
-    my_letter.color_sqr(Point(1,7), my_color, g);
     my_letter.color_sqr(Point(1,5), my_color, g);
     my_letter.color_sqr(Point(1,4), my_color, g);
     my_letter.color_sqr(Point(1,3), my_color, g);
@@ -51,7 +30,6 @@ void draw_letter_A_test(SDL_Plotter& g, int x, int y)
     my_letter.color_sqr(Point(3,0), my_color, g);
     my_letter.color_sqr(Point(4,0), my_color, g);
 
-    my_letter.color_sqr(Point(5,7), my_color, g);
     my_letter.color_sqr(Point(5,6), my_color, g);
     my_letter.color_sqr(Point(5,5), my_color, g);
     my_letter.color_sqr(Point(5,4), my_color, g);
@@ -63,9 +41,9 @@ void draw_letter_A_test(SDL_Plotter& g, int x, int y)
     my_letter.color_sqr(Point(3,3), my_color, g);
     my_letter.color_sqr(Point(4,3), my_color, g);
 
-    my_color.R = 3;
-    my_color.G = 200;
-    my_color.B = 200;
+    my_color.R = 222;
+    my_color.B = 159;
+    my_color.G = 151;
 
     my_letter.color_sqr(Point(0,1), my_color, g);
     my_letter.color_sqr(Point(0,2), my_color, g);
@@ -85,10 +63,80 @@ void draw_letter_A_test(SDL_Plotter& g, int x, int y)
     my_letter.color_sqr(Point(4,4), my_color, g);
     my_letter.color_sqr(Point(4,5), my_color, g);
     my_letter.color_sqr(Point(4,6), my_color, g);
-    //my_letter.color_sqr(Point(4,7), my_color, g);
+    my_letter.color_sqr(Point(4,7), my_color, g);
 
 }
 
+void blink_snake(SDL_Plotter& g,int font_size)
+{
+    char key;
+    color backgroud_color;
+    backgroud_color.R = 55;
+    backgroud_color.G = 2;
+    backgroud_color.B = 82;
+    bool print = true;
+            symbol letterS("font.txt",'S',font_size,Point(200,250));
+            symbol letterN("font.txt",'N',font_size,Point(300,250));
+            symbol letterA("font.txt",'A',font_size,Point(400,250));
+            symbol letterK("font.txt",'K',font_size,Point(500,250));
+            symbol letterE("font.txt",'E',font_size,Point(600,250));
+            symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
+
+    while(!g.getQuit())
+    {
+        if(g.kbhit())
+           key = g.getKey();
+        if(print == true)
+        {
+            letterS.draw_symbol(g);
+            letterN.draw_symbol(g);
+            letterA.draw_symbol(g);
+            letterK.draw_symbol(g);
+            letterE.draw_symbol(g);
+            letterExclomation.draw_symbol(g);
+            print = false;
+        }
+        else
+        {
+            letterS.erase_symbol(g,backgroud_color);
+            letterN.erase_symbol(g,backgroud_color);
+            letterA.erase_symbol(g,backgroud_color);
+            letterK.erase_symbol(g,backgroud_color);
+            letterE.erase_symbol(g,backgroud_color);
+            letterExclomation.erase_symbol(g,backgroud_color);
+            print = true;
+        }
+        g.update();
+
+        g.Sleep(700);
+    }
+}
+
+void draw_background(SDL_Plotter& g){
+    for(int i = 0; i < 900; i++){
+        for(int j = 0; j < 650; j++){
+            g.plotPixel(i, j, 55, 2, 82);
+        }
+    }
+
+}
+
+void draw_word_snake(SDL_Plotter&g, int font_size)
+{
+    symbol letterS("font.txt",'S',font_size,Point(200,250));
+    symbol letterN("font.txt",'N',font_size,Point(300,250));
+    symbol letterA("font.txt",'A',font_size,Point(400,250));
+    symbol letterK("font.txt",'K',font_size,Point(500,250));
+    symbol letterE("font.txt",'E',font_size,Point(600,250));
+    symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
+
+    letterS.draw_symbol(g);
+    letterN.draw_symbol(g);
+    letterA.draw_symbol(g);
+    letterK.draw_symbol(g);
+    letterE.draw_symbol(g);
+    letterExclomation.draw_symbol(g);
+}
 int main(int argc, char **argv)
 {
     SDL_Plotter g(650, 900);
@@ -98,12 +146,8 @@ int main(int argc, char **argv)
     s.getSegment(0).setY(900/2);
 
     draw_background(g);
-    draw_letter_A_test(g, 400, 100);
-    draw_letter_A_test(g, 100, 100);
-    draw_letter_A_test(g, 200, 100);
-    draw_letter_A_test(g, 300, 100);
-
-
+    //blink_snake(g,8);
+    draw_word_snake(g,8);
 
     while(!g.getQuit()){
         if(g.kbhit()){

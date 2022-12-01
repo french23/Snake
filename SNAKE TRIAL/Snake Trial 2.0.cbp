@@ -42,9 +42,12 @@
 		<Unit filename="Segment.h" />
 		<Unit filename="Snake.cpp" />
 		<Unit filename="Snake.h" />
+		<Unit filename="font.txt" />
 		<Unit filename="grid_square.cpp" />
 		<Unit filename="grid_square.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="symbol.cpp" />
+		<Unit filename="symbol.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
