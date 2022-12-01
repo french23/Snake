@@ -48,6 +48,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="symbol.cpp" />
 		<Unit filename="symbol.h" />
+		<Unit filename="text_box.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
