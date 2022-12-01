@@ -69,17 +69,29 @@ void draw_letter_A_test(SDL_Plotter& g)
 
 void draw_letter_A_with_letter_class(SDL_Plotter& g)
 {
-     Point starting_location(200,400);
-    symbol letterA("font.txt", 'A', 15, starting_location);
+    //system("PAUSE");
+    symbol letterS("font.txt",'S',12,Point(200,250));
+    letterS.draw_symbol(g);
+
+    symbol letterN("font.txt",'N',12,Point(300,250));
+    letterN.draw_symbol(g);
+
+    symbol letterA("font.txt",'A',12,Point(400,250));
     letterA.draw_symbol(g);
+
+    symbol letterK("font.txt",'K',12,Point(500,250));
+    letterK.draw_symbol(g);
+
+    symbol letterExclomation("font.txt",'!',12,Point(600,250));
+    letterExclomation.draw_symbol(g);
 }
 int main(int argc, char **argv)
 {
     SDL_Plotter g(650, 900);
-    Snake s(4);
+   // Snake s(4);
     char key;
-    s.getSegment(0).setX(650/2);
-    s.getSegment(0).setY(900/2);
+    /*s.getSegment(0).setX(650/2);
+    s.getSegment(0).setY(900/2);*/
 
     //draw_letter_A_test(g);
     draw_letter_A_with_letter_class(g);
@@ -87,10 +99,10 @@ int main(int argc, char **argv)
     while(!g.getQuit()){
         if(g.kbhit()){
            key = g.getKey();
-           s.setDirection(key);
+          // s.setDirection(key);
         }
-        s.eraseSnake(g);
-        s.drawSnake(g);
+       /* s.eraseSnake(g);
+        s.drawSnake(g);*/
         g.Sleep(125);
         g.update();
     }

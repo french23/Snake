@@ -21,8 +21,8 @@ grid_square::grid_square(int grid_size, int sqr_size, Point location)
 
 void grid_square::color_sqr(Point location, color fill_color, SDL_Plotter& g)
 {
+    //cout << "inside of grid_sqr color_sqr" << endl; system("Pause");
     m_grid[location.getX()][location.getY()].draw(g, fill_color);
-    //m_grid[3][3].get_size();
 }
 
 void grid_square::create_grid()

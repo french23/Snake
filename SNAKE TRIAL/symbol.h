@@ -29,7 +29,7 @@ public:
 
 
 private:
-    grid_square m_canvas;
+    //grid_square m_canvas;
     int m_size;
     int m_fount_size;
     char m_input_symbol;
