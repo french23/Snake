@@ -67,24 +67,37 @@ void draw_letter_A_test(SDL_Plotter& g)
 
 }
 
-void draw_letter_A_with_letter_class(SDL_Plotter& g)
+void draw_word_snake(SDL_Plotter& g,int font_size)
 {
     //system("PAUSE");
-    symbol letterS("font.txt",'S',12,Point(200,250));
+    symbol letterS("font.txt",'S',font_size,Point(200,250));
     letterS.draw_symbol(g);
 
-    symbol letterN("font.txt",'N',12,Point(300,250));
+    symbol letterN("font.txt",'N',font_size,Point(300,250));
     letterN.draw_symbol(g);
 
-    symbol letterA("font.txt",'A',12,Point(400,250));
+    symbol letterA("font.txt",'A',font_size,Point(400,250));
     letterA.draw_symbol(g);
 
-    symbol letterK("font.txt",'K',12,Point(500,250));
+    symbol letterK("font.txt",'K',font_size,Point(500,250));
     letterK.draw_symbol(g);
 
-    symbol letterExclomation("font.txt",'!',12,Point(600,250));
+    symbol letterE("font.txt",'E',font_size,Point(600,250));
+    letterE.draw_symbol(g);
+
+    symbol letterExclomation("font.txt",'!',font_size,Point(700,250));
     letterExclomation.draw_symbol(g);
 }
+
+void draw_background(SDL_Plotter& g){
+    for(int i = 0; i < 900; i++){
+        for(int j = 0; j < 650; j++){
+            g.plotPixel(i, j, 55, 2, 82);
+        }
+    }
+
+}
+
 int main(int argc, char **argv)
 {
     SDL_Plotter g(650, 900);
@@ -94,7 +107,8 @@ int main(int argc, char **argv)
     s.getSegment(0).setY(900/2);*/
 
     //draw_letter_A_test(g);
-    draw_letter_A_with_letter_class(g);
+    draw_background(g);
+    draw_word_snake(g,8);
 
     while(!g.getQuit()){
         if(g.kbhit()){
