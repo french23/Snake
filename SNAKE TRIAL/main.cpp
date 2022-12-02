@@ -4,6 +4,7 @@
 #include "Snake.h"
 #include "grid_square.h"
 #include "symbol.h"
+#include "text_box.h"
 using namespace std;
 
 void draw_letter_A_test(SDL_Plotter& g)
@@ -142,12 +143,17 @@ int main(int argc, char **argv)
     SDL_Plotter g(650, 900);
     Snake s(4);
     char key;
+    textBox testbox(Point(100,100), 10, "SNAKE!");
     s.getSegment(0).setX(650/2);
     s.getSegment(0).setY(900/2);
 
     draw_background(g);
     //blink_snake(g,8);
-    draw_word_snake(g,8);
+    //draw_word_snake(g,8);
+    testbox.draw(g);
+    if(testbox.isClicked(Point(555, 100))){
+        cout << "I was clicked" << endl;
+    }
 
     while(!g.getQuit()){
         if(g.kbhit()){

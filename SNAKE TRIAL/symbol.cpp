@@ -138,3 +138,8 @@ void symbol::erase_symbol(SDL_Plotter& g, color background_color)
         canvas.color_sqr(m_v_sqr_points[i], background_color,g);
     }
 }
+
+int symbol::get_size() const
+{
+    return m_size;
+}

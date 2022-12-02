@@ -36,6 +36,15 @@ public:
     */
     void erase_symbol(SDL_Plotter& g, color background_color);
 
+    /*
+    * description: get the m_size
+    * return: int
+    * precondition: none
+    * postcondition: the lenght of the grid sqr is retured
+    *
+    */
+    int get_size() const;
+
 private:
     //grid_square m_canvas;
     int m_size;

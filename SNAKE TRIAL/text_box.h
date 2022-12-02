@@ -10,13 +10,15 @@ using namespace std;
 class textBox {
     private:
         string fontName = "font.txt";
-        vector<symbols> text;
+        vector<symbol> text;
         string inputStr;
+        Point startLoc;
+        int fontSize;
     public:
         textBox(Point, int, string);
-        bool isClicked(Point mouseLoc);
+        bool isClicked(Point);
         void draw(SDL_Plotter&);
-        void erase(SDL_Plotter&);
+        void eraseText(SDL_Plotter&, color);
 };
 
 
