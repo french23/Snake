@@ -79,7 +79,10 @@ void Game::checkBoarderCollision(SDL_Plotter& g){
 
 }
 void Game::playClassicSnake(SDL_Plotter& g){
-
+    ///Resets game
+    if(isReset){
+        resetGame(g);
+    }
     ///Keyboard detection
     if(g.kbhit()){
         key = g.getKey();
@@ -89,10 +92,6 @@ void Game::playClassicSnake(SDL_Plotter& g){
                     break;
             case 'r': isReset = true;
         }
-    }
-    ///Resets game
-    if(isReset){
-        resetGame(g);
     }
     if(!s.isSnakeDead() && !isPaused){
         ///Apple Collision
@@ -139,6 +138,7 @@ void Game::resetGame(SDL_Plotter& g){
     score = 0;
     s.setDirection(RIGHT);
     key = rightKey;
+
 
 
 }

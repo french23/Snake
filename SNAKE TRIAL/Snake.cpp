@@ -5,6 +5,7 @@ Snake::Snake(){
     isDead = false;
     dir = RIGHT;
     key = rightKey;
+    prevKey = rightKey;
     R = 255;
     G = 255;
     B = 255;
@@ -15,6 +16,7 @@ Snake::Snake(int size, int red, int green, int blue){
     isDead = false;
     dir = RIGHT;
     key = rightKey;
+    prevKey = rightKey;
     R = red;
     G = green;
     B = blue;
