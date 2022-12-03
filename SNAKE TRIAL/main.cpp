@@ -5,10 +5,11 @@
 #include "grid_square.h"
 #include "Apple.h"
 #include "Game.h"
+#include "text_box.h"
 #include <cmath>
 using namespace std;
 
-string mainPage(SDL_Plotter& g)
+/*string mainPage(SDL_Plotter& g)
 {
     string return_comand = 'null';
 
@@ -16,7 +17,7 @@ string mainPage(SDL_Plotter& g)
 
     return return_comand;
 }
-
+*/
 int main(int argc, char **argv)
 {
 
@@ -27,12 +28,13 @@ int main(int argc, char **argv)
     char key;
     Game gm(s,a);
 
-
+    textBox my_hello(Point(100,200),7, "HELLO WORLD!");
 
     gm.initSounds(g);
     g.Sleep(3000);
     while(!g.getQuit()){
         gm.playClassicSnake(g);
+        my_hello.draw(g);
     }
 
     return 0;
