@@ -17,7 +17,8 @@ class textBox {
     public:
         textBox(Point, int, string);
         bool isClicked(Point);
-        void draw(SDL_Plotter&);
+        void draw(SDL_Plotter& g);
+        void draw(SDL_Plotter& g, color border_color);
         void eraseText(SDL_Plotter&, color);
 };
 

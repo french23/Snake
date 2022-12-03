@@ -21,20 +21,32 @@ using namespace std;
 int main(int argc, char **argv)
 {
 
-    SDL_Plotter g(650, 900);
+    SDL_Plotter g(800, 1200);
     Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
 
     char key;
     Game gm(s,a);
 
-    textBox my_hello(Point(100,200),7, "HELLO WORLD!");
+    textBox my_hello(Point(100,200),8, "HELLO WORLD!");
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
 
     gm.initSounds(g);
     g.Sleep(3000);
     while(!g.getQuit()){
         gm.playClassicSnake(g);
-        my_hello.draw(g);
+        my_hello.draw(g,background_color);
+        if(g.mouseClick())
+        {
+            point temp = g.getMouseClick();
+            if(my_hello.isClicked(Point(temp.x,temp.y)))
+            {
+                cout << "THE TEXT BOX WAS CLICKED!!" << endl;
+            }
+        }
     }
 
     return 0;
