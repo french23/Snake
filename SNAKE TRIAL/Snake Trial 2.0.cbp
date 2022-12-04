@@ -32,8 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Apple.cpp" />
 		<Unit filename="Apple.h" />
+		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
+		<Unit filename="PageFunctions.cpp" />
+		<Unit filename="PageFunctions.h" />
 		<Unit filename="Point.cpp" />
 		<Unit filename="Point.h" />
 		<Unit filename="SDL_Plotter.cpp" />
