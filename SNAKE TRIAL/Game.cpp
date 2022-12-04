@@ -33,7 +33,7 @@ int   Game::getScore() const{
     return score;
 }
 bool  Game::getGameCond()const{
-    return gameOver;
+    return s.isSnakeDead();
 }
 bool  Game::getIsPaused(){
     return isPaused;
@@ -119,7 +119,7 @@ void Game::playClassicSnake(SDL_Plotter& g){
 
         /// Update
         //g.Sleep(125);
-        g.Sleep(50);
+        g.Sleep(70);
         g.update();
     }
 }

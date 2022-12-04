@@ -28,7 +28,7 @@ bool textBox::isClicked(Point mouseLoc){
 
     x = startLoc.getX();
     //x2 = (startLoc.getX() * 7.5 * text.size()+ text.at(0).get_size() * fontSize);
-    x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()-1));
+    x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()));
     y = startLoc.getY();
     y2 = (startLoc.getY() + text.at(0).get_size() * fontSize);
 
@@ -58,22 +58,32 @@ void textBox::eraseText(SDL_Plotter& g, color backgroundColor){
 void textBox::draw(SDL_Plotter& g, color border_color)
 {
     int x = startLoc.getX();
-    int x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()-1));
+    int x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()));
     int y = startLoc.getY();
     int y2 = (startLoc.getY() + text.at(0).get_size() * fontSize);
 
     // Draw horizontal lines
     for(int i = x; i <= x2; i++)
     {
+        g.plotPixel(i, y-2, border_color);
+        g.plotPixel(i, y-1, border_color);
         g.plotPixel(i, y, border_color);
+
         g.plotPixel(i, y2, border_color);
+        g.plotPixel(i, y2+1, border_color);
+        g.plotPixel(i, y2+2, border_color);
     }
 
     // Draw vertical lines
     for(int i = y; i <= y2; i++)
     {
+        g.plotPixel(x-2, i, border_color);
+        g.plotPixel(x-1, i, border_color);
         g.plotPixel(x, i, border_color);
+
         g.plotPixel(x2, i, border_color);
+        g.plotPixel(x2+1, i, border_color);
+        g.plotPixel(x2+2, i, border_color);
     }
 
     this->draw(g);
@@ -82,7 +92,7 @@ void textBox::draw(SDL_Plotter& g, color border_color)
 void textBox::draw(SDL_Plotter& g, color border_color, color background_color)
 {
     int x = startLoc.getX();
-    int x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()-1));
+    int x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()));
     int y = startLoc.getY();
     int y2 = (startLoc.getY() + text.at(0).get_size() * fontSize);
 
