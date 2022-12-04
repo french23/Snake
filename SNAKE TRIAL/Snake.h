@@ -4,10 +4,21 @@
 using namespace std;
 
 
-const char upKey = 'w';
-const char downKey = 's';
-const char leftKey = 'a';
+//const char upKey    = UP_ARROW;
+//const char downKey  = DOWN_ARROW;
+//const char leftKey  = LEFT_ARROW;
+//const char rightKey = RIGHT_ARROW;
+
+const char upKey    = 'w';
+const char downKey  = 's';
+const char leftKey  = 'a';
 const char rightKey = 'd';
+
+
+
+
+
+
 const int MAX_SIZE = 100;
 const int SIZE = 25;
 

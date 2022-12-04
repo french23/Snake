@@ -113,13 +113,13 @@
 1669954625 source:c:\users\peter\onedrive\documents\github\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1670009262 source:c:\users\peter\onedrive\documents\github\snake\snake trial\snake.cpp
+1670009351 source:c:\users\peter\onedrive\documents\github\snake\snake trial\snake.cpp
 	"Snake.h"
 
-1670009262 c:\users\peter\onedrive\documents\github\snake\snake trial\snake.h
+1670116518 c:\users\peter\onedrive\documents\github\snake\snake trial\snake.h
 	"Segment.h"
 
-1670009262 source:c:\users\peter\onedrive\documents\github\snake\snake trial\main.cpp
+1670114293 source:c:\users\peter\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -135,7 +135,7 @@
 1670009262 c:\users\peter\onedrive\documents\github\snake\snake trial\apple.h
 	"Snake.h"
 
-1670009262 source:c:\users\peter\onedrive\documents\github\snake\snake trial\game.cpp
+1670116198 source:c:\users\peter\onedrive\documents\github\snake\snake trial\game.cpp
 	"Game.h"
 
 1670009262 c:\users\peter\onedrive\documents\github\snake\snake trial\game.h
