@@ -59,7 +59,7 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
     background_color.B = 102;
 
     textBox gameOver(Point(100,200),13,"GAME OVER!");
-    textBox play_again(Point(300,320),8,"PLAY AGIAN");
+    textBox play_again(Point(300,320),8,"PLAY AGAIN");
     textBox main_page(Point(340,440),8,"MAIN PAGE");
 
     gameOver.draw(g);

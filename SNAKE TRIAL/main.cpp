@@ -54,7 +54,7 @@ int main(int argc, char **argv)
             if(gm.getGameCond())
             {
                 comand = "game over";
-                cout << "game over" << endl;
+                //cout << "game over" << endl;
             }
         }
         else if(comand == "game over")
