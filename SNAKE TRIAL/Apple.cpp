@@ -60,6 +60,7 @@ void Apple::setAppleColision(const bool b){
 bool Apple::checkAppleCollision(Snake s){
     bool appleEaten = false;
 
+
     //Checks every point of the snake against the evey point of the apple
     if(s.getSegment(0).getPoint() == appSeg.getPoint() ||
        s.getSegment(0).getPoint() == Point(appSeg.getX() + appleSize, appSeg.getY())  ||
@@ -99,5 +100,19 @@ void Apple::eraseApple(SDL_Plotter& g){
             g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 255, 255, 255);
         }
     }
+}
+Point Apple::createPoint(Snake s){
+    Point p;
+    bool isValid = false;
+    while(!isValid){
+        isValid = true;
+        p = Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25));
+        for(int i = 0; i < s.getLength(); i++){
+            if(s.getSegment(i).getPoint() == p){
+                isValid = false;
+            }
+        }
+    }
+    return p;
 }
 

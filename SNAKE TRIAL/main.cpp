@@ -71,7 +71,7 @@ int main(int argc, char **argv)
 {
 
     SDL_Plotter g(650, 900);
-    Snake s(2);
+    Snake s();
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
 
     char key;

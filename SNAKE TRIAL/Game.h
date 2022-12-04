@@ -3,6 +3,8 @@
 #include "Snake.h"
 #include "SDL_Plotter.h"
 #include "Apple.h"
+#include <fstream>
+
 using namespace std;
 
 class Game{
@@ -14,6 +16,8 @@ class Game{
         bool isPaused;
         bool isReset;
         char key;
+        ifstream fileRead;
+        ofstream filePush;
     public:
         ///Constructors///
         Game();
@@ -43,6 +47,10 @@ class Game{
         void playClassicSnake(SDL_Plotter& g);
         void resetGame(SDL_Plotter& g);
         void initSounds(SDL_Plotter& g);
+
+        ///Methods regarding save/load game
+        void saveGame(string fName);
+        void loadGame(string fName);
 
 
 

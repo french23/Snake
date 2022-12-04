@@ -34,6 +34,7 @@ class Apple{
         bool checkAppleCollision(Snake);
         void drawApple(SDL_Plotter&);
         void eraseApple(SDL_Plotter&);
+        Point createPoint(Snake);
 };
 
 #endif // APPLE_H_INCLUDED

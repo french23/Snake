@@ -109,7 +109,8 @@ void Game::playClassicSnake(SDL_Plotter& g){
         ///Apple Collision
         if(a.checkAppleCollision(s)){
             a.eraseApple(g);
-            a.setPoint(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25)));
+            a.setPoint(a.createPoint(s));
+
             s.incrementLength();
             g.playSound("SnakeMunchSound.wav");
             score++;
@@ -117,8 +118,8 @@ void Game::playClassicSnake(SDL_Plotter& g){
         }
 
         /// Self and wall collision
-        s.checkSelfColision(g);
-        checkBoarderCollision(g);
+       // s.checkSelfColision(g);
+        //checkBoarderCollision(g);
 
         /// Draw snake and apple
         a.drawApple(g);
@@ -154,7 +155,6 @@ void Game::resetGame(SDL_Plotter& g){
 
 
 }
-
 void Game::initSounds(SDL_Plotter& g){
     /// Initializing Sounds
     g.initSound("SnakeMunchSound.wav");
@@ -165,3 +165,15 @@ void Game::initSounds(SDL_Plotter& g){
     g.initSound("SnakeDie.wav");
 
 }
+
+///Methods regarding save/load game
+void Game::saveGame(string fName){
+    filePush.open(fName);
+
+    filePush << "Score: " << endl
+             << score << endl
+
+
+
+}
+void Game::loadGame(string fName);
