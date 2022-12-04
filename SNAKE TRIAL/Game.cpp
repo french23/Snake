@@ -118,7 +118,8 @@ void Game::playClassicSnake(SDL_Plotter& g){
 
 
         /// Update
-        g.Sleep(125);
+        //g.Sleep(125);
+        g.Sleep(50);
         g.update();
     }
 }

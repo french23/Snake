@@ -36,7 +36,7 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
-1670116397 source:c:\modules\github\snake\snake trial\main.cpp
+1670119038 source:c:\modules\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -153,7 +153,7 @@
 1670108202 c:\modules\github\snake\snake trial\apple.h
 	"Snake.h"
 
-1670108202 source:c:\modules\github\snake\snake trial\game.cpp
+1670119189 source:c:\modules\github\snake\snake trial\game.cpp
 	"Game.h"
 
 1670108202 c:\modules\github\snake\snake trial\game.h

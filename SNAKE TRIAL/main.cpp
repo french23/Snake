@@ -28,7 +28,7 @@ int main(int argc, char **argv)
     char key;
     Game gm(s,a);
 
-    textBox my_hello(Point(100,200),12, "THIS IS SNAKE!!");
+    textBox my_hello(Point(100,200),10, "THIS IS SNAKE!!");
     color background_color;
     background_color.R = 55;
     background_color.G = 2;
@@ -43,7 +43,7 @@ int main(int argc, char **argv)
     g.Sleep(3000);
     while(!g.getQuit()){
         gm.playClassicSnake(g);
-        my_hello.draw(g, border_color);//, background_color);
+        my_hello.draw(g, border_color, background_color);
         if(g.mouseClick())
         {
             point temp = g.getMouseClick();
