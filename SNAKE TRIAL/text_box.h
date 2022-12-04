@@ -19,6 +19,7 @@ class textBox {
         bool isClicked(Point);
         void draw(SDL_Plotter& g);
         void draw(SDL_Plotter& g, color border_color);
+        void draw(SDL_Plotter& g, color border_color, color background_color);
         void eraseText(SDL_Plotter&, color);
 };
 

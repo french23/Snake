@@ -78,3 +78,21 @@ void textBox::draw(SDL_Plotter& g, color border_color)
 
     this->draw(g);
 }
+
+void textBox::draw(SDL_Plotter& g, color border_color, color background_color)
+{
+    int x = startLoc.getX();
+    int x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()-1));
+    int y = startLoc.getY();
+    int y2 = (startLoc.getY() + text.at(0).get_size() * fontSize);
+
+    for(int i = x; i < x2; i++)
+    {
+        for(int j = y; j < y2; j++)
+        {
+            g.plotPixel(i,j,background_color);
+        }
+    }
+
+    this->draw(g,border_color);
+}
