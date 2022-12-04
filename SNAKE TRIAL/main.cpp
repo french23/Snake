@@ -86,6 +86,7 @@ int main(int argc, char **argv)
         gm.playClassicSnake(g);
     }
 
+    gm.setHighScores("highScore.txt", "PW");
 
     //gm.saveGame("save#1.txt");
 

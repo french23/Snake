@@ -1,0 +1,10 @@
+XX 9
+KK 8
+HH 7
+TT 6
+DD 5
+PW 5
+PP 4
+EE 3
+QQ 2
+ZZ 2

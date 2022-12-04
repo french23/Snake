@@ -18,6 +18,10 @@ class Game{
         char key;
         ifstream fileRead;
         ofstream filePush;
+
+        int highScores[11];
+        string highScoreNames[11];
+
     public:
         ///Constructors///
         Game();
@@ -52,8 +56,9 @@ class Game{
         void saveGame(string fName);
         void loadGame(string fName);
 
-
-
+        ///Methods regarding HighScore
+        void readHighScores(string fName);
+        void setHighScores(string fName, string username);
 
 
 };
