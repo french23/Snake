@@ -52,6 +52,9 @@ void Snake::setSegment(const Segment s, int i){
 void Snake::setSnakeDeath(const bool b){
     isDead = b;
 }
+void Snake::setRefPoint(int i, Point p){
+    seg[i].setPoint(p);
+}
 void Snake::setDirection(SDL_Plotter& g, char k){
         prevKey = key;
         key = k;

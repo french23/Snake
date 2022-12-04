@@ -71,12 +71,13 @@ int main(int argc, char **argv)
 {
 
     SDL_Plotter g(650, 900);
-    Snake s();
+    Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
 
     char key;
     Game gm(s,a);
 
+    //gm.loadGame("save#1.txt");
 
 
     gm.initSounds(g);
@@ -86,50 +87,7 @@ int main(int argc, char **argv)
     }
 
 
-//    SDL_Plotter g(650, 900);
-//    Snake s(5);
-//    Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
-//    char key;
-//    bool isPaused = false;
-//
-//    s.setSegment(Segment(25, Point(900/2, 650/2)), 0);
-//    s.setSegment(Segment(25, Point(900/2 + 25, 650/2 + 25)), 1);
-//
-//    //draw_letter_A_test(g);
-//    s.initSounds(g);
-
-//    while(!g.getQuit()){
-//        if(!isPaused){
-//            if(a.checkAppleCollision(s)){
-//                a.eraseApple(g);
-//                a.setPoint(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25)));
-//                s.incrementLength();
-//                g.playSound("SnakeMunchSound.wav");
-//
-//            }
-//            if(g.kbhit()){
-//               key = g.getKey();
-//               s.setDirection(g, key);
-//            }
-//
-//            s.checkSelfColision(g);
-//            if(s.isSnakeDead()){
-//                isPaused = true;
-//
-//            }
-//
-//            a.drawApple(g);
-//            if(!isPaused){
-//                s.eraseSnake(g);
-//                s.drawSnake(g);
-//            }
-//
-//
-//            g.Sleep(100);
-//            g.update();
-//        }
-//    }
-//
+    //gm.saveGame("save#1.txt");
 
 
 

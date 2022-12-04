@@ -1,0 +1,21 @@
+Score: 
+6
+
+Length: 
+8
+
+Direction: 
+3
+
+SnakePoints: 
+400 275
+375 275
+350 275
+325 275
+300 275
+275 275
+250 275
+225 275
+
+ApplePoint: 
+0 0

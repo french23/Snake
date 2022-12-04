@@ -46,6 +46,7 @@
 		<Unit filename="Snake.h" />
 		<Unit filename="grid_square.cpp" />
 		<Unit filename="grid_square.h" />
+		<Unit filename="highScore.txt" />
 		<Unit filename="main.cpp" />
 		<Unit filename="save#1.txt" />
 		<Extensions>

@@ -103,6 +103,7 @@ void Game::playClassicSnake(SDL_Plotter& g){
             case 'p': isPaused = !isPaused; /// 'p' pauses game
                     break;
             case 'r': isReset = true;
+                    break;
         }
     }
     if(!s.isSnakeDead() && !isPaused){
@@ -118,8 +119,8 @@ void Game::playClassicSnake(SDL_Plotter& g){
         }
 
         /// Self and wall collision
-       // s.checkSelfColision(g);
-        //checkBoarderCollision(g);
+        s.checkSelfColision(g);
+        checkBoarderCollision(g);
 
         /// Draw snake and apple
         a.drawApple(g);
@@ -130,7 +131,7 @@ void Game::playClassicSnake(SDL_Plotter& g){
 
 
         /// Update
-        g.Sleep(125);
+        g.Sleep(100);
         g.update();
     }
 }
@@ -170,10 +171,80 @@ void Game::initSounds(SDL_Plotter& g){
 void Game::saveGame(string fName){
     filePush.open(fName);
 
+    //Score and length
     filePush << "Score: " << endl
-             << score << endl
+             << score << endl << endl
+             << "Length: " << endl
+             << s.getLength() << endl << endl
+             << "Direction: " << endl
+             << s.getDirection() << endl << endl;
+
+    //Snake Reference Points
+    filePush << "SnakePoints: " << endl;
+    for(int i = 0; i < s.getLength(); i++){
+        filePush << s.getSegment(i).getX() << " "
+                 << s.getSegment(i).getY() << endl;
+    }
+    filePush << endl;
+
+    //Apple Point
+    filePush << "ApplePoint: " << endl
+             << a.getSegment().getX() << " "
+             << a.getSegment().getX() << endl;
+
+
+
+
+    filePush.close();
 
 
 
 }
-void Game::loadGame(string fName);
+void Game::loadGame(string fName){
+    fileRead.open(fName);
+    string junk;
+    int num, x, y;
+    Direction d;
+    //Set Score
+    fileRead >> junk;
+    fileRead >> num;
+    score = num;
+
+    //Set Snake's Length
+    fileRead >> junk;
+    fileRead >> num;
+    s.setLength(num);
+
+    //Set Snakes Direction
+    fileRead >> junk;
+    fileRead >> num;
+
+    switch(num){
+        case 0:  d = UP;
+                 break;
+        case 1:  d = DOWN;
+                 break;
+        case 2:  d = LEFT;
+                 break;
+        case 3:  d = RIGHT;
+                 break;
+    }
+    s.setDirection(d);
+
+    //Set Snake ref Points
+    fileRead >> junk;
+    for(int i = 0; i < s.getLength(); i++){
+        fileRead >> x >> y;
+        s.setRefPoint(i, Point(x,y));
+    }
+
+//    //Set apple ref Points
+//    fileRead >> junk;
+//    fileRead >> x >> y;
+//    cout << "file apple Point: " << x << " " << y << endl;
+//    a.setPoint(Point(x,y));
+//    cout << "Game apple Point: " << a.getSegment().getX() << " " << a.getSegment().getX() << endl;
+
+    fileRead.close();
+}
+
