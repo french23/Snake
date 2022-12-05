@@ -76,7 +76,6 @@ int main(int argc, char **argv)
         }
 
         g.update();
-        // this is a test
     }
 
     return 0;
