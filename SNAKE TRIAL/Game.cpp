@@ -67,7 +67,7 @@ void Game::checkBoarderCollision(SDL_Plotter& g){
 
     if(s.getDirection() == UP ){
         if(s.getSegment(0).getY() == 0){
-            g.playSound("SnakeDie.wav");
+            g.playSound("death.mp3");
             s.setSnakeDeath(true); /// End Game
         }
     }
@@ -160,12 +160,12 @@ void Game::resetGame(SDL_Plotter& g){
 }
 void Game::initSounds(SDL_Plotter& g){
     /// Initializing Sounds
-    g.initSound("SnakeMunchSound.wav");
-    g.initSound("SnakeLeftTurn.wav");
-    g.initSound("SnakeRightTurn.wav");
-    g.initSound("SnakeGoUp.wav");
-    g.initSound("SnakeGoDown.wav");
-    g.initSound("SnakeDie.wav");
+    g.initSound("appleappleeateat.mp3");
+    g.initSound("left.mp3");
+    g.initSound("right.mp3");
+    g.initSound("up.mp3");
+    g.initSound("down.mp3");
+    g.initSound("death.mp3");
 
 }
 

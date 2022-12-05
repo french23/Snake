@@ -80,28 +80,28 @@ void Snake::setDirection(SDL_Plotter& g, char k){
             case upKey :
                 dir = UP;
                 if(prevKey != key){
-                    g.playSound("SnakeGoUp.wav");
+                    g.playSound("up.mp3");
                 }
                 break;
 
             case downKey:
                 dir = DOWN;
                 if(prevKey != key){
-                    g.playSound("SnakeGoDown.wav");
+                    g.playSound("down.mp3");
                 }
                 break;
 
             case leftKey :
                 dir = LEFT;
                 if(prevKey != key){
-                    g.playSound("SnakeLeftTurn.wav");
+                    g.playSound("left.mp3");
                 }
                 break;
 
             case rightKey:
                 dir = RIGHT;
                 if(prevKey != key){
-                    g.playSound("SnakeRightTurn.wav");
+                    g.playSound("right.mp3");
                 }
                 break;
         }
@@ -115,7 +115,7 @@ void Snake::checkSelfColision(SDL_Plotter& g){
     for(int i = 1; i < length; i++){
         if(seg[0].getX() == seg[i].getX()
            && seg[0].getY() == seg[i].getY()){
-            g.playSound("SnakeDie.wav");
+            g.playSound("death.mp3");
             isDead = true;
         }
     }
