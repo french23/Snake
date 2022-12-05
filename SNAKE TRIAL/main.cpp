@@ -3,86 +3,80 @@
 #include "SDL_Plotter.h"
 #include "Snake.h"
 #include "grid_square.h"
+#include "Apple.h"
+#include "Game.h"
+#include "text_box.h"
+#include "PageFunctions.h"
+#include <cmath>
 using namespace std;
 
-void draw_letter_A_test(SDL_Plotter& g)
-{
-    Point starting_location(400,100);
-
-    grid_square my_letter(8,15, starting_location);
-    color my_color;
-
-    my_color.R = 230;
-    my_color.B = 49;
-    my_color.G = 21;
-
-    my_letter.color_sqr(Point(1,6), my_color, g);
-    my_letter.color_sqr(Point(1,5), my_color, g);
-    my_letter.color_sqr(Point(1,4), my_color, g);
-    my_letter.color_sqr(Point(1,3), my_color, g);
-    my_letter.color_sqr(Point(1,2), my_color, g);
-    my_letter.color_sqr(Point(1,1), my_color, g);
-                        
-    my_letter.color_sqr(Point(2,0), my_color, g);
-    my_letter.color_sqr(Point(3,0), my_color, g);
-    my_letter.color_sqr(Point(4,0), my_color, g);
-                        
-    my_letter.color_sqr(Point(5,6), my_color, g);
-    my_letter.color_sqr(Point(5,5), my_color, g);
-    my_letter.color_sqr(Point(5,4), my_color, g);
-    my_letter.color_sqr(Point(5,3), my_color, g);
-    my_letter.color_sqr(Point(5,2), my_color, g);
-    my_letter.color_sqr(Point(5,1), my_color, g);
-                        
-    my_letter.color_sqr(Point(2,3), my_color, g);
-    my_letter.color_sqr(Point(3,3), my_color, g);
-    my_letter.color_sqr(Point(4,3), my_color, g);
-
-    my_color.R = 222;
-    my_color.B = 159;
-    my_color.G = 151;
-
-    my_letter.color_sqr(Point(0,1), my_color, g);
-    my_letter.color_sqr(Point(0,2), my_color, g);
-    my_letter.color_sqr(Point(0,3), my_color, g);
-    my_letter.color_sqr(Point(0,4), my_color, g);
-    my_letter.color_sqr(Point(0,5), my_color, g);
-    my_letter.color_sqr(Point(0,6), my_color, g);
-    my_letter.color_sqr(Point(0,7), my_color, g);
-
-    my_letter.color_sqr(Point(2,1), my_color, g);
-    my_letter.color_sqr(Point(3,1), my_color, g);
-    my_letter.color_sqr(Point(4,1), my_color, g);
-    my_letter.color_sqr(Point(4,2), my_color, g);
-
-    my_letter.color_sqr(Point(2,4), my_color, g);
-    my_letter.color_sqr(Point(3,4), my_color, g);
-    my_letter.color_sqr(Point(4,4), my_color, g);
-    my_letter.color_sqr(Point(4,5), my_color, g);
-    my_letter.color_sqr(Point(4,6), my_color, g);
-    my_letter.color_sqr(Point(4,7), my_color, g);
-
-}
+const int WIDTH = 800;
+const int HIGHT = 1200;
 
 int main(int argc, char **argv)
 {
-    SDL_Plotter g(650, 900);
-    Snake s(4);
+
+    SDL_Plotter g(WIDTH, HIGHT);
+    string comand = "main page";
+    string input;
+    Snake s(2);
+    Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
     char key;
-    s.getSegment(0).setX(650/2);
-    s.getSegment(0).setY(900/2);
+    Game gm(s,a);
 
-    draw_letter_A_test(g);
+    gm.initSounds(g);
+    g.Sleep(300);
 
-    while(!g.getQuit()){
-        if(g.kbhit()){
-           key = g.getKey();
-           s.setDirection(key);
+    while(!g.getQuit())
+    {
+        //cout << "in the while loop" << endl; system("pause");
+        if(comand == "main page")
+        {
+            input = mainPage(g, WIDTH, HIGHT);
+            if(input == "start game")
+            {
+                comand = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HIGHT);
+            }
+            else if(input == "exit")
+            {
+                g.setQuit(true);
+            }
         }
-        s.eraseSnake(g);
-        s.drawSnake(g);
-        g.Sleep(125);
+        else if(comand == "play snake")
+        {
+            gm.playClassicSnake(g);
+            if(gm.getGameCond())
+            {
+                comand = "game over";
+                //cout << "game over" << endl;
+            }
+        }
+        else if(comand == "game over")
+        {
+            input = gameOverPage(g, WIDTH, HIGHT);
+
+            if(input == "play again")
+            {
+                comand = "play snake";
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+            }
+            else if(input == "main page")
+            {
+                comand = "main page";
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+            }
+        }
+
         g.update();
     }
+
     return 0;
 }

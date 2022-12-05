@@ -32,8 +32,12 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Apple.cpp" />
 		<Unit filename="Apple.h" />
+		<Unit filename="Game.cpp" />
 		<Unit filename="Game.h" />
+		<Unit filename="PageFunctions.cpp" />
+		<Unit filename="PageFunctions.h" />
 		<Unit filename="Point.cpp" />
 		<Unit filename="Point.h" />
 		<Unit filename="SDL_Plotter.cpp" />
@@ -42,9 +46,14 @@
 		<Unit filename="Segment.h" />
 		<Unit filename="Snake.cpp" />
 		<Unit filename="Snake.h" />
+		<Unit filename="font.txt" />
 		<Unit filename="grid_square.cpp" />
 		<Unit filename="grid_square.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="symbol.cpp" />
+		<Unit filename="symbol.h" />
+		<Unit filename="text_box.cpp" />
+		<Unit filename="text_box.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
