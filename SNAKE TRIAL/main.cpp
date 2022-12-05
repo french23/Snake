@@ -1,180 +1,88 @@
 #include <iostream>
+#include "Segment.h"
 #include "SDL_Plotter.h"
-
+#include "Snake.h"
+#include "grid_square.h"
+#include "Apple.h"
+#include "Game.h"
+#include "text_box.h"
+#include "PageFunctions.h"
+#include <cmath>
 using namespace std;
 
-const int NUM_ROW = 800;
-const int NUM_COL = 800;
-
-const int SIZE = 25;
-const int APPLESIZE = 25;
-
-enum Direction {UP, DOWN, LEFT, RIGHT};
+const int WIDTH = 800;
+const int HIGHT = 1200;
 
 int main(int argc, char **argv)
 {
+
+    SDL_Plotter g(WIDTH, HIGHT);
+    string comand = "main page";
+    string input;
+    Snake s(2);
+    Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
     char key;
-    int length = 5;
-    SDL_Plotter g(NUM_ROW, NUM_COL);
-    int R=20, G=20, B=255;
-    //int xLoc = NUM_COL/2, yLoc = NUM_ROW/2;
-    int xLoc[length], yLoc[length];
-    int prevX, prevY;
-    Direction dir = RIGHT;
-    int speed = 150;
-    int skip = 0, skip_val = 10;
+    Game gm(s,a);
 
-    xLoc[0] = NUM_COL/2;//head of snake
-    xLoc[1] = NUM_COL/2 - SIZE;
+    gm.initSounds(g);
+    g.Sleep(300);
 
-    yLoc[0] = NUM_ROW/2;
-    yLoc[1] = NUM_ROW/2;
-
-    int appleX = rand() % 750;
-    int appleY = rand() % 750;
-    int oldAppleX;
-    int oldAppleY;
-    bool appleEaten = false;
-
-    while(!g.getQuit()){
-
-        //user input
-        if(g.kbhit()){
-            key = g.getKey();
-            R = rand() % 255;
-            G = rand() % 255;
-            B = rand() % 255;
-
-            oldAppleX = appleX;
-            oldAppleY = appleY;
-//            appleX = rand() % 785;
-//            appleY = rand() % 785;
-            switch(key){
-                case UP_ARROW   : dir = UP;
-                                  break;
-                case DOWN_ARROW : dir = DOWN;
-                                  break;
-                case LEFT_ARROW : dir = LEFT;
-                                  break;
-                case RIGHT_ARROW: dir = RIGHT;
-                                  break;
-
+    while(!g.getQuit())
+    {
+        //cout << "in the while loop" << endl; system("pause");
+        ///Main Page
+        if(comand == "main page")
+        {
+            input = mainPage(g, WIDTH, HIGHT);
+            if(input == "start game")
+            {
+                comand = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HIGHT);
+            }
+            else if(input == "exit")
+            {
+                g.setQuit(true);
             }
         }
 
-
-        /// Apple Collision ///
-
-        // top left, reffrece point
-        if(xLoc[0] >= appleX && xLoc[0] <= appleX + APPLESIZE){
-           if(yLoc[0] >= appleY && yLoc[0] <= appleY + APPLESIZE){
-            appleEaten = true;
-            cout << "Apple twas Eaten! " << endl;
-           }
-
-        }
-        // top right
-        else if(xLoc[0] + SIZE >= appleX && xLoc[0] + SIZE <= appleX + APPLESIZE){
-           if(yLoc[0] >= appleY && yLoc[0] <= appleY + APPLESIZE){
-            appleEaten = true;
-            cout << "Apple twas Eaten! " << endl;
-
-           }
-
-        }
-        // bottom left
-        else if(xLoc[0] >= appleX && xLoc[0] <= appleX + APPLESIZE){
-            //if(yLoc[0] + SIZE >= appleY && yLoc[0] + SIZE <= appleY + APPLESIZE)
-                {
-                appleEaten = true;
-                cout << "Apple twas Eaten! " << endl;
-            }
-        }
-        // bottum right
-        else if(xLoc[0] + SIZE >= appleX && xLoc[0] + SIZE <= appleX + APPLESIZE){
-            //if(yLoc[0] + SIZE >= appleY && yLoc[0] + SIZE <= appleY + APPLESIZE)
-                {
-                appleEaten = true;
-                cout << "Apple twas Eaten! " << endl;
+        ///Classic Snake Game
+        else if(comand == "play snake")
+        {
+            gm.playClassicSnake(g);
+            if(gm.getGameCond())
+            {
+                comand = "game over";
+                //cout << "game over" << endl;
             }
         }
 
+        ///Losing Screen
+        else if(comand == "game over")
+        {
+            input = gameOverPage(g, WIDTH, HIGHT);
 
-        if(appleEaten){
-            /// Apple Erase
-            for(int y = 0; y < APPLESIZE; y++){
-                for(int x = 0; x < APPLESIZE; x++){
-                    g.plotPixel(appleX + x, appleY + y, 255,255,255);
-                }
+            if(input == "play again")
+            {
+                comand = "play snake";
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
             }
-
-            /// set new apple pos
-            appleX = rand() % 750;
-            appleY = rand() % 750;
-
-            /// Reset apple Eaten
-
-            appleEaten = false;
-
-            /// increment lenght //
-            length++;
-        }
-
-
-
-
-        /// Snake erase
-        for (int i = 0; i < length; i++){
-            for(int y = 0; y < SIZE; y++){
-                for(int x = 0; x < SIZE; x++){
-                    g.plotPixel(xLoc[i] + x, yLoc[i] + y, 255,255,255);
-
-                }
-            }
-        }
-
-
-
-        //Copy Cell Locations
-
-        for(int i = length-1; i > 0; i--){
-            xLoc[i] = xLoc[i-1];
-            yLoc[i] = yLoc[i-1];
-        }
-
-        switch(dir){
-            case RIGHT: xLoc[0]+= SIZE;
-                        break;
-            case LEFT : xLoc[0]-= SIZE;
-                        break;
-            case UP   : yLoc[0]-= SIZE;
-                        break;
-            case DOWN : yLoc[0]+= SIZE;
-                        break;
-
-        }
-
-        //Draw
-        for(int i = 0; i < length; i++){
-            for(int y = 0; y < SIZE; y++){
-                for(int x = 0; x < SIZE; x++){
-                    g.plotPixel(xLoc[i] + x, yLoc[i] + y, R,G,B);
-
-                }
-            }
-        }
-
-
-        for(int y = 0; y < APPLESIZE; y++){
-            for(int x = 0; x < APPLESIZE; x++){
-                g.plotPixel(appleX + x, appleY + y);
+            //return to main page
+            else if(input == "main page")
+            {
+                comand = "main page";
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
             }
         }
 
         g.update();
-        g.Sleep(speed);//pauses for 'speed' nanoseconds
-
-
     }
+
     return 0;
 }
