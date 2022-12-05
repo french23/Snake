@@ -131,6 +131,7 @@ void Game::playClassicSnake(SDL_Plotter& g){
         }
 
 
+
         /// Update
         g.Sleep(100);
         g.update();
