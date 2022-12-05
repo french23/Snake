@@ -33,7 +33,7 @@ int   Game::getScore() const{
     return score;
 }
 bool  Game::getGameCond()const{
-    return gameOver;
+    return s.isSnakeDead();
 }
 bool  Game::getIsPaused(){
     return isPaused;
@@ -51,9 +51,6 @@ void Game::setApple(const Apple app){
 }
 void Game::setScore(const int s){
     score = s;
-}
-void Game::setGameCond(const bool b){
-    gameOver = b;
 }
 void Game::incrementScore(){
     score++;

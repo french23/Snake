@@ -42,7 +42,6 @@ class Game{
         void setApple(const Apple app);
         void setScore(const int s);
         void incrementScore();
-        void setGameCond(const bool b);
         void setPause(const bool b);
         void setKey(const char c);
 

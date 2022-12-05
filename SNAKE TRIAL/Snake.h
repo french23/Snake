@@ -54,6 +54,8 @@ class Snake{
         void setDirection(SDL_Plotter& g, char k);
         void setRefPoint(int i, Point p);
 
+
+
         /// Methods ///
         void checkSelfColision(SDL_Plotter& g);
         void drawSnake(SDL_Plotter&);
