@@ -88,16 +88,45 @@ bool Apple::checkAppleCollision(Snake s){
     return appleEaten;
 }
 void Apple::drawApple(SDL_Plotter& g){
-    for(int y = 0; y < appleSize; y++){
+   for(int y = 0; y < appleSize; y++){
         for(int x = 0; x < appleSize; x++){
             g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, R, G, B);
         }
     }
+    //Apple Corners + Leaf
+    for(int y = 0; y < 5; y++){
+        for(int x = 0; x < 5; x++){
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y+20, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y+20, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 92, 169, 4);
+        }
+    }
+    //Apple Stem
+    for(int x = 0; x < 5; x++){
+        for(int y = 0; y < 10; y++){
+            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 128, 64, 0);
+        }
+    }
+
 }
 void Apple::eraseApple(SDL_Plotter& g){
     for(int y = 0; y < appleSize; y++){
         for(int x = 0; x < appleSize; x++){
             g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 255, 255, 255);
+        }
+    }
+    //Apple Stem Erase
+    for(int x = 0; x < 5; x++){
+        for(int y = 0; y < 10; y++){
+            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 255, 255, 255);
+        }
+    }
+    //Apple Leaf Erase
+    for(int y = 0; y < 5; y++){
+        for(int x = 0; x < 5; x++){
+            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 255, 255, 255);
         }
     }
 }
