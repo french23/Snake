@@ -194,7 +194,7 @@ void Game::saveGame(string fName){
     //Apple Point
     filePush << "ApplePoint: " << endl
              << a.getSegment().getX() << " "
-             << a.getSegment().getX() << endl;
+             << a.getSegment().getY() << endl;
 
 
 
@@ -242,12 +242,11 @@ void Game::loadGame(string fName){
         s.setRefPoint(i, Point(x,y));
     }
 
-//    //Set apple ref Points
-//    fileRead >> junk;
-//    fileRead >> x >> y;
-//    cout << "file apple Point: " << x << " " << y << endl;
-//    a.setPoint(Point(x,y));
-//    cout << "Game apple Point: " << a.getSegment().getX() << " " << a.getSegment().getX() << endl;
+    //Set apple ref Points
+    fileRead >> junk;
+    fileRead >> x >> y;
+    a.setPoint(Point(x,y));
+
 
     fileRead.close();
 }

@@ -77,7 +77,7 @@ int main(int argc, char **argv)
     char key;
     Game gm(s,a);
 
-    //gm.loadGame("save#1.txt");
+    gm.loadGame("save#1.txt");
 
 
     gm.initSounds(g);
