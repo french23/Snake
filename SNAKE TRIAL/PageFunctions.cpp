@@ -1,6 +1,6 @@
 #include "PageFunctions.h"
 
-string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
+string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 {
     string return_comand = "null";
     color background_color;
@@ -17,7 +17,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
     textBox play(Point(450,200),10,"PLAY");
     textBox exit(Point(450,600),10,"EXIT");
 
-    fill_screen_with_color(g,background_color, WIDTH, HIGHT);
+    fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
     background_color.R = 75;
     background_color.G = 32;
@@ -31,13 +31,16 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
     {
         point temp = g.getMouseClick();
 
-        // check all textboxes and see if they were clicked
+        // check the exit button
         if(exit.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "exit";
         }
+        // check the play button
         else if(play.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "start game";
         }
 
@@ -46,7 +49,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
     return return_comand;
 }
 
-string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
+string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 {
     string return_comand = "null";color border_color;
     border_color.R = 227;
@@ -82,9 +85,9 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
     return return_comand;
 }
 
-void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WIDTH, const int& HIGHT)
+void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WIDTH, const int& HEIGHT)
 {
-    for(int x = 0; x < HIGHT; x++)
+    for(int x = 0; x < HEIGHT; x++)
     {
         for(int y = 0; y < WIDTH; y++)
         {
