@@ -188,7 +188,11 @@ void Snake::drawSnake(SDL_Plotter& g){
                 for(int k = 0; k < 4; k++){
                     g.plotPixel(seg[0].getPoint().getX() + j+8, seg[0].getPoint().getY() + k+5);
                 }
-            }//Tongue Right
+            }
+
+            /*
+
+            //Tongue Right
             if(dir == RIGHT){
                 for(int x = 0; x < 10; x++){
                     for(int y = 0; y < 4; y++){
@@ -206,6 +210,9 @@ void Snake::drawSnake(SDL_Plotter& g){
                 }
 
             }
+
+           */
+
         }//EYES-Up-Down
         else{
             for(int j = 0; j < 4; j++){
@@ -218,6 +225,9 @@ void Snake::drawSnake(SDL_Plotter& g){
                     g.plotPixel(seg[0].getPoint().getX() + j+5, seg[0].getPoint().getY() + k+8);
                 }
             }
+
+            /*
+
             //Tongue Down
             if(dir == DOWN){
                 for(int x = 0; x < 4; x++){
@@ -235,6 +245,8 @@ void Snake::drawSnake(SDL_Plotter& g){
                     }
                 }
             }
+
+            */
         }
 
 
@@ -248,7 +260,7 @@ void Snake::eraseSnake(SDL_Plotter& g){
         for(int y = 0; y < SIZE; y++){
             for(int x = 0; x < SIZE; x++){
                 g.plotPixel(seg[i].getPoint().getX() + x,
-                            seg[i].getPoint().getY() + y, 255,255,255);
+                            seg[i].getPoint().getY() + y, 55,2,82);
 
             }
         }
@@ -263,7 +275,9 @@ void Snake::eraseSnake(SDL_Plotter& g){
                 for(int k = 0; k < 4; k++){
                     g.plotPixel(seg[0].getPoint().getX() + j+8, seg[0].getPoint().getY() + k+5, 255, 255, 255);
                 }
-            }//Tongue Right
+            }
+            /*
+            //Tongue Right
             if(dir != RIGHT && downKey){//Left-Down
                for(int x = 0; x < 12; x++){
                     for(int y = 0; y < 10; y++){
@@ -297,6 +311,9 @@ void Snake::eraseSnake(SDL_Plotter& g){
                     }
                 }
             }
+
+            */
+
         }//EYES-Up-Down
         else{
             for(int j = 0; j < 4; j++){
@@ -309,6 +326,9 @@ void Snake::eraseSnake(SDL_Plotter& g){
                     g.plotPixel(seg[0].getPoint().getX() + j+5, seg[0].getPoint().getY() + k+8, 255, 255, 255);
                 }
             }
+
+            /*
+
             if(dir != DOWN && rightKey){//Up-Right
                 for(int x = 0; x < 10; x++){
                     for(int y = 0; y < 12; y++){
@@ -341,6 +361,7 @@ void Snake::eraseSnake(SDL_Plotter& g){
                     }
                 }
             }
+            */
         }
     }
 }
