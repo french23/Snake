@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 
     SDL_Plotter g(650, 900);
     Snake s(2);
-    Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
+    Apple a(25, Point(Point(((rand() % (875/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
 
     char key;
     Game gm(s,a);
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
         gm.playClassicSnake(g);
     }
 
-    gm.setHighScores("highScore.txt", "PW");
+    //gm.setHighScores("highScore.txt", "PW");
 
     //gm.saveGame("save#1.txt");
 

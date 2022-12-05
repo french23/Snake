@@ -2,9 +2,20 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="Game.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Apple.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1548" topLine="37" />
+			<Cursor1 position="4321" topLine="55" />
+		</Cursor>
+		<Folding>
+			<Collapse line="24" />
+			<Collapse line="27" />
+			<Collapse line="30" />
+			<Collapse line="59" />
+		</Folding>
+	</File>
+	<File name="Snake.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="204" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Point.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,56 +23,64 @@
 			<Cursor1 position="489" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="Game.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="grid_square.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="6296" topLine="51" />
+			<Cursor1 position="839" topLine="18" />
 		</Cursor>
-		<Folding>
-			<Collapse line="25" />
-			<Collapse line="28" />
-			<Collapse line="31" />
-			<Collapse line="34" />
-			<Collapse line="37" />
-			<Collapse line="40" />
-			<Collapse line="45" />
-			<Collapse line="48" />
-			<Collapse line="51" />
-			<Collapse line="54" />
-			<Collapse line="57" />
-			<Collapse line="68" />
-			<Collapse line="92" />
-			<Collapse line="137" />
-			<Collapse line="158" />
-			<Collapse line="170" />
-			<Collapse line="202" />
-		</Folding>
+	</File>
+	<File name="highScore.txt" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="52" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="grid_square.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1081" topLine="16" />
+		</Cursor>
+	</File>
+	<File name="Game.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1548" topLine="27" />
+		</Cursor>
+	</File>
+	<File name="Apple.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="908" topLine="0" />
+		</Cursor>
 	</File>
 	<File name="SDL_Plotter.cpp" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="240" />
 		</Cursor>
 	</File>
-	<File name="Apple.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="908" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="Snake.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="204" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="grid_square.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="839" topLine="18" />
-		</Cursor>
-	</File>
 	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2661" topLine="9" />
+			<Cursor1 position="238" topLine="0" />
 		</Cursor>
 		<Folding>
 			<Collapse line="11" />
+		</Folding>
+	</File>
+	<File name="Segment.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="409" topLine="4" />
+		</Cursor>
+	</File>
+	<File name="Point.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="618" topLine="10" />
+		</Cursor>
+	</File>
+	<File name="Snake.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2800" topLine="41" />
+		</Cursor>
+		<Folding>
+			<Collapse line="54" />
+			<Collapse line="105" />
+			<Collapse line="110" />
+			<Collapse line="147" />
+			<Collapse line="239" />
 		</Folding>
 	</File>
 	<File name="Segment.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -78,52 +97,27 @@
 			<Collapse line="37" />
 		</Folding>
 	</File>
-	<File name="Snake.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Game.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2800" topLine="41" />
+			<Cursor1 position="1150" topLine="29" />
 		</Cursor>
 		<Folding>
+			<Collapse line="25" />
+			<Collapse line="28" />
+			<Collapse line="31" />
+			<Collapse line="34" />
+			<Collapse line="37" />
+			<Collapse line="40" />
+			<Collapse line="45" />
+			<Collapse line="48" />
+			<Collapse line="51" />
 			<Collapse line="54" />
-			<Collapse line="105" />
-			<Collapse line="110" />
-			<Collapse line="147" />
-			<Collapse line="239" />
+			<Collapse line="57" />
 		</Folding>
 	</File>
-	<File name="Apple.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4321" topLine="55" />
-		</Cursor>
-		<Folding>
-			<Collapse line="24" />
-			<Collapse line="27" />
-			<Collapse line="30" />
-			<Collapse line="59" />
-		</Folding>
-	</File>
-	<File name="Point.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="618" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="Segment.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="409" topLine="4" />
-		</Cursor>
-	</File>
-	<File name="SDL_Plotter.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="SDL_Plotter.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2357" topLine="102" />
-		</Cursor>
-	</File>
-	<File name="highScore.txt" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="52" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="grid_square.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1081" topLine="16" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

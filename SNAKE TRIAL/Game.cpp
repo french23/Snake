@@ -68,22 +68,26 @@ void Game::setKey(const char c){
 ///Methods///
 void Game::checkBoarderCollision(SDL_Plotter& g){
 
-    if(s.getDirection() == UP || s.getDirection() == LEFT ){
-        if(s.getSegment(0).getX() == 0 || s.getSegment(0).getX() == g.getCol()){
-            g.playSound("SnakeDie.wav");
-            s.setSnakeDeath(true); /// End Game
-        }
-        else if(s.getSegment(0).getY() == 0 || s.getSegment(0).getY() == g.getRow()){
+    if(s.getDirection() == UP ){
+        if(s.getSegment(0).getY() == 0){
             g.playSound("SnakeDie.wav");
             s.setSnakeDeath(true); /// End Game
         }
     }
-    else if(s.getDirection() == DOWN || s.getDirection() == RIGHT ){
-        if(s.getSegment(0).getX() + SIZE == 0 || s.getSegment(0).getX() + SIZE == g.getCol()){
+    else if(s.getDirection() == DOWN ){
+        if(s.getSegment(0).getY() + SIZE == g.getRow()){
             g.playSound("SnakeDie.wav");
             s.setSnakeDeath(true); /// End Game
         }
-        else if(s.getSegment(0).getY() + SIZE == 0 || s.getSegment(0).getY() + SIZE == g.getRow()){
+    }
+    else if(s.getDirection() == LEFT ){
+        if(s.getSegment(0).getX() == 0){
+            g.playSound("SnakeDie.wav");
+            s.setSnakeDeath(true); /// End Game
+        }
+    }
+    else if(s.getDirection() == RIGHT ){
+        if(s.getSegment(0).getX() + SIZE == g.getCol()){
             g.playSound("SnakeDie.wav");
             s.setSnakeDeath(true); /// End Game
         }
