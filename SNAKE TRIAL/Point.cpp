@@ -28,7 +28,7 @@ void Point::setY(const int yVal){
     y = yVal;
 }
 
-Point Point::operator=(const Point& other)
+void Point::operator=(const Point& other)
 {
      this->x = other.getX();
      this->y = other.getY();

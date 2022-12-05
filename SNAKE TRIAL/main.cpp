@@ -8,6 +8,7 @@
 #include "text_box.h"
 #include "PageFunctions.h"
 #include <cmath>
+#include <ctime>
 using namespace std;
 
 const int WIDTH = 800;
@@ -25,11 +26,17 @@ int main(int argc, char **argv)
     background_color.R = 55;
     background_color.G = 2;
     background_color.B = 82;
-
+    bool first_time = true;
+    int start_title_music_time;
+    const int title_music_time = 37;
     char key;
     Game gm(s,a);
 
     gm.initSounds(g);
+    g.initSound("gameover.mp3");
+    g.initSound("highscore.mp3");
+    g.initSound("uibuttonclick2.mp3");
+
     g.Sleep(300);
 
     while(!g.getQuit())
@@ -38,10 +45,33 @@ int main(int argc, char **argv)
         ///Main Page
         if(command == "main page")
         {
+
+            // Loop the music
+            if(first_time)
+            {
+
+                //cout << "about to play sound file" << endl; system("pause");
+                g.initSound("TITLESCREEN.mp3");
+                g.Sleep(100);
+                g.playSound("TITLESCREEN.mp3");
+                start_title_music_time = time(0);
+                first_time = false;
+            }
+            else
+            {
+                if(time(0) - title_music_time > start_title_music_time)
+                {
+                    start_title_music_time = time(0);
+                    g.playSound("TITLESCREEN.mp3");
+                }
+            }
+
             input = mainPage(g, WIDTH, HEIGHT);
             if(input == "start game")
             {
+                first_time = true;
                 command = "play snake";
+                g.quitSound("TITLESCREEN.mp3");
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "exit")

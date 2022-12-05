@@ -31,13 +31,16 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     {
         point temp = g.getMouseClick();
 
-        // check all textboxes and see if they were clicked
+        // check the exit button
         if(exit.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "exit";
         }
+        // check the play button
         else if(play.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "start game";
         }
 

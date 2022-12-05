@@ -166,7 +166,6 @@ void Game::initSounds(SDL_Plotter& g){
     g.initSound("up.mp3");
     g.initSound("down.mp3");
     g.initSound("death.mp3");
-
 }
 
 ///Methods regarding save/load game

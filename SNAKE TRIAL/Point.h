@@ -21,7 +21,7 @@ class Point{
         void setY(const int);
 
         // Overloaders
-        Point operator=(const Point& other);
+        void operator=(const Point& other);
         bool operator==(const Point& other);
 
 };
