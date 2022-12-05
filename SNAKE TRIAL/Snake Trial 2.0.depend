@@ -64,7 +64,7 @@
 	<map>
 	<queue>
 
-1670274219 c:\modules\github\snake\snake trial\snake.h
+1670275055 c:\modules\github\snake\snake trial\snake.h
 	"Segment.h"
 
 1668558035 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
@@ -73,7 +73,7 @@
 1670272930 source:c:\modules\github\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1670274757 source:c:\modules\github\snake\snake trial\snake.cpp
+1670275055 source:c:\modules\github\snake\snake trial\snake.cpp
 	"Snake.h"
 
 1670272930 source:c:\modules\github\snake\snake trial\point.cpp
@@ -148,16 +148,16 @@
 	"SDL_Plotter.h"
 	"Apple.h"
 
-1670274219 source:c:\modules\github\snake\snake trial\apple.cpp
+1670275055 source:c:\modules\github\snake\snake trial\apple.cpp
 	"Apple.h"
 
-1670274219 c:\modules\github\snake\snake trial\apple.h
+1670275055 c:\modules\github\snake\snake trial\apple.h
 	"Snake.h"
 
-1670274415 source:c:\modules\github\snake\snake trial\game.cpp
+1670275055 source:c:\modules\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670274219 c:\modules\github\snake\snake trial\game.h
+1670275055 c:\modules\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
