@@ -1,3 +1,11 @@
+/*
+* Author: Benjamin Szabo, Peter Stuart
+* Assignment Title: Snake Game
+* Assignment Description: Create a snake game
+* Due Date: 12/7/2022
+* Date Created: 11/29/2022
+* Date Last Modified: 12/5/2022
+ */
 
 #include "text_box.h"
 

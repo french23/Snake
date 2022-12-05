@@ -35,6 +35,7 @@ int main(int argc, char **argv)
     while(!g.getQuit())
     {
         //cout << "in the while loop" << endl; system("pause");
+        ///Main Page
         if(comand == "main page")
         {
             input = mainPage(g, WIDTH, HIGHT);
@@ -48,6 +49,8 @@ int main(int argc, char **argv)
                 g.setQuit(true);
             }
         }
+
+        ///Classic Snake Game
         else if(comand == "play snake")
         {
             gm.playClassicSnake(g);
@@ -57,6 +60,8 @@ int main(int argc, char **argv)
                 //cout << "game over" << endl;
             }
         }
+
+        ///Losing Screen
         else if(comand == "game over")
         {
             input = gameOverPage(g, WIDTH, HIGHT);
@@ -67,6 +72,7 @@ int main(int argc, char **argv)
                 gm.resetGame(g);
                 fill_screen_with_color(g, background_color, WIDTH, HIGHT);
             }
+            //return to main page
             else if(input == "main page")
             {
                 comand = "main page";
