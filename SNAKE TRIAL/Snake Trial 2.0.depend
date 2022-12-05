@@ -81,18 +81,18 @@
 	<vector>
 	"Segment.h"
 
-1669922319 source:c:\users\logan\onedrive\documents\github\snake\snake trial\grid_square.cpp
+1669937061 source:c:\users\logan\onedrive\documents\github\snake\snake trial\grid_square.cpp
 	"grid_square.h"
 
-1669922319 c:\users\logan\onedrive\documents\github\snake\snake trial\grid_square.h
+1669937061 c:\users\logan\onedrive\documents\github\snake\snake trial\grid_square.h
 	<vector>
 	"Segment.h"
 
-1669922319 c:\users\logan\onedrive\documents\github\snake\snake trial\segment.h
+1669937169 c:\users\logan\onedrive\documents\github\snake\snake trial\segment.h
 	"Point.h"
 	"SDL_Plotter.h"
 
-1669922319 c:\users\logan\onedrive\documents\github\snake\snake trial\point.h
+1670115759 c:\users\logan\onedrive\documents\github\snake\snake trial\point.h
 
 1669921390 c:\users\logan\onedrive\documents\github\snake\snake trial\sdl_plotter.h
 	<SDL2/SDL.h>
@@ -104,25 +104,25 @@
 	<map>
 	<queue>
 
-1669923565 source:c:\users\logan\onedrive\documents\github\snake\snake trial\main.cpp
+1670115759 source:c:\users\logan\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
 	"Snake.h"
 	"grid_square.h"
 
-1669921390 c:\users\logan\onedrive\documents\github\snake\snake trial\snake.h
+1670269334 c:\users\logan\onedrive\documents\github\snake\snake trial\snake.h
 	"Segment.h"
 
-1669922319 source:c:\users\logan\onedrive\documents\github\snake\snake trial\point.cpp
+1670115759 source:c:\users\logan\onedrive\documents\github\snake\snake trial\point.cpp
 	"Point.h"
 
 1668724344 source:c:\users\logan\onedrive\documents\github\snake\snake trial\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1669922319 source:c:\users\logan\onedrive\documents\github\snake\snake trial\segment.cpp
+1669937169 source:c:\users\logan\onedrive\documents\github\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1669936252 source:c:\users\logan\onedrive\documents\github\snake\snake trial\snake.cpp
+1670270103 source:c:\users\logan\onedrive\documents\github\snake\snake trial\snake.cpp
 	"Snake.h"
 
