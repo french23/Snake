@@ -11,13 +11,13 @@
 using namespace std;
 
 const int WIDTH = 800;
-const int HIGHT = 1200;
+const int HEIGHT = 1200;
 
 int main(int argc, char **argv)
 {
 
-    SDL_Plotter g(WIDTH, HIGHT);
-    string comand = "main page";
+    SDL_Plotter g(WIDTH, HEIGHT);
+    string command = "main page";
     string input;
     Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
@@ -36,13 +36,13 @@ int main(int argc, char **argv)
     {
         //cout << "in the while loop" << endl; system("pause");
         ///Main Page
-        if(comand == "main page")
+        if(command == "main page")
         {
-            input = mainPage(g, WIDTH, HIGHT);
+            input = mainPage(g, WIDTH, HEIGHT);
             if(input == "start game")
             {
-                comand = "play snake";
-                fill_screen_with_color(g,background_color,WIDTH,HIGHT);
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "exit")
             {
@@ -51,33 +51,33 @@ int main(int argc, char **argv)
         }
 
         ///Classic Snake Game
-        else if(comand == "play snake")
+        else if(command == "play snake")
         {
             gm.playClassicSnake(g);
             if(gm.getGameCond())
             {
-                comand = "game over";
+                command = "game over";
                 //cout << "game over" << endl;
             }
         }
 
         ///Losing Screen
-        else if(comand == "game over")
+        else if(command == "game over")
         {
-            input = gameOverPage(g, WIDTH, HIGHT);
+            input = gameOverPage(g, WIDTH, HEIGHT);
 
             if(input == "play again")
             {
-                comand = "play snake";
+                command = "play snake";
                 gm.resetGame(g);
-                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
             }
             //return to main page
             else if(input == "main page")
             {
-                comand = "main page";
+                command = "main page";
                 gm.resetGame(g);
-                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
             }
         }
 
