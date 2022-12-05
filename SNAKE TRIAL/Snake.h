@@ -4,10 +4,21 @@
 using namespace std;
 
 
-const char upKey = 'w';
-const char downKey = 's';
-const char leftKey = 'a';
+//const char upKey    = UP_ARROW;
+//const char downKey  = DOWN_ARROW;
+//const char leftKey  = LEFT_ARROW;
+//const char rightKey = RIGHT_ARROW;
+
+const char upKey    = 'w';
+const char downKey  = 's';
+const char leftKey  = 'a';
 const char rightKey = 'd';
+
+
+
+
+
+
 const int MAX_SIZE = 100;
 const int SIZE = 25;
 
@@ -41,6 +52,9 @@ class Snake{
         void setSnakeDeath(const bool);
         void setDirection(const Direction);
         void setDirection(SDL_Plotter& g, char k);
+        void setRefPoint(int i, Point p);
+
+
 
         /// Methods ///
         void checkSelfColision(SDL_Plotter& g);

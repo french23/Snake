@@ -60,6 +60,7 @@ void Apple::setAppleColision(const bool b){
 bool Apple::checkAppleCollision(Snake s){
     bool appleEaten = false;
 
+
     //Checks every point of the snake against the evey point of the apple
     if(s.getSegment(0).getPoint() == appSeg.getPoint() ||
        s.getSegment(0).getPoint() == Point(appSeg.getX() + appleSize, appSeg.getY())  ||
@@ -87,11 +88,28 @@ bool Apple::checkAppleCollision(Snake s){
     return appleEaten;
 }
 void Apple::drawApple(SDL_Plotter& g){
-    for(int y = 0; y < appleSize; y++){
+   for(int y = 0; y < appleSize; y++){
         for(int x = 0; x < appleSize; x++){
             g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, R, G, B);
         }
     }
+    //Apple Corners + Leaf
+    for(int y = 0; y < 5; y++){
+        for(int x = 0; x < 5; x++){
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y+20, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y+20, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 92, 169, 4);
+        }
+    }
+    //Apple Stem
+    for(int x = 0; x < 5; x++){
+        for(int y = 0; y < 10; y++){
+            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 128, 64, 0);
+        }
+    }
+
 }
 void Apple::eraseApple(SDL_Plotter& g){
     for(int y = 0; y < appleSize; y++){
@@ -99,5 +117,31 @@ void Apple::eraseApple(SDL_Plotter& g){
             g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 255, 255, 255);
         }
     }
+    //Apple Stem Erase
+    for(int x = 0; x < 5; x++){
+        for(int y = 0; y < 10; y++){
+            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 255, 255, 255);
+        }
+    }
+    //Apple Leaf Erase
+    for(int y = 0; y < 5; y++){
+        for(int x = 0; x < 5; x++){
+            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 255, 255, 255);
+        }
+    }
+}
+Point Apple::createPoint(Snake s){
+    Point p;
+    bool isValid = false;
+    while(!isValid){
+        isValid = true;
+        p = Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25));
+        for(int i = 0; i < s.getLength(); i++){
+            if(s.getSegment(i).getPoint() == p){
+                isValid = false;
+            }
+        }
+    }
+    return p;
 }
 
