@@ -103,8 +103,8 @@ void Game::playClassicSnake(SDL_Plotter& g){
         switch(key){
             case 'p': isPaused = !isPaused; /// 'p' pauses game
                     break;
-            case 'r': isReset = true;
-                    break;
+            /*case 'r': isReset = true;
+                    break;*/
         }
     }
     if(!s.isSnakeDead() && !isPaused){

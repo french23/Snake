@@ -2,65 +2,44 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="PageFunctions.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1559" topLine="42" />
-		</Cursor>
-	</File>
-	<File name="Game.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4558" topLine="70" />
-		</Cursor>
-		<Folding>
-			<Collapse line="65" />
-			<Collapse line="93" />
-			<Collapse line="139" />
-			<Collapse line="160" />
-			<Collapse line="172" />
-			<Collapse line="260" />
-			<Collapse line="273" />
-		</Folding>
-	</File>
-	<File name="text_box.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="15" />
-		</Cursor>
-	</File>
-	<File name="Game.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1379" topLine="33" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3842" topLine="26" />
-		</Cursor>
-		<Folding>
-			<Collapse line="39" />
-		</Folding>
-	</File>
-	<File name="PageFunctions.cpp" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6349" topLine="105" />
-		</Cursor>
-		<Folding>
-			<Collapse line="60" />
-			<Collapse line="96" />
-			<Collapse line="108" />
-			<Collapse line="159" />
-		</Folding>
-	</File>
 	<File name="Apple.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4648" topLine="49" />
+			<Cursor1 position="4385" topLine="87" />
 		</Cursor>
-		<Folding>
-			<Collapse line="59" />
-		</Folding>
 	</File>
-	<File name="Snake.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="PageFunctions.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="768" topLine="20" />
+			<Cursor1 position="6910" topLine="214" />
+		</Cursor>
+	</File>
+	<File name="PageFunctions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1393" topLine="15" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="801" topLine="14" />
+		</Cursor>
+	</File>
+	<File name="Snake.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4825" topLine="165" />
+		</Cursor>
+	</File>
+	<File name="Game.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2524" topLine="36" />
+		</Cursor>
+	</File>
+	<File name="Apple.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="421" topLine="5" />
+		</Cursor>
+	</File>
+	<File name="font.txt" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

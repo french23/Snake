@@ -1,6 +1,6 @@
 #include "PageFunctions.h"
 
-string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
+string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 {
     string return_comand = "null";
     color background_color;
@@ -15,12 +15,10 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
 
     textBox title(Point(250,50),15,"SNAKE!");
     textBox play(Point(450,200),10,"PLAY");
-    ///START NEW///
     textBox loadSaved(Point(220,320),10,"LOAD SAVED");
-    ///END NEW///
     textBox exit(Point(450,600),10,"EXIT");
 
-    fill_screen_with_color(g,background_color, WIDTH, HIGHT);
+    fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
     background_color.R = 75;
     background_color.G = 32;
@@ -28,36 +26,36 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
 
     title.draw(g);
     play.draw(g,border_color,background_color);
-    ///START NEW///
     loadSaved.draw(g,border_color,background_color);
-    ///END NEW///
     exit.draw(g,border_color,background_color);
 
     if(g.mouseClick())
     {
         point temp = g.getMouseClick();
 
-        // check all textboxes and see if they were clicked
+        // check the exit button
         if(exit.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "exit";
         }
+        // check the play button
         else if(play.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "start game";
         }
-        ///START NEW///
-        else if(loadSaved.isClicked(Point(temp.x,temp.y))){
+         else if(loadSaved.isClicked(Point(temp.x,temp.y))){
             return_comand = "load saved";
+            g.playSound("uibuttonclick2.mp3");
         }
-        ///END NEW///
 
     }
 
     return return_comand;
 }
 
-string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
+string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 {
     string return_comand = "null";color border_color;
     border_color.R = 227;
@@ -82,10 +80,12 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
         point temp = g.getMouseClick();
         if(play_again.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "play again";
         }
         else if(main_page.isClicked(Point(temp.x,temp.y)))
         {
+               g.playSound("uibuttonclick2.mp3");
                return_comand = "main page";
         }
     }
@@ -93,9 +93,9 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
     return return_comand;
 }
 
-void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WIDTH, const int& HIGHT)
+void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WIDTH, const int& HEIGHT)
 {
-    for(int x = 0; x < HIGHT; x++)
+    for(int x = 0; x < HEIGHT; x++)
     {
         for(int y = 0; y < WIDTH; y++)
         {
@@ -104,8 +104,6 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
     }
 }
 
-
-///START NEW STUFF BEN///
 string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     string return_command = "null";
     color border_color;
@@ -137,19 +135,23 @@ string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         if(resumeGame.isClicked(Point(temp.x,temp.y)))
         {
             g.Sleep(100);
+            g.playSound("uibuttonclick2.mp3");
             return_command = "resume game";
         }
         else if(resetGame.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "reset game";
         }
         else if(saveGame.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "save game";
 
         }
         else if(mainPage.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "main page";
         }
     }
@@ -182,6 +184,7 @@ string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         point temp = g.getMouseClick();
         if(okay.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
         }
     }
@@ -215,6 +218,7 @@ string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         point temp = g.getMouseClick();
         if(play.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
         }
     }
@@ -247,6 +251,7 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         point temp = g.getMouseClick();
         if(mainPage.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
         }
     }
@@ -255,4 +260,3 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 }
 
 
-///END NEW STUFF BEN///

@@ -96,17 +96,17 @@ void Apple::drawApple(SDL_Plotter& g){
     //Apple Corners + Leaf
     for(int y = 0; y < 5; y++){
         for(int x = 0; x < 5; x++){
-            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 255, 255, 255);
-            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y, 255, 255, 255);
-            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y+20, 255, 255, 255);
-            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y+20, 255, 255, 255);
-            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 92, 169, 4);
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 55, 2, 82);
+            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y, 55, 2, 82);
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y+20, 55, 2, 82);
+            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y+20, 55, 2, 82);
+            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 2, 155, 161);
         }
     }
     //Apple Stem
     for(int x = 0; x < 5; x++){
         for(int y = 0; y < 10; y++){
-            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 128, 64, 0);
+            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 133, 51, 45);
         }
     }
 
@@ -114,25 +114,26 @@ void Apple::drawApple(SDL_Plotter& g){
 void Apple::eraseApple(SDL_Plotter& g){
     for(int y = 0; y < appleSize; y++){
         for(int x = 0; x < appleSize; x++){
-            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 55, 2, 82);
         }
     }
     //Apple Stem Erase
     for(int x = 0; x < 5; x++){
         for(int y = 0; y < 10; y++){
-            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 55, 2, 82);
         }
     }
     //Apple Leaf Erase
     for(int y = 0; y < 5; y++){
         for(int x = 0; x < 5; x++){
-            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 255, 255, 255);
+            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 55, 2, 82);
         }
     }
 }
 Point Apple::createPoint(Snake s){
     Point p;
     bool isValid = false;
+    srand(time(0));
     while(!isValid){
         isValid = true;
         p = Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25));
