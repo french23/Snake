@@ -27,6 +27,8 @@ int main(int argc, char **argv)
     background_color.G = 2;
     background_color.B = 82;
     bool first_time = true;
+    //New
+    bool highScore = true;
     int start_title_music_time;
     const int title_music_time = 37;
     char key;
@@ -99,14 +101,19 @@ int main(int argc, char **argv)
         {
             gm.playClassicSnake(g);
 
+            if(gm.isTopFive() && highScore){
+                g.playSound("highscore.mp3");
+                highScore = false;
+            }
+
             if(gm.getIsPaused()){
                 command = "pause game";
             }
 
             if(gm.getGameCond())
             {
+                gm.addTopFive(gm.getScore());
                 command = "game over";
-                //cout << "game over" << endl;
             }
         }
 

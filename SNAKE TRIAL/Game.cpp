@@ -295,3 +295,90 @@ void Game::setHighScores(string fName, string username){
     filePush.close();
 
 }
+
+
+//Ben Method High Score
+bool Game::isTopFive(){
+    ifstream file;
+    int scoreVal = 0;
+    bool isTopFive = false;
+
+    file.open("highScoresDocument.txt");
+    if(file.is_open()){
+
+        file >> scoreVal;
+
+        if(getScore()> scoreVal){
+            isTopFive = true;
+        }
+    }
+    file.close();
+    return isTopFive;
+}
+
+void Game::addTopFive(int score){
+    ifstream fileRead;
+    ofstream fileWrite;
+    string fname;
+    int scoreVal;
+    int index;
+
+    fname = "highScoresDocument.txt";
+
+    fileRead.open(fname);
+
+    if(fileRead.is_open()){
+        //make list
+
+        for(int i = 0; i < 5; i++){
+            fileRead >> scoreVal;
+            highScoreVals[i] = scoreVal;
+        }
+        highScoreVals[5] = score;
+
+
+        //sort values
+        for(int i = 0; i < 6 - 1; i++){
+            for(int j = 0; j < 6 - 1; j++){
+                if(highScoreVals[j] > highScoreVals[j+1]){
+                    swap(highScoreVals[j], highScoreVals[j+1]);
+                }
+            }
+        }
+
+        //check duplicates
+        for(int i = 0; i < 6 - 1; i++){
+            for(int j = 0; j < 6 - 1; j++){
+                if(highScoreVals[j] == highScoreVals[j+1]){
+                    for(int k = j; k >= 0; k--){
+                        swap(highScoreVals[k], highScoreVals[k+1]);
+                    }
+                }
+            }
+        }
+
+
+    }
+    fileRead.close();
+
+
+    //write to file
+    fileWrite.open(fname, std::ofstream::trunc);
+    if(fileWrite.is_open()){
+        cout << "file open!" << endl;
+        for(int i = 1; i < 6; i++){
+            fileWrite << highScoreVals[i] << endl;
+
+            cout << highScoreVals[i] << endl;
+
+        }
+    }
+
+    fileWrite.close();
+    //system("pause");
+
+}
+
+
+bool isHighScore();
+void setHighScores(string fName);

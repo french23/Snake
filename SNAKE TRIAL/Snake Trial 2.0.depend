@@ -216,14 +216,15 @@
 	<map>
 	<queue>
 
-1670295056 source:c:\users\benny\onedrive\documents\github\snake\snake trial\game.cpp
+1670362935 source:c:\users\benny\onedrive\documents\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670293061 c:\users\benny\onedrive\documents\github\snake\snake trial\game.h
+1670361805 c:\users\benny\onedrive\documents\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
 	<fstream>
+	<cassert>
 
 1670275365 source:c:\users\benny\onedrive\documents\github\snake\snake trial\grid_square.cpp
 	"grid_square.h"
@@ -232,7 +233,7 @@
 	<vector>
 	"Segment.h"
 
-1670348893 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
+1670363096 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -254,14 +255,15 @@
 	"grid_square.h"
 	<fstream>
 
-1670348869 c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.h
+1670349964 c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.h
 	<iostream>
 	"Apple.h"
 	"Game.h"
 	"text_box.h"
 	<cmath>
+	<sstream>
 
-1670347761 source:c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.cpp
+1670350160 source:c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.cpp
 	"PageFunctions.h"
 
 1670295034 source:c:\users\benny\onedrive\documents\github\snake\snake trial\point.cpp

@@ -70,6 +70,12 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score)
 {
     string return_comand = "null";color border_color;
+    string scoreVal;
+    stringstream transform;
+
+    transform << score;
+    transform >> scoreVal;
+
     border_color.R = 227;
     border_color.G = 27;
     border_color.B = 190;
@@ -83,7 +89,8 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
     textBox play_again(Point(280,540),8,"PLAY AGAIN");
     textBox main_page(Point(320,650),8,"MAIN PAGE");
     ///NEW STUFF
-    textBox gameScore(Point(440,220),8,"SCORE");
+    textBox gameScore(Point(300,350),8,"SCORE");
+    textBox scoreValue(Point(700,350),8,scoreVal);
     ///END
 
 
@@ -92,6 +99,7 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
     main_page.draw(g, border_color, background_color);
     ///NEW STUFF
     gameScore.draw(g);
+    scoreValue.draw(g);
     ///END
 
     if(g.mouseClick())

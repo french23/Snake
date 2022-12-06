@@ -5,6 +5,7 @@
 #include "Game.h"
 #include "text_box.h"
 #include <cmath>
+#include <sstream>
 
 using namespace std;
 
