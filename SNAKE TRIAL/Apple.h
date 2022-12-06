@@ -1,6 +1,7 @@
 #ifndef APPLE_H_INCLUDED
 #define APPLE_H_INCLUDED
 #include "Snake.h"
+#include "ctime"
 
 using namespace std;
 

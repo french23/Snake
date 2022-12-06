@@ -133,6 +133,7 @@ void Apple::eraseApple(SDL_Plotter& g){
 Point Apple::createPoint(Snake s){
     Point p;
     bool isValid = false;
+    srand(time(0));
     while(!isValid){
         isValid = true;
         p = Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25));
