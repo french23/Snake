@@ -21,10 +21,33 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT);
  * description: displays and controls the game over page
  * return: string
  * precondition: plotter is given and width and hight
- * postcondition: a command is given to main
+ * postcondition: a c   ommand is given to main
  *
 */
 string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT);
+
+/*
+ * description: displays and controls the pause page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+
+string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+/*
+ * description: displays and controls the saves page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
 /*
  * description: cover the page in a specific color

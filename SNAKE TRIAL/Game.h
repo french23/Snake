@@ -53,7 +53,7 @@ class Game{
 
         ///Methods regarding save/load game
         void saveGame(string fName);
-        void loadGame(string fName);
+        bool loadGame(string fName);
 
         ///Methods regarding HighScore
         void readHighScores(string fName);
