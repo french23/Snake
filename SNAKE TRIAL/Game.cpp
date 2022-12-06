@@ -73,19 +73,19 @@ void Game::checkBoarderCollision(SDL_Plotter& g){
     }
     else if(s.getDirection() == DOWN ){
         if(s.getSegment(0).getY() + SIZE == g.getRow()){
-            g.playSound("SnakeDie.wav");
+            g.playSound("death.mp3");
             s.setSnakeDeath(true); /// End Game
         }
     }
     else if(s.getDirection() == LEFT ){
         if(s.getSegment(0).getX() == 0){
-            g.playSound("SnakeDie.wav");
+            g.playSound("death.mp3");
             s.setSnakeDeath(true); /// End Game
         }
     }
     else if(s.getDirection() == RIGHT ){
         if(s.getSegment(0).getX() + SIZE == g.getCol()){
-            g.playSound("SnakeDie.wav");
+            g.playSound("death.mp3");
             s.setSnakeDeath(true); /// End Game
         }
     }
@@ -114,7 +114,7 @@ void Game::playClassicSnake(SDL_Plotter& g){
             a.setPoint(a.createPoint(s));
 
             s.incrementLength();
-            g.playSound("SnakeMunchSound.wav");
+            g.playSound("appleappleeateat.mp3");
             score++;
 
         }

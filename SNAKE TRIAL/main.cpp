@@ -17,7 +17,7 @@ int main(int argc, char **argv)
 {
 
     SDL_Plotter g(WIDTH, HIGHT);
-    string comand = "main page";
+    string command = "main page";
     string input;
     Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
@@ -35,13 +35,13 @@ int main(int argc, char **argv)
     while(!g.getQuit())
     {
         //cout << "in the while loop" << endl; system("pause");
-        ///Main Page
-        if(comand == "main page")
+        ///MAIN PAGE
+        if(command == "main page")
         {
             input = mainPage(g, WIDTH, HIGHT);
             if(input == "start game")
             {
-                comand = "play snake";
+                command = "play snake";
                 fill_screen_with_color(g,background_color,WIDTH,HIGHT);
             }
             else if(input == "exit")
@@ -51,31 +51,89 @@ int main(int argc, char **argv)
         }
 
         ///Classic Snake Game
-        else if(comand == "play snake")
+        else if(command == "play snake")
         {
-            gm.playClassicSnake(g);
+            gm.playClassicSnake(g);\
+
+
+
+            ///START NEW STUFF BEN///
+            if(gm.getIsPaused()){
+                command = "pause game";
+            }
+            ///END NEW STUFF BEN///
+
+
+
+
             if(gm.getGameCond())
             {
-                comand = "game over";
+                command = "game over";
                 //cout << "game over" << endl;
             }
         }
 
-        ///Losing Screen
-        else if(comand == "game over")
+
+        ///START NEW STUFF BEN///
+        else if(command == "pause game"){
+            fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+            input = pauseGamePage(g, WIDTH, HIGHT);
+
+            if(input == "resume game")
+            {
+
+                command = "play snake";
+                gm.setPause(false);
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+
+            }
+            else if(input == "reset game")
+            {
+                command = "play snake";
+                gm.setPause(false);
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+            }
+            else if(input == "save game")
+            {
+                gm.setPause(false);
+                gm.saveGame("save1");
+                command = saveGamePage(g, WIDTH, HIGHT);
+
+            }
+            else if(input == "main page")
+            {
+                command = "main page";
+                gm.setPause(false);
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+            }
+        }
+        ///END NEW STUFF BEN///
+
+
+
+
+
+
+
+
+
+
+        ///Game Over
+        else if(command == "game over")
         {
             input = gameOverPage(g, WIDTH, HIGHT);
 
             if(input == "play again")
             {
-                comand = "play snake";
+                command = "play snake";
                 gm.resetGame(g);
                 fill_screen_with_color(g, background_color, WIDTH, HIGHT);
             }
-            //return to main page
             else if(input == "main page")
             {
-                comand = "main page";
+                command = "main page";
                 gm.resetGame(g);
                 fill_screen_with_color(g, background_color, WIDTH, HIGHT);
             }

@@ -35,4 +35,28 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT);
 */
 void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WIDTH, const int& HIGHT);
 
+
+
+
+
+
+
+
+
+
+
+///START NEW STUFF BEN///
+/*
+ * description: displays and controls the pause page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+
+string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+///END NEW STUFF BEN///
+
 #endif // PAGEFUNCTIONS_H_INCLUDED
