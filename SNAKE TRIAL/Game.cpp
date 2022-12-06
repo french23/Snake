@@ -166,6 +166,7 @@ void Game::initSounds(SDL_Plotter& g){
     g.initSound("up.mp3");
     g.initSound("down.mp3");
     g.initSound("death.mp3");
+
 }
 
 ///Methods regarding save/load game
@@ -201,51 +202,59 @@ void Game::saveGame(string fName){
 
 
 }
-void Game::loadGame(string fName){
-    fileRead.open(fName);
+bool Game::loadGame(string fName){
+    bool isOpen = false;
     string junk;
     int num, x, y;
     Direction d;
-    //Set Score
-    fileRead >> junk;
-    fileRead >> num;
-    score = num;
 
-    //Set Snake's Length
-    fileRead >> junk;
-    fileRead >> num;
-    s.setLength(num);
+    //open and check
+    fileRead.open(fName);
+    if(fileRead.is_open()){
+        isOpen = true;
+        //Set Score
+        fileRead >> junk;
+        fileRead >> num;
+        score = num;
 
-    //Set Snakes Direction
-    fileRead >> junk;
-    fileRead >> num;
+        //Set Snake's Length
+        fileRead >> junk;
+        fileRead >> num;
+        s.setLength(num);
 
-    switch(num){
-        case 0:  d = UP;
-                 break;
-        case 1:  d = DOWN;
-                 break;
-        case 2:  d = LEFT;
-                 break;
-        case 3:  d = RIGHT;
-                 break;
-    }
-    s.setDirection(d);
+        //Set Snakes Direction
+        fileRead >> junk;
+        fileRead >> num;
 
-    //Set Snake ref Points
-    fileRead >> junk;
-    for(int i = 0; i < s.getLength(); i++){
+        switch(num){
+            case 0:  d = UP;
+                     break;
+            case 1:  d = DOWN;
+                     break;
+            case 2:  d = LEFT;
+                     break;
+            case 3:  d = RIGHT;
+                     break;
+        }
+        s.setDirection(d);
+
+        //Set Snake ref Points
+        fileRead >> junk;
+        for(int i = 0; i < s.getLength(); i++){
+            fileRead >> x >> y;
+            s.setRefPoint(i, Point(x,y));
+        }
+
+        //Set apple ref Points
+        fileRead >> junk;
         fileRead >> x >> y;
-        s.setRefPoint(i, Point(x,y));
+        a.setPoint(Point(x,y));
+
+
+        fileRead.close();
     }
 
-    //Set apple ref Points
-    fileRead >> junk;
-    fileRead >> x >> y;
-    a.setPoint(Point(x,y));
-
-
-    fileRead.close();
+    return isOpen;
 }
 
 ///Methods regarding HighScore

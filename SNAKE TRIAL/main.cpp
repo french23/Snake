@@ -70,13 +70,23 @@ int main(int argc, char **argv)
             if(input == "start game")
             {
                 first_time = true;
-                command = "play snake";
                 g.quitSound("TITLESCREEN.mp3");
+                command = "play snake";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "exit")
             {
                 g.setQuit(true);
+            }
+            else if(input == "load saved"){
+                if(gm.loadGame("save1")){
+                    first_time = true;
+                    g.quitSound("TITLESCREEN.mp3");
+                    command = "loaded game";
+                }
+                else{
+                    command = "failed load";
+                }
             }
         }
 
@@ -84,10 +94,73 @@ int main(int argc, char **argv)
         else if(command == "play snake")
         {
             gm.playClassicSnake(g);
+
+            if(gm.getIsPaused()){
+                command = "pause game";
+            }
+
             if(gm.getGameCond())
             {
                 command = "game over";
                 //cout << "game over" << endl;
+            }
+        }
+
+        else if(command == "pause game"){
+            fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            input = pauseGamePage(g, WIDTH, HEIGHT);
+
+            if(input == "resume game")
+            {
+
+                command = "play snake";
+                gm.setPause(false);
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+
+            }
+            else if(input == "reset game")
+            {
+                command = "play snake";
+                gm.setPause(false);
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            }
+            else if(input == "save game")
+            {
+                gm.setPause(false);
+                gm.saveGame("save1");
+                command = "save screen";
+
+            }
+            else if(input == "main page")
+            {
+                command = "main page";
+                gm.setPause(false);
+                gm.resetGame(g);
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            }
+        }
+
+        else if(command == "save screen"){
+            input = saveGamePage(g, WIDTH, HEIGHT);
+            if(input == "clicked"){
+                command = "pause game";
+            }
+        }
+
+        else if(command == "loaded game"){
+            input = successLoadPage(g, WIDTH, HEIGHT);
+            if(input == "clicked"){
+                command = "play snake";
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+
+            }
+        }
+
+        else if(command == "failed load"){
+            input = failedLoadPage(g, WIDTH, HEIGHT);
+            if(input == "clicked"){
+                command = "main page";
             }
         }
 
