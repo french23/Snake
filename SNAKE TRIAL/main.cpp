@@ -36,7 +36,8 @@ int main(int argc, char **argv)
     g.initSound("gameover.mp3");
     g.initSound("highscore.mp3");
     g.initSound("uibuttonclick2.mp3");
-    g.Sleep(300);
+    //g.Sleep(300);
+    load_time(g,2000,WIDTH,HEIGHT);
 
     while(!g.getQuit())
     {
@@ -51,7 +52,7 @@ int main(int argc, char **argv)
 
                 //cout << "about to play sound file" << endl; system("pause");
                 g.initSound("TITLESCREEN.mp3");
-                g.Sleep(500);
+                load_time(g,1000,WIDTH,HEIGHT);
                 g.playSound("TITLESCREEN.mp3");
                 start_title_music_time = time(0);
                 first_time = false;
