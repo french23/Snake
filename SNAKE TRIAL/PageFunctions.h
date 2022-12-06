@@ -64,6 +64,10 @@ string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
  *
 */
 string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 ///END NEW STUFF BEN///
 
 #endif // PAGEFUNCTIONS_H_INCLUDED

@@ -48,6 +48,16 @@ int main(int argc, char **argv)
             {
                 g.setQuit(true);
             }
+            ///START NEW///
+            else if(input == "load saved"){
+                if(gm.loadGame("save1")){
+                    command = "loaded game";
+                }
+                else{
+                    command = "failed load";
+                }
+            }
+            ///END NEW///
         }
 
         ///Classic Snake Game
@@ -114,6 +124,22 @@ int main(int argc, char **argv)
             input = saveGamePage(g, WIDTH, HIGHT);
             if(input == "clicked"){
                 command = "pause game";
+            }
+        }
+
+        else if(command == "loaded game"){
+            input = successLoadPage(g, WIDTH, HIGHT);
+            if(input == "clicked"){
+                command = "play snake";
+                fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+
+            }
+        }
+
+        else if(command == "failed load"){
+            input = failedLoadPage(g, WIDTH, HIGHT);
+            if(input == "clicked"){
+                command = "main page";
             }
         }
         ///END NEW STUFF BEN///

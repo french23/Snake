@@ -15,6 +15,9 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
 
     textBox title(Point(250,50),15,"SNAKE!");
     textBox play(Point(450,200),10,"PLAY");
+    ///START NEW///
+    textBox loadSaved(Point(220,320),10,"LOAD SAVED");
+    ///END NEW///
     textBox exit(Point(450,600),10,"EXIT");
 
     fill_screen_with_color(g,background_color, WIDTH, HIGHT);
@@ -25,6 +28,9 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
 
     title.draw(g);
     play.draw(g,border_color,background_color);
+    ///START NEW///
+    loadSaved.draw(g,border_color,background_color);
+    ///END NEW///
     exit.draw(g,border_color,background_color);
 
     if(g.mouseClick())
@@ -40,6 +46,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT)
         {
             return_comand = "start game";
         }
+        ///START NEW///
+        else if(loadSaved.isClicked(Point(temp.x,temp.y))){
+            return_comand = "load saved";
+        }
+        ///END NEW///
 
     }
 
@@ -178,4 +189,70 @@ string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 
 }
+
+string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    textBox loadedGame(Point(175, 300),10, "LOADED GAME!");
+    textBox play(Point(450,500),8,"PLAY");
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+    loadedGame.draw(g);
+    play.draw(g, border_color, background_color);
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(play.isClicked(Point(temp.x,temp.y)))
+        {
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
+}
+
+string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    textBox loadedGame(Point(75, 300),10, "NO SAVED DATA!");
+    textBox mainPage(Point(300,500),8,"MAIN PAGE");
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+    loadedGame.draw(g);
+    mainPage.draw(g, border_color, background_color);
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
+}
+
+
 ///END NEW STUFF BEN///
