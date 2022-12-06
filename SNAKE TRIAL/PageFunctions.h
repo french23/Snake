@@ -24,7 +24,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT);
  * postcondition: a c   ommand is given to main
  *
 */
-string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT);
+string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT, int score);
 
 /*
  * description: displays and controls the pause page

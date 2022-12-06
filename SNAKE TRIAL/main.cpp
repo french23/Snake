@@ -91,6 +91,7 @@ int main(int argc, char **argv)
             else if(input == "controls"){
                 command = "controls page";
             }
+            ///END
         }
 
         ///Classic Snake Game
@@ -174,11 +175,12 @@ int main(int argc, char **argv)
                 command = "main page";
             }
         }
+        ///END
 
         ///Losing Screen
         else if(command == "game over")
         {
-            input = gameOverPage(g, WIDTH, HEIGHT);
+            input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
 
             if(input == "play again")
             {
