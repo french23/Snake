@@ -95,3 +95,5 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
         }
     }
 }
+
+
