@@ -1,6 +1,7 @@
 #ifndef APPLE_H_INCLUDED
 #define APPLE_H_INCLUDED
 #include "Snake.h"
+#include "ctime"
 
 using namespace std;
 
@@ -13,7 +14,8 @@ class Apple{
     public:
         /// Constructors ///
         Apple();
-        Apple(int size, Point p, int r = 255, int g = 2, int b = 2);
+        //Apple(int size, Point p, int r = 255, int g = 2, int b = 2);
+        Apple(int size, Point p, int r = 255, int g = 215, int b = 0);
 
         /// Accessors ///
         Segment getSegment();
