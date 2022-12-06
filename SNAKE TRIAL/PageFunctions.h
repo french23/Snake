@@ -56,6 +56,13 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
 
 string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
+/*
+ * description: displays and controls the saves page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
 string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 ///END NEW STUFF BEN///
 

@@ -98,7 +98,7 @@ int main(int argc, char **argv)
             {
                 gm.setPause(false);
                 gm.saveGame("save1");
-                command = saveGamePage(g, WIDTH, HIGHT);
+                command = "save screen";
 
             }
             else if(input == "main page")
@@ -107,6 +107,13 @@ int main(int argc, char **argv)
                 gm.setPause(false);
                 gm.resetGame(g);
                 fill_screen_with_color(g, background_color, WIDTH, HIGHT);
+            }
+        }
+
+        else if(command == "save screen"){
+            input = saveGamePage(g, WIDTH, HIGHT);
+            if(input == "clicked"){
+                command = "pause game";
             }
         }
         ///END NEW STUFF BEN///

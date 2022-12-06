@@ -149,9 +149,9 @@ string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     string return_command = "null";
     color background_color;
-    background_color.R = 75;
-    background_color.G = 32;
-    background_color.B = 102;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
 
     color border_color;
     border_color.R = 227;
@@ -159,7 +159,7 @@ string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     border_color.B = 190;
 
     textBox saveGame(Point(175, 300),10, "GAME SAVED!");
-    textBox okay(Point(400,500),8,"OKAY");
+    textBox okay(Point(450,500),8,"OKAY");
 
     fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
     saveGame.draw(g);
@@ -171,8 +171,7 @@ string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         point temp = g.getMouseClick();
         if(okay.isClicked(Point(temp.x,temp.y)))
         {
-            cout << " I WAS CLICKED" << endl;
-            return_command = "pause game";
+            return_command = "clicked";
         }
     }
 
