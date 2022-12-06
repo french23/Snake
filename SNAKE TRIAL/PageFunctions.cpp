@@ -71,6 +71,7 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox play_again(Point(300,320),8,"PLAY AGAIN");
     textBox main_page(Point(340,440),8,"MAIN PAGE");
 
+    g.playSound("gameover.mp3");
     gameOver.draw(g);
     play_again.draw(g, border_color, background_color);
     main_page.draw(g, border_color, background_color);
@@ -259,4 +260,45 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 }
 
+string load_time(SDL_Plotter& g, int load_time, const int WIDTH, const int HEIGHT)
+{
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+    string return_command = "null";
+
+    for(int i = 0; i < load_time; i+=100)
+    {
+        fill_screen_with_color(g,background_color, WIDTH,HEIGHT);
+        if(i%300 == 0)
+        {
+            if(i%600 == 0)
+            {
+                textBox loading(Point(220,320),10,"LOADING!!");
+                loading.draw(g);
+            }
+            else if(i %900 == 0)
+            {
+                textBox loading(Point(220,320),10,"LOADING!!!");
+                loading.draw(g);
+            }
+            else
+            {
+                textBox loading(Point(220,320),10,"LOADING!");
+                loading.draw(g);
+            }
+        }
+        else
+        {
+            textBox loading(Point(220,320),10,"LOADING");
+            loading.draw(g);
+        }
+
+        g.update();
+        g.Sleep(150);
+    }
+
+    return return_command;
+}
 
