@@ -45,8 +45,22 @@ string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 */
 string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
+/*
+ * description: displays and controls the successful load page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
 string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
+/*
+ * description: displays and controls the failed load page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
 string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
 /*
@@ -57,5 +71,16 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
  *
 */
 void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WIDTH, const int& HIGHT);
+
+
+///NEW STUFF
+/*
+ * description: displays the controls page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
 #endif // PAGEFUNCTIONS_H_INCLUDED

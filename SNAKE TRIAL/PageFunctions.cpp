@@ -17,6 +17,9 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox play(Point(450,200),10,"PLAY");
     textBox loadSaved(Point(220,320),10,"LOAD SAVED");
     textBox exit(Point(450,600),10,"EXIT");
+    ///NEW STUFF
+    textBox controls(Point(900,750),4,"CONTROLS");
+
 
     fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
@@ -28,6 +31,9 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     play.draw(g,border_color,background_color);
     loadSaved.draw(g,border_color,background_color);
     exit.draw(g,border_color,background_color);
+    ///NEW STUFF
+    controls.draw(g,border_color,background_color);
+
 
     if(g.mouseClick())
     {
@@ -47,6 +53,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         }
          else if(loadSaved.isClicked(Point(temp.x,temp.y))){
             return_comand = "load saved";
+            g.playSound("uibuttonclick2.mp3");
+        }
+        ///NEW STUFF
+        else if(controls.isClicked(Point(temp.x,temp.y))){
+            return_comand = "controls";
             g.playSound("uibuttonclick2.mp3");
         }
 
@@ -258,5 +269,68 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 
     return return_command;
 }
+
+///NEW STUFF
+string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    //use WASD
+    textBox use(Point(125, 150),8, "USE");
+    textBox W(Point(450, 80), 8, "W");
+    textBox A(Point(370, 160), 8, "A");
+    textBox S(Point(450, 160), 8, "S");
+    textBox D(Point(530, 160), 8, "D");
+    textBox toMove(Point(650, 150),8, "TO MOVE");
+
+    //press pause
+    textBox press(Point(125, 450),8, "PRESS");
+    textBox P(Point(475, 450), 8, "P");
+    textBox toPause(Point(600, 450),8, "TO PAUSE");
+
+    //main button
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+
+    //use WASD
+    use.draw(g);
+    W.draw(g, border_color);
+    S.draw(g, border_color);
+    A.draw(g, border_color);
+    D.draw(g, border_color);
+    toMove.draw(g);
+
+    //press Pause
+    press.draw(g);
+    P.draw(g, border_color);
+    toPause.draw(g);
+
+    //main page
+    mainPage.draw(g, border_color, background_color);
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
+
+}
+
 
 

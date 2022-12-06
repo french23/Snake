@@ -87,6 +87,10 @@ int main(int argc, char **argv)
                     command = "failed load";
                 }
             }
+            ///NEW STUFF
+            else if(input == "controls"){
+                command = "controls page";
+            }
         }
 
         ///Classic Snake Game
@@ -158,6 +162,14 @@ int main(int argc, char **argv)
 
         else if(command == "failed load"){
             input = failedLoadPage(g, WIDTH, HEIGHT);
+            if(input == "clicked"){
+                command = "main page";
+            }
+        }
+
+        ///NEW STUFF
+        else if(command == "controls page"){
+            input = controlsPage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
                 command = "main page";
             }
