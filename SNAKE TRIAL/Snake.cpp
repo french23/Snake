@@ -173,8 +173,7 @@ void Snake::drawSnake(SDL_Plotter& g){
         for(int y = 0; y < SIZE; y++){
             for(int x = 0; x < SIZE; x++){
                 g.plotPixel(seg[i].getPoint().getX() + x,
-                            seg[i].getPoint().getY() + y, 79, 121, 66);
-
+                            seg[i].getPoint().getY() + y, 2, 155, 161);
             }
         }
         //EYES-Left-Right

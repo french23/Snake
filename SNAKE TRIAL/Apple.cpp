@@ -100,13 +100,13 @@ void Apple::drawApple(SDL_Plotter& g){
             g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y, 55, 2, 82);
             g.plotPixel(appSeg.getX() + x, appSeg.getY() + y+20, 55, 2, 82);
             g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y+20, 55, 2, 82);
-            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 92, 169, 4);
+            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 2, 155, 161);
         }
     }
     //Apple Stem
     for(int x = 0; x < 5; x++){
         for(int y = 0; y < 10; y++){
-            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 128, 64, 0);
+            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 133, 51, 45);
         }
     }
 
