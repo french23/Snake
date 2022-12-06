@@ -47,6 +47,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         }
          else if(loadSaved.isClicked(Point(temp.x,temp.y))){
             return_comand = "load saved";
+            g.playSound("uibuttonclick2.mp3");
         }
 
     }
@@ -79,10 +80,12 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         point temp = g.getMouseClick();
         if(play_again.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_comand = "play again";
         }
         else if(main_page.isClicked(Point(temp.x,temp.y)))
         {
+               g.playSound("uibuttonclick2.mp3");
                return_comand = "main page";
         }
     }
@@ -132,19 +135,23 @@ string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         if(resumeGame.isClicked(Point(temp.x,temp.y)))
         {
             g.Sleep(100);
+            g.playSound("uibuttonclick2.mp3");
             return_command = "resume game";
         }
         else if(resetGame.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "reset game";
         }
         else if(saveGame.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "save game";
 
         }
         else if(mainPage.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "main page";
         }
     }
@@ -177,6 +184,7 @@ string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         point temp = g.getMouseClick();
         if(okay.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
         }
     }
@@ -210,6 +218,7 @@ string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         point temp = g.getMouseClick();
         if(play.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
         }
     }
@@ -242,6 +251,7 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         point temp = g.getMouseClick();
         if(mainPage.isClicked(Point(temp.x,temp.y)))
         {
+            g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
         }
     }
