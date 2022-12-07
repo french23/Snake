@@ -216,14 +216,15 @@
 	<map>
 	<queue>
 
-1670362935 source:c:\users\benny\onedrive\documents\github\snake\snake trial\game.cpp
+1670374139 source:c:\users\benny\onedrive\documents\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670361805 c:\users\benny\onedrive\documents\github\snake\snake trial\game.h
+1670373390 c:\users\benny\onedrive\documents\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
 	<fstream>
+	<ostream>
 	<cassert>
 
 1670275365 source:c:\users\benny\onedrive\documents\github\snake\snake trial\grid_square.cpp
@@ -233,7 +234,7 @@
 	<vector>
 	"Segment.h"
 
-1670363096 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
+1670377432 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"

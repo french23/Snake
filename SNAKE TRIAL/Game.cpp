@@ -2,6 +2,9 @@
 
 using namespace std;
 
+//DELETE ME
+void fill_file(int[]);
+
 ///Constructors///
 Game::Game(){
     s = Snake();
@@ -319,19 +322,23 @@ bool Game::isTopFive(){
 void Game::addTopFive(int score){
     ifstream fileRead;
     ofstream fileWrite;
+    fstream file;
     string fname;
     int scoreVal;
     int index;
 
     fname = "highScoresDocument.txt";
 
-    fileRead.open(fname);
+    //fileRead.open(fname);
+    file.open("highScoresDocument.txt");
+    //cout << file.is_open() <<  endl; system("pause");
 
-    if(fileRead.is_open()){
+
+    if(file.is_open()){
         //make list
 
         for(int i = 0; i < 5; i++){
-            fileRead >> scoreVal;
+            file >> scoreVal;
             highScoreVals[i] = scoreVal;
         }
         highScoreVals[5] = score;
@@ -359,26 +366,60 @@ void Game::addTopFive(int score){
 
 
     }
-    fileRead.close();
+    file.close();
 
+    fill_file(highScoreVals);
 
     //write to file
-    fileWrite.open(fname, std::ofstream::trunc);
-    if(fileWrite.is_open()){
-        cout << "file open!" << endl;
-        for(int i = 1; i < 6; i++){
-            fileWrite << highScoreVals[i] << endl;
+    //fileWrite.open(fname, std::ofstream::trunc);
+    //fileWrite.open(fname);
+    //cout << fname << endl;
+    //cout << fileWrite.is_open() << endl; system("pause");
+    ofstream test;
+    file.clear();
 
-            cout << highScoreVals[i] << endl;
 
-        }
-    }
+//    if(file.is_open()){
+//        for(int i = 1; i < 6; i++){
+//            file << highScoreVals[i] << endl;
+//            cout << "entering data into the file!!!!!!!!!" <<endl; system("pause");
+//            cout << highScoreVals[i] << endl;
+//
+//        }
+//    }
+//         for(int i = 1; i < 6; i++){
+//            cout << highScoreVals[i] << endl;
+//
+//        }
 
-    fileWrite.close();
+    file.close();
     //system("pause");
 
+    //*/
 }
 
 
 bool isHighScore();
 void setHighScores(string fName);
+
+void fill_file(int myArray[])
+{
+    cout << "inside of fill_file" <<endl; system("pause");
+    ofstream file;
+    file.open("highScoresDocument.txt");
+
+    int arrayTest[] = {1,2,3,4,5};
+
+    if(file.is_open())
+    {
+        for(int i = 1; i < 5; i++)
+        {
+            file << arrayTest[i] << endl;
+            cout << "entering data into the file!!!!!!!!!" <<endl; system("pause");
+            cout << arrayTest[i] << endl;
+
+        }
+    }
+
+    file.close();
+}

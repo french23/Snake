@@ -4,6 +4,7 @@
 #include "SDL_Plotter.h"
 #include "Apple.h"
 #include <fstream>
+#include <ostream>
 #include <cassert>
 
 using namespace std;

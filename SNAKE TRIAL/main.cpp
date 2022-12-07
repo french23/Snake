@@ -29,6 +29,8 @@ int main(int argc, char **argv)
     bool first_time = true;
     //New
     bool highScore = true;
+    bool resetTopFive = false;
+
     int start_title_music_time;
     const int title_music_time = 37;
     char key;
@@ -81,6 +83,7 @@ int main(int argc, char **argv)
             }
             else if(input == "load saved"){
                 if(gm.loadGame("save1")){
+                    remove("save1");
                     first_time = true;
                     g.quitSound("TITLESCREEN.mp3");
                     command = "loaded game";
@@ -104,15 +107,23 @@ int main(int argc, char **argv)
             if(gm.isTopFive() && highScore){
                 g.playSound("highscore.mp3");
                 highScore = false;
+                resetTopFive = true;
+
             }
 
             if(gm.getIsPaused()){
                 command = "pause game";
             }
 
+            //test  case
+            if(gm.getGameCond()&& resetTopFive){
+                gm.addTopFive(gm.getScore());
+                command = "game over";
+            }
+
             if(gm.getGameCond())
             {
-                gm.addTopFive(gm.getScore());
+
                 command = "game over";
             }
         }
@@ -187,6 +198,7 @@ int main(int argc, char **argv)
         ///Losing Screen
         else if(command == "game over")
         {
+
             input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
 
             if(input == "play again")
