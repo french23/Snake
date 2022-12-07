@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// need to do this with the square class, this is a vector of squares or whatever their called
 class grid_square
 {
 public:

@@ -16,71 +16,70 @@
 
 using namespace std;
 
-class textBox
-{
-private:
-    string fontName = "font.txt";
-    vector<symbol> text;
-    string inputStr;
-    Point startLoc;
-    int fontSize;
-public:
+class textBox {
+    private:
+        string fontName = "font.txt";
+        vector<symbol> text;
+        string inputStr;
+        Point startLoc;
+        int fontSize;
+    public:
 
-    /*
-    * description: Constructor, set data member values
-    * return: n/a
-    * precondition: correct input
-    * postcondition: sets data member values
-    *
-    */
-    textBox(Point, int, string);
+        /*
+        * description: Constructor, set data member values
+        * return: n/a
+        * precondition: correct input
+        * postcondition: sets data member values
+        *
+        */
+        textBox(Point, int, string);
 
-    /*
-    * description: determines if the object was clicked
-    * return: boolean: true/false
-    * precondition: correct input Point object
-    * postcondition: returns true if point is within text box
-    *
-    */
-    bool isClicked(Point);
+        /*
+        * description: determines if the object was clicked
+        * return: boolean: true/false
+        * precondition: correct input Point object
+        * postcondition: returns true if point is within text box
+        *
+        */
+        bool isClicked(Point);
 
-    /*
-    * description: Draws the word specified
-    * return: n/a
-    * precondition: correct input
-    * postcondition: draws word
-    *
-    */
-    void draw(SDL_Plotter& g);
+        /*
+        * description: Draws the word specified
+        * return: n/a
+        * precondition: correct input
+        * postcondition: draws word
+        *
+        */
+        void draw(SDL_Plotter& g);
 
-    /*
-    * description: Draws the word specified
-    *              overloaded with background color
-    * return: n/a
-    * precondition: correct input
-    * postcondition: draws word
-    *
-    */
-    void draw(SDL_Plotter& g, color border_color);
+        /*
+        * description: Draws the word specified
+        *              overloaded with background color
+        * return: n/a
+        * precondition: correct input
+        * postcondition: draws word
+        *
+        */
+        void draw(SDL_Plotter& g, color border_color);
 
-    /*
-    * description: Draws the word specified
-    *              overloaded with border and background
-    * return: n/a
-    * precondition: correct input
-    * postcondition: draws word
-    *
-    */
-    void draw(SDL_Plotter& g, color border_color, color background_color);
+        /*
+        * description: Draws the word specified
+        *              overloaded with border and background
+        * return: n/a
+        * precondition: correct input
+        * postcondition: draws word
+        *
+        */
+        void draw(SDL_Plotter& g, color border_color, color background_color);
 
-    /*
-    * description: erases word
-    * return: n/a
-    * precondition: correct input
-    * postcondition: erases word
-    *
-    */
-    void eraseText(SDL_Plotter&, color);
+        /*
+        * description: erases word
+        * return: n/a
+        * precondition: correct input
+        * postcondition: erases word
+        *
+        */
+        void eraseText(SDL_Plotter&, color);
 };
 
 
