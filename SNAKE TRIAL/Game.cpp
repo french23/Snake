@@ -1,5 +1,5 @@
  /*
- * Author: Peter Whitcomb
+ * Author: Peter Whitcomb, Logan Rigdon
  * Assignment Title: Snake Game
  * Assignment Description: Create the game Snake
  * Due Date: 12/7/2022
@@ -16,6 +16,7 @@ Game::Game(){
     a = Apple();
     score = 0;
     speed = 100;
+    highestSpeed = 100;
     gameOver = false;
     isPaused = false;
     isReset = false;
@@ -25,6 +26,7 @@ Game::Game(){
 Game::Game(Snake snk, Apple app){
     s = snk;
     a = app;
+    highestSpeed = 100;
     speed = 100;
     score = 0;
     gameOver = false;
@@ -453,7 +455,7 @@ void Game::hardGamemode(SDL_Plotter& g){
         g.update();
     }
 }
-bool froze = false;
+
 void Game::RampageGamemode(SDL_Plotter& g){
     int freezer;
     gameMode = "rampage";
@@ -487,19 +489,22 @@ void Game::RampageGamemode(SDL_Plotter& g){
             s.incrementLength();
             g.playSound("appleappleeateat.mp3");
             //Scales score based on speed
-            score+= (180 / speed);
-            if(froze){
+            score+= (180 / highestSpeed);
+            if(a.getFroze()){
                 speed += 20;
             }
-            if(speed > 15 && !froze){
+            if(speed > 15 && !a.getFroze()){
                 speed -= 5;
                 freezer = (rand()%10)+1;
             }
             if(freezer == 10){
-                froze = true;
+                a.setFrozeTrue();
             }
             else{
-                froze = false;
+                a.setFrozeFalse();
+            }
+            if(speed < highestSpeed){
+                highestSpeed = speed;
             }
 
         }
@@ -510,7 +515,7 @@ void Game::RampageGamemode(SDL_Plotter& g){
 
         /// Draw snake and apple
         a.drawApple(g);
-        if(froze){//Silver Color
+        if(a.getFroze()){//Silver Color
             a.setColor(192, 192, 192);
         }
         else{

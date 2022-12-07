@@ -1,5 +1,5 @@
  /*
- * Author: Peter Whitcomb
+ * Author: Peter Whitcomb, Logan Rigdon
  * Assignment Title: Snake Game
  * Assignment Description: Create the game Snake
  * Due Date: 12/7/2022
@@ -19,6 +19,7 @@ class Apple{
         bool beenHit;
         int R, G, B;
         int appleSize = 25;
+        bool froze = false;
     public:
         /// Constructors ///
         Apple();
@@ -54,6 +55,16 @@ class Apple{
         //                                                                 *
         //******************************************************************
         int getAppleSize();
+
+        //******************************************************************
+        // Description: Gets the froze boolean                             *
+        // Return: Boolena                                                 *
+        // Precondition: The Apple object exists                           *
+        // Postcondition: The apple's froze boolean is returned.           *
+        //                The object is unchanged.                         *
+        //                                                                 *
+        //******************************************************************
+        bool getFroze();
 
         /// Mutators ///
 
@@ -96,6 +107,24 @@ class Apple{
         //                                                                 *
         //******************************************************************
         void setAppleColision(const bool);
+
+        //******************************************************************
+        // Description: Sets the froze boolean to true.                    *
+        // Return: Void                                                    *
+        // Precondition: The Apple object exists                           *
+        // Postcondition: The Apple's froze boolean is set to true.         *
+        //                                                                 *
+        //******************************************************************
+        void setFrozeTrue();
+
+        //******************************************************************
+        // Description: Sets the froze boolean to false.                   *
+        // Return: Void                                                    *
+        // Precondition: The Apple object exists                           *
+        // Postcondition: The Apple's froze boolean is set to false.       *
+        //                                                                 *
+        //******************************************************************
+        void setFrozeFalse();
 
 
         /// Methods ///

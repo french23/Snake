@@ -21,6 +21,7 @@ class Game{
         Apple a;
         int score;
         int speed;
+        int highestSpeed;
         bool gameOver;
         bool isPaused;
         bool isReset;

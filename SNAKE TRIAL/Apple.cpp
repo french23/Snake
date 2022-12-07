@@ -1,5 +1,5 @@
  /*
- * Author: Peter Whitcomb
+ * Author: Peter Whitcomb, Logan Rigdon
  * Assignment Title: Snake Game
  * Assignment Description: Create the game Snake
  * Due Date: 12/7/2022
@@ -40,6 +40,10 @@ int Apple::getAppleSize(){
     return appleSize;
 }
 
+bool Apple::getFroze(){
+    return froze;
+}
+
 /// Mutators ///
 void Apple::setSegment(const Segment s){
     appSeg = s;
@@ -54,6 +58,14 @@ void Apple::setColor(int r, int g , int b){
 }
 void Apple::setAppleColision(const bool b){
     beenHit = b;
+}
+
+void Apple::setFrozeTrue(){
+    froze = true;
+}
+
+void Apple::setFrozeFalse(){
+    froze = false;
 }
 
 /// Methods ///
