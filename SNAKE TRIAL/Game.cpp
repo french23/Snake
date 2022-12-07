@@ -7,15 +7,17 @@ Game::Game(){
     s = Snake();
     a = Apple();
     score = 0;
+    speed = 100;
     gameOver = false;
     isPaused = false;
     isReset = false;
+
 
 }
 Game::Game(Snake snk, Apple app){
     s = snk;
     a = app;
-
+    speed = 100;
     score = 0;
     gameOver = false;
     isPaused = false;
@@ -40,6 +42,12 @@ bool  Game::getIsPaused(){
 }
 char  Game::getKey(){
     return key;
+}
+string Game::getGamemode(){
+    return gameMode;
+}
+int    Game::getSpeed(){
+    return speed;
 }
 
 ///Mutators///
@@ -91,52 +99,6 @@ void Game::checkBoarderCollision(SDL_Plotter& g){
     }
 
 }
-void Game::playClassicSnake(SDL_Plotter& g){
-    ///Resets game
-    if(isReset){
-        resetGame(g);
-    }
-    ///Keyboard detection
-    if(g.kbhit()){
-        key = g.getKey();
-        s.setDirection(g, key);
-        switch(key){
-            case 'p': isPaused = !isPaused; /// 'p' pauses game
-                    break;
-            /*case 'r': isReset = true;
-                    break;*/
-        }
-    }
-    if(!s.isSnakeDead() && !isPaused){
-        ///Apple Collision
-        if(a.checkAppleCollision(s)){
-            a.eraseApple(g);
-            a.setPoint(a.createPoint(s));
-
-            s.incrementLength();
-            g.playSound("appleappleeateat.mp3");
-            score++;
-
-        }
-
-        /// Self and wall collision
-        s.checkSelfColision(g);
-        checkBoarderCollision(g);
-
-        /// Draw snake and apple
-        a.drawApple(g);
-        if(!s.isSnakeDead()){
-            s.eraseSnake(g);
-            s.drawSnake(g);
-        }
-
-
-
-        /// Update
-        g.Sleep(100);
-        g.update();
-    }
-}
 void Game::resetGame(SDL_Plotter& g){
     g.clear();
 
@@ -152,6 +114,7 @@ void Game::resetGame(SDL_Plotter& g){
     isReset = false;
     s.setSnakeDeath(false);
     score = 0;
+    speed = 100;
     s.setDirection(RIGHT);
     key = rightKey;
 
@@ -192,7 +155,13 @@ void Game::saveGame(string fName){
     //Apple Point
     filePush << "ApplePoint: " << endl
              << a.getSegment().getX() << " "
-             << a.getSegment().getY() << endl;
+             << a.getSegment().getY() << endl << endl;
+    // Gamem ode and speed
+    filePush << "Gamemode: " << endl
+             << gameMode << endl << endl
+             << "Speed:" << endl
+             << speed << endl;
+
 
 
 
@@ -204,7 +173,7 @@ void Game::saveGame(string fName){
 }
 bool Game::loadGame(string fName){
     bool isOpen = false;
-    string junk;
+    string junk, mode;
     int num, x, y;
     Direction d;
 
@@ -249,6 +218,15 @@ bool Game::loadGame(string fName){
         fileRead >> junk;
         fileRead >> x >> y;
         a.setPoint(Point(x,y));
+
+        //Set game mode and speed
+        fileRead >> junk;
+        fileRead >> mode;
+        gameMode = mode;
+
+        fileRead >> junk;
+        fileRead >> num;
+        speed = num;
 
 
         fileRead.close();
@@ -295,3 +273,226 @@ void Game::setHighScores(string fName, string username){
     filePush.close();
 
 }
+
+
+///Methods regarding gamemodes
+void Game::playClassicSnake(SDL_Plotter& g){
+    gameMode = "classic";
+    ///Resets game
+    if(isReset){
+        resetGame(g);
+    }
+    ///Keyboard detection
+    if(g.kbhit()){
+        key = g.getKey();
+
+        switch(key){
+            case 'p': isPaused = !isPaused; /// 'p' pauses game
+                    break;
+        }
+        if(!isPaused){
+            s.setDirection(g, key);
+        }
+    }
+
+
+
+
+
+    if(!s.isSnakeDead() && !isPaused){
+        ///Apple Collision
+        if(a.checkAppleCollision(s)){
+            a.eraseApple(g);
+            a.setPoint(a.createPoint(s));
+
+            s.incrementLength();
+            g.playSound("appleappleeateat.mp3");
+            score++;
+
+        }
+
+        /// Self and wall collision
+        s.checkSelfColision(g);
+        checkBoarderCollision(g);
+
+        /// Draw snake and apple
+        a.drawApple(g);
+        if(!s.isSnakeDead()){
+            s.eraseSnake(g);
+            s.drawSnake(g);
+        }
+
+
+
+        /// Update
+        g.Sleep(100);
+        g.update();
+    }
+}
+void Game::mediumGamemode(SDL_Plotter& g){
+    speed = 70;
+    gameMode = "medium";
+    ///Resets game
+    if(isReset){
+        resetGame(g);
+    }
+    ///Keyboard detection
+    if(g.kbhit()){
+        key = g.getKey();
+
+        switch(key){
+            case 'p': isPaused = !isPaused; /// 'p' pauses game
+                    break;
+        }
+        if(!isPaused){
+            s.setDirection(g, key);
+        }
+    }
+
+
+
+
+
+    if(!s.isSnakeDead() && !isPaused){
+        ///Apple Collision
+        if(a.checkAppleCollision(s)){
+            a.eraseApple(g);
+            a.setPoint(a.createPoint(s));
+
+            s.incrementLength();
+            g.playSound("appleappleeateat.mp3");
+            score+= 2;
+
+        }
+
+        /// Self and wall collision
+        s.checkSelfColision(g);
+        checkBoarderCollision(g);
+
+        /// Draw snake and apple
+        a.drawApple(g);
+        if(!s.isSnakeDead()){
+            s.eraseSnake(g);
+            s.drawSnake(g);
+        }
+
+
+
+        /// Update
+        g.Sleep(speed);
+        g.update();
+    }
+}
+void Game::hardGamemode(SDL_Plotter& g){
+    speed = 40;
+    gameMode = "hard";
+    ///Resets game
+    if(isReset){
+        resetGame(g);
+    }
+    ///Keyboard detection
+    if(g.kbhit()){
+        key = g.getKey();
+
+        switch(key){
+            case 'p': isPaused = !isPaused; /// 'p' pauses game
+                    break;
+        }
+        if(!isPaused){
+            s.setDirection(g, key);
+        }
+    }
+
+
+
+
+
+    if(!s.isSnakeDead() && !isPaused){
+        ///Apple Collision
+        if(a.checkAppleCollision(s)){
+            a.eraseApple(g);
+            a.setPoint(a.createPoint(s));
+
+            s.incrementLength();
+            g.playSound("appleappleeateat.mp3");
+            score+= 3;
+
+        }
+
+        /// Self and wall collision
+        s.checkSelfColision(g);
+        checkBoarderCollision(g);
+
+        /// Draw snake and apple
+        a.drawApple(g);
+        if(!s.isSnakeDead()){
+            s.eraseSnake(g);
+            s.drawSnake(g);
+        }
+
+
+
+        /// Update
+        g.Sleep(speed);
+        g.update();
+    }
+}
+void Game::RampageGamemode(SDL_Plotter& g){
+    gameMode = "rampage";
+    ///Resets game
+    if(isReset){
+        resetGame(g);
+    }
+    ///Keyboard detection
+    if(g.kbhit()){
+        key = g.getKey();
+
+        switch(key){
+            case 'p': isPaused = !isPaused; /// 'p' pauses game
+                    break;
+        }
+        if(!isPaused){
+            s.setDirection(g, key);
+        }
+    }
+
+
+
+
+
+    if(!s.isSnakeDead() && !isPaused){
+        ///Apple Collision
+        if(a.checkAppleCollision(s)){
+            a.eraseApple(g);
+            a.setPoint(a.createPoint(s));
+
+            s.incrementLength();
+            g.playSound("appleappleeateat.mp3");
+            //Scales score based on speed
+            score+= (180 / speed);
+            if(speed > 15){
+                speed -= 5;
+            }
+
+        }
+
+        /// Self and wall collision
+        s.checkSelfColision(g);
+        checkBoarderCollision(g);
+
+        /// Draw snake and apple
+        a.drawApple(g);
+        if(!s.isSnakeDead()){
+            s.eraseSnake(g);
+            s.drawSnake(g);
+        }
+
+
+
+        /// Update
+        g.Sleep(speed);
+        g.update();
+    }
+}
+
+
