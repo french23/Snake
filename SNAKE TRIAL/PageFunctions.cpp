@@ -1,3 +1,12 @@
+/*
+* Author: Benjamin Szabo, Peter Stuart
+* Assignment Title: Snake Game
+* Assignment Description: Create a snake game
+* Due Date: 12/7/2022
+* Date Created: 12/1/2022
+* Date Last Modified: 12/7/2022
+ */
+
 #include "PageFunctions.h"
 
 string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
@@ -62,13 +71,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     return return_comand;
 }
 
-string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
+string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score)
 {
-    string return_comand = "null";
-    string scoreVal = to_string(gm.getScore());
-    string file_name = "highScores.txt";
+    string return_comand = "null";color border_color;
+    string scoreVal = to_string(score);
 
-    color border_color;
     border_color.R = 227;
     border_color.G = 27;
     border_color.B = 190;
@@ -81,42 +88,19 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
     textBox gameOver(Point(100,100),13,"GAME OVER!");
     textBox play_again(Point(280,540),8,"PLAY AGAIN");
     textBox main_page(Point(320,650),8,"MAIN PAGE");
-
+    ///NEW STUFF
     textBox gameScore(Point(300,350),8,"SCORE");
     textBox scoreValue(Point(700,350),8,scoreVal);
+    ///END
 
 
     gameOver.draw(g);
     play_again.draw(g, border_color, background_color);
     main_page.draw(g, border_color, background_color);
+    ///NEW STUFF
     gameScore.draw(g);
     scoreValue.draw(g);
-
-    /*
-
-    // Highscore
-    gm.readHighScores(file_name);
-    int* my_array = gm.getHighScores();
-
-    if(gm.getScore() > my_array[9])
-    {
-        if(gm.getScore() > my_array[0])
-        {
-            cout << "this is a new highest score!!!" << endl;
-            textBox high_score(Point(200,250),8,"HIGH SCORE");
-            high_score.draw(g, border_color, background_color);
-
-        }
-        else
-        {
-            cout << "this score is greated than the lowest high score" << endl;
-        }
-        gm.setHighScores( file_name, "PFS");
-
-        cout << "this is the current version of the high score" << my_array[0] << endl;
-    }
-
-    */
+    ///END
 
     if(g.mouseClick())
     {
@@ -405,6 +389,70 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 
 }
 
+///NEW STUFF
+string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
+    textBox classic(Point(375,220),8,"CLASSIC");
+    textBox medium(Point(410,340),8,"MEDIUM");
+    textBox hard(Point(480,460),8,"HARD");
+    textBox rampage(Point(375,580),8,"RAMPAGE");
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+    selectDifficult.draw(g);
+    classic.draw(g, border_color, background_color);
+    medium.draw(g, border_color, background_color);
+    hard.draw(g, border_color, background_color);
+    rampage.draw(g, border_color, background_color);
+    mainPage.draw(g, border_color, background_color);
+
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(classic.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "classic snake";
+        }
+        else if(medium.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "medium mode";
+        }
+        else if(hard.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "hard mode";
+        }
+        else if(rampage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "rampage mode";
+        }
+        else if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
+}
+
 string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials)
 {
     string return_command = "null";
@@ -515,3 +563,5 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
 
     return return_command;
 }
+
+

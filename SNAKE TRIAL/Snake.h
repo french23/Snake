@@ -19,7 +19,7 @@ const char rightKey = 'd';
 
 
 
-const int MAX_SIZE = 1000;
+const int MAX_SIZE = 100;
 const int SIZE = 25;
 
 

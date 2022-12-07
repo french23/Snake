@@ -119,34 +119,6 @@ void Snake::checkSelfColision(SDL_Plotter& g){
             isDead = true;
         }
     }
-
-    /// Improved Snaked self collision
-//    for(int i = 1; i < length; i++){
-//        if(dir == UP ){
-//            if(seg[0].getX() == seg[i].getX() && seg[0].getY() == seg[i].getY() + SIZE){
-//                g.playSound("SnakeDie.wav");
-//                isDead = true; /// End Game
-//            }
-//        }
-//        else if(dir == LEFT ){
-//            if(seg[0].getX() == seg[i].getX() + SIZE && seg[0].getY() == seg[i].getY()){
-//                g.playSound("SnakeDie.wav");
-//                isDead = true; /// End Game
-//            }
-//        }
-//        else if(dir == RIGHT ){
-//            if(seg[0].getX() + SIZE  == seg[i].getX() && seg[0].getY() == seg[i].getY()){
-//                g.playSound("SnakeDie.wav");
-//                isDead = true; /// End Game
-//            }
-//        }
-//        else if(dir == DOWN ){
-//            if(seg[0].getX() == seg[i].getX() && seg[0].getY() + SIZE == seg[i].getY()){
-//                g.playSound("SnakeDie.wav");
-//                isDead = true; /// End Game
-//            }
-//        }
-//    }
 }
 void Snake::drawSnake(SDL_Plotter& g){
     //Copy Cell Locations

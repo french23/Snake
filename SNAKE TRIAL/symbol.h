@@ -1,6 +1,15 @@
 #ifndef SYMBOL_H_INCLUDED
 #define SYMBOL_H_INCLUDED
 
+/*
+* Author: Peter Stewart
+* Assignment Title: Snake
+* Assignment Description: make a snake game
+* Due Date: 12/7/2022
+* Date Created: 11/14/2022
+* Date Last Modified: 12/7/2022
+ */
+
 #include "grid_square.h"
 #include <fstream>
 
@@ -46,7 +55,6 @@ public:
     int get_size() const;
 
 private:
-    //grid_square m_canvas;
     int m_size;
     int m_fount_size;
     char m_input_symbol;
