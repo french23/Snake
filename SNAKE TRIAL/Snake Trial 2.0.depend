@@ -125,7 +125,7 @@
 1670381555 c:\users\peter\onedrive\documents\github\snake\snake trial\snake.h
 	"Segment.h"
 
-1670381555 source:c:\users\peter\onedrive\documents\github\snake\snake trial\main.cpp
+1670385015 source:c:\users\peter\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -145,10 +145,10 @@
 	"Snake.h"
 	"ctime"
 
-1670348191 source:c:\users\peter\onedrive\documents\github\snake\snake trial\game.cpp
+1670384991 source:c:\users\peter\onedrive\documents\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670382610 c:\users\peter\onedrive\documents\github\snake\snake trial\game.h
+1670387428 c:\users\peter\onedrive\documents\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"

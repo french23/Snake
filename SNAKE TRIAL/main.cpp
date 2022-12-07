@@ -99,7 +99,7 @@ int main(int argc, char **argv)
         ///Classic Snake Game
         else if(command == "play snake")
         {
-            gm.playClassicSnake(g);
+            gm.RampageGamemode(g);
 
             if(gm.getIsPaused()){
                 command = "pause game";

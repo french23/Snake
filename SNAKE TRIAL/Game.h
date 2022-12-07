@@ -12,12 +12,14 @@ class Game{
         Snake s;
         Apple a;
         int score;
+        int speed;
         bool gameOver;
         bool isPaused;
         bool isReset;
         char key;
         ifstream fileRead;
         ofstream filePush;
+        string gameMode;
 
         int highScores[11];
         string highScoreNames[11];
@@ -36,6 +38,8 @@ class Game{
         bool getGameCond()const;
         bool getIsPaused();
         char getKey();
+        string getGamemode();
+        int getSpeed();
 
         ///Mutators///
         void setSnake(const Snake snk);
@@ -60,7 +64,9 @@ class Game{
         void setHighScores(string fName, string username);
 
         ///Methods regarding gamemodes
-
+        void mediumGamemode(SDL_Plotter& g);
+        void hardGamemode(SDL_Plotter& g);
+        void RampageGamemode(SDL_Plotter& g);
 
 };
 
