@@ -144,13 +144,13 @@ int main(int argc, char **argv)
                 gm.playClassicSnake(g);
             }
             else if(gameMode == "medium mode"){
-                //gm.mediumGamemode(g);
+                gm.mediumGamemode(g);
             }
             else if(gameMode == "hard mode"){
-                //gm.hardGamemode(g);
+                gm.hardGamemode(g);
             }
             else if(gameMode == "rampage mode"){
-                //gm.RampageGamemode(g);
+                gm.RampageGamemode(g);
             }
             else if(gameMode == "clicked"){
                 command = "main page";
@@ -169,6 +169,8 @@ int main(int argc, char **argv)
         }
         ///END NEW
 
+
+        ///Pause Page
         else if(command == "pause game"){
             fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
             input = pauseGamePage(g, WIDTH, HEIGHT);
@@ -203,6 +205,7 @@ int main(int argc, char **argv)
             }
         }
 
+        ///Save Page
         else if(command == "save screen"){
             input = saveGamePage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
@@ -210,15 +213,29 @@ int main(int argc, char **argv)
             }
         }
 
+        ///Loaded Game Page
         else if(command == "loaded game"){
             input = successLoadPage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
                 command = "play snake";
+                if(gm.getGamemode() == "classic"){
+                    gameMode = "classic snake";
+                }
+                else if(gm.getGamemode() == "medium"){
+                    gameMode = "medium mode";
+                }
+                else if(gm.getGamemode() == "hard"){
+                    gameMode = "hard mode";
+                }
+                else if(gm.getGamemode() == "rampage"){
+                    gameMode = "rampage mode";
+                }
                 fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
 
             }
         }
 
+        ///Failed Load Page
         else if(command == "failed load"){
             input = failedLoadPage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
@@ -228,7 +245,7 @@ int main(int argc, char **argv)
 
 
 
-        // Controls page
+        /// Controls page
         else if(command == "controls page")
         {
             input = controlsPage(g, WIDTH, HEIGHT);
