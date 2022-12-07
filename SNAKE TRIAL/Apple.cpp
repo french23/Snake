@@ -93,20 +93,33 @@ void Apple::drawApple(SDL_Plotter& g){
             g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, R, G, B);
         }
     }
-    //Apple Corners + Leaf
+    //Apple Corners
     for(int y = 0; y < 5; y++){
         for(int x = 0; x < 5; x++){
-            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y, 55, 2, 82);
-            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y, 55, 2, 82);
-            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y+20, 55, 2, 82);
-            g.plotPixel(appSeg.getX() + x+20, appSeg.getY() + y+20, 55, 2, 82);
-            g.plotPixel(appSeg.getX() + x+14, appSeg.getY() - y-10, 2, 155, 161);
+            g.plotPixel(appSeg.getX() + x+1, appSeg.getY() + y+3, 55, 2, 82);//Top-Left
+            g.plotPixel(appSeg.getX() + x+18, appSeg.getY() + y+3, 55, 2, 82);//Top-Right
+            g.plotPixel(appSeg.getX() + x+1, appSeg.getY() + y+20, 55, 2, 82);//Bottom-Left
+            g.plotPixel(appSeg.getX() + x+18, appSeg.getY() + y+20, 55, 2, 82);//Bottom-Right
+        }
+        //Apple Resizing
+        for(int x = 0; x < appleSize; x++){
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y-1, 55, 2, 82);//Top
+            g.plotPixel(appSeg.getX() + x, appSeg.getY() + y+23, 55, 2, 82);//Bottom
+            g.plotPixel(appSeg.getX() + y-3, appSeg.getY() + x, 55, 2, 82);//Left
+            g.plotPixel(appSeg.getX() + y+22, appSeg.getY() + x, 55, 2, 82);//Right
+
         }
     }
     //Apple Stem
-    for(int x = 0; x < 5; x++){
-        for(int y = 0; y < 10; y++){
-            g.plotPixel(appSeg.getX() + x+10, appSeg.getY() - y, 133, 51, 45);
+    for(int x = 0; x < 3; x++){
+        for(int y = 0; y < 4; y++){
+            g.plotPixel(appSeg.getX() + x+11, appSeg.getY() - y+3, 133, 51, 45);
+        }
+    }
+    //Apple Leaf
+    for(int y = 0; y < 3; y++){
+         for(int x = 0; x < 3; x++){
+            g.plotPixel(appSeg.getX() + x+12, appSeg.getY() - y, 55, 155, 161);//Leaf
         }
     }
 
