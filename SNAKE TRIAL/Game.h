@@ -23,6 +23,7 @@ class Game{
 
         int highScores[11];
         string highScoreNames[11];
+        string highScoresMode[11];
 
     public:
         ///Constructors///
