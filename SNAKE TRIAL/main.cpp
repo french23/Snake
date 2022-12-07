@@ -189,6 +189,8 @@ int main(int argc, char **argv)
             if(gm.getScore() > my_array[9])
             {
                 command = "set score";
+                initals = "___";
+                g.Sleep(100);
             }
             else
             {
@@ -220,7 +222,16 @@ int main(int argc, char **argv)
         else if(command == "set score")
         {
             //cout << "in main.cpp about to enter SetScorePage" << endl;system("pause");
-            initals = SetScorePage(g, WIDTH, HEIGHT, gm, initals);
+            input = SetScorePage(g, WIDTH, HEIGHT, gm, initals);
+            if(input == "game over page")
+            {
+                command = "game over page";
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            }
+            else
+            {
+                initals = input;
+            }
         }
 
         g.update();

@@ -64,10 +64,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 
 string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
 {
-    string return_comand = "null";color border_color;
+    string return_comand = "null";
     string scoreVal = to_string(gm.getScore());
     string file_name = "highScores.txt";
 
+    color border_color;
     border_color.R = 227;
     border_color.G = 27;
     border_color.B = 190;
@@ -409,10 +410,16 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     string return_command = "null";
     string file_name = "highScores.txt";
     char input;
+
     color background_color;
     background_color.R = 55;
     background_color.G = 2;
     background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
     bool keep_going = true;
 
     gm.readHighScores(file_name);
@@ -421,31 +428,38 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
 
     fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
-        // Print to the screen
-        if(gm.getScore() > my_array[0])
+    // Print to the screen
+    if(gm.getScore() > my_array[0])
+    {
+        //cout << "insisde new high score" << endl;
+        // This is the current highScore
+        textBox HighScore(Point(10,50),9,"NEW HIGH SCORE");
+        HighScore.draw(g);
+    }
+    else
+    {
+        textBox HighScore(Point(10,50),9,"HIGH SCORE");
+        HighScore.draw(g);
+    }
+
+    // Now ask for input
+    textBox enterInitials(Point(100,200),8,"ENTER YOUR INITIALS");
+    textBox userInitials(Point(400,400),8, initials);
+    enterInitials.draw(g);
+    userInitials.draw(g);
+
+    //Listen for input
+    if(g.kbhit())
+    {
+        input = g.getKey();
+        int i = 0;
+        if(input == 8)
         {
-            //cout << "insisde new high score" << endl;
-            // This is the current highScore
-            textBox HighScore(Point(10,50),9,"NEW HIGH SCORE");
-            HighScore.draw(g);
+            cout << "this is a backspace" << endl;
+            system("pause");
         }
         else
         {
-            textBox HighScore(Point(10,50),9,"HIGH SCORE");
-            HighScore.draw(g);
-        }
-
-        // Now ask for input
-        textBox enterInitials(Point(100,200),8,"ENTER YOUR INITIALS");
-        textBox userInitials(Point(400,400),8, initials);
-        enterInitials.draw(g);
-        userInitials.draw(g);
-
-        //Listen for input
-        if(g.kbhit())
-        {
-            input = g.getKey();
-            int i = 0;
             while( i < 3 and keep_going)
             {
                 if(initials[i] == '_')
@@ -456,17 +470,31 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
                 }
                 i++;
             }
-            //cout << "key was hit " << input << endl; system("pause");
         }
+    }
 
-        // Check to see if all initials have been entered
-       if(initials[0] != '_' and initials[1] != '_' and initials[2] != '_')
-       {
-           textBox okay(Point(400,400),8, "OKAY");
-       }
+    return_command = initials;
+
+    // Check to see if all initials have been entered
+    if(initials[0] != '_' and initials[1] != '_' and initials[2] != '_')
+    {
+        background_color.R = 75;
+        background_color.G = 32;
+        background_color.B = 102;
+        textBox okay(Point(600,400),8, "OKAY");
+        okay.draw(g, border_color, background_color);
+
+        if(g.mouseClick())
+        {
+            point temp = g.getMouseClick();
+            if(okay.isClicked(Point(temp.x,temp.y)))
+            {
+                return_command = "game over page";
+            }
+        }
+    }
 
     //cout << system("pause");
-    return_command = initials;
 
     return return_command;
 }
