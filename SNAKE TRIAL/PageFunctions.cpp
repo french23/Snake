@@ -583,20 +583,36 @@ string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     border_color.G = 27;
     border_color.B = 190;
 
-   textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
+
+    /*
+    textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
     textBox classic(Point(375,220),8,"CLASSIC");
     textBox medium(Point(410,340),8,"MEDIUM");
     textBox hard(Point(480,460),8,"HARD");
     textBox rampage(Point(375,580),8,"RAMPAGE");
     textBox mainPage(Point(300,700),8,"MAIN PAGE");
+    */
+
+    textBox Rigdon(Point(200,100),8,"LOGAN RIGDON");
+    textBox Stewart(Point(200,200),8,"PETER STEWART");
+    textBox Szabo(Point(200,300),8,"BEN SZABO");
+    textBox Whitcomb(Point(200,400),8,"PETER WHITCOMB");
+    textBox Yoo(Point(200, 500),8, "JUSTIN YOO");
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
 
 
     fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
-    selectDifficult.draw(g);
-    classic.draw(g, border_color, background_color);
-    medium.draw(g, border_color, background_color);
-    hard.draw(g, border_color, background_color);
-    rampage.draw(g, border_color, background_color);
+
+    Rigdon.draw(g);
+    Stewart.draw(g);
+    Szabo.draw(g);
+    Whitcomb.draw(g);
+    Yoo.draw(g);
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
     mainPage.draw(g, border_color, background_color);
 
 
