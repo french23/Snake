@@ -50,9 +50,6 @@ class Game{
         string getGamemode();
         int getSpeed();
         int* getHighScores();
-        ///NEW CODE
-        string* getHighScoreNames();
-        string* getHighScoresMode();
 
         ///Mutators///
         void setSnake(const Snake snk);

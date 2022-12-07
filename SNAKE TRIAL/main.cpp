@@ -99,13 +99,6 @@ int main(int argc, char **argv)
                     command = "failed load";
                 }
             }
-            ///NEW CODE
-            else if(input == "top score")
-            {
-                gm.readHighScores("highScores.txt");
-                command = "top scores";
-            }
-            ///END CODE
             else if(input == "controls")
             {
                 command = "controls page";
@@ -331,17 +324,6 @@ int main(int argc, char **argv)
                 initals = input;
             }
         }
-
-        ///NEW CODE
-        ///TOP SCORES
-        else if(command == "top scores")
-        {
-            input = topScore(g, WIDTH, HEIGHT, gm);
-            if(input == "clicked"){
-                command = "main page";
-            }
-        }
-        ///END CODE
 
         g.update();
     }
