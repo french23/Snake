@@ -62,10 +62,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     return return_comand;
 }
 
-string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score)
+string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
 {
     string return_comand = "null";color border_color;
-    string scoreVal = to_string(score);
+    string scoreVal = to_string(gm.getScore());
+    string file_name = "highScores.txt";
 
     border_color.R = 227;
     border_color.G = 27;
@@ -79,10 +80,9 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
     textBox gameOver(Point(100,100),13,"GAME OVER!");
     textBox play_again(Point(280,540),8,"PLAY AGAIN");
     textBox main_page(Point(320,650),8,"MAIN PAGE");
-    ///NEW STUFF
+
     textBox gameScore(Point(300,350),8,"SCORE");
     textBox scoreValue(Point(700,350),8,scoreVal);
-    ///END
 
 
     gameOver.draw(g);
@@ -90,6 +90,32 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
     main_page.draw(g, border_color, background_color);
     gameScore.draw(g);
     scoreValue.draw(g);
+
+    /*
+
+    // Highscore
+    gm.readHighScores(file_name);
+    int* my_array = gm.getHighScores();
+
+    if(gm.getScore() > my_array[9])
+    {
+        if(gm.getScore() > my_array[0])
+        {
+            cout << "this is a new highest score!!!" << endl;
+            textBox high_score(Point(200,250),8,"HIGH SCORE");
+            high_score.draw(g, border_color, background_color);
+
+        }
+        else
+        {
+            cout << "this score is greated than the lowest high score" << endl;
+        }
+        gm.setHighScores( file_name, "PFS");
+
+        cout << "this is the current version of the high score" << my_array[0] << endl;
+    }
+
+    */
 
     if(g.mouseClick())
     {
@@ -376,4 +402,69 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 
     return return_command;
 
+}
+
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
+{
+    string return_command = "null";
+    string file_name = "highScores.txt";
+    string Initials = "___";
+    int initials_counter = 0;
+    char input;
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+    bool keep_going = true;
+
+    gm.readHighScores(file_name);
+    int* my_array = gm.getHighScores();
+
+
+    fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
+
+    while(keep_going)
+    {
+        // Print to the screen
+        if(gm.getScore() > my_array[0])
+        {
+            //cout << "insisde new high score" << endl;
+            // This is the current highScore
+            textBox HighScore(Point(10,50),9,"NEW HIGH SCORE");
+            HighScore.draw(g);
+        }
+        else
+        {
+            textBox HighScore(Point(10,50),9,"HIGH SCORE");
+            HighScore.draw(g);
+        }
+
+        // Now ask for input
+        textBox enterInitials(Point(100,200),8,"ENTER YOUR INITIALS");
+        textBox userInitials(Point(400,400),8,Initials);
+        enterInitials.draw(g);
+        userInitials.draw(g);
+
+        //Listen for input
+        if(g.kbhit())
+        {
+            input = g.getKey();
+            if(initials_counter < 3)
+            {
+                Initials[initials_counter] = input;
+                initials_counter++;
+            }
+
+        }
+
+
+        g.update();
+    }
+
+
+
+
+
+
+    return return_command;
 }

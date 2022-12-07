@@ -34,8 +34,9 @@ class Game{
         int getCol()const;
         int getScore() const;
         bool getGameCond()const;
-        bool getIsPaused();
-        char getKey();
+        bool getIsPaused()const;
+        char getKey()const;
+        int* getHighScores();
 
         ///Mutators///
         void setSnake(const Snake snk);

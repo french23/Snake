@@ -107,8 +107,9 @@ int main(int argc, char **argv)
 
             if(gm.getGameCond())
             {
+                remove("save1");
                 command = "game over";
-                    g.playSound("gameover.mp3");
+                g.playSound("gameover.mp3");
                 //cout << "game over" << endl;
             }
         }
@@ -180,10 +181,25 @@ int main(int argc, char **argv)
             }
         }
 
-        ///Losing Screen
+        ///game over
         else if(command == "game over")
         {
-            input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
+            int* my_array = gm.getHighScores();
+            if(gm.getScore() > my_array[9])
+            {
+                command = "set score";
+            }
+            else
+            {
+                command = "game over page";
+            }
+        }
+
+        else if(command == "game over page")
+        {
+
+
+            input = gameOverPage(g, WIDTH, HEIGHT, gm);
 
             if(input == "play again")
             {
@@ -198,6 +214,11 @@ int main(int argc, char **argv)
                 gm.resetGame(g);
                 fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
             }
+        }
+
+        else if(command == "set score")
+        {
+            input = SetScorePage(g,WIDTH,HEIGHT,gm);
         }
 
         g.update();

@@ -35,11 +35,14 @@ int   Game::getScore() const{
 bool  Game::getGameCond()const{
     return s.isSnakeDead();
 }
-bool  Game::getIsPaused(){
+bool  Game::getIsPaused() const{
     return isPaused;
 }
-char  Game::getKey(){
+char  Game::getKey() const{
     return key;
+}
+int* Game::getHighScores(){
+    return this->highScores;
 }
 
 ///Mutators///
@@ -263,10 +266,14 @@ void Game::readHighScores(string fName){
     string name;
     int fileScore;
 
-    for(int i = 0; i < 10; i++){
-        fileRead >>  name >> fileScore;
-        highScoreNames[i] = name;
-        highScores[i] = fileScore;
+    if(fileRead.is_open())
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            fileRead >>  name >> fileScore;
+            highScoreNames[i] = name;
+            highScores[i] = fileScore;
+        }
     }
 
     fileRead.close();

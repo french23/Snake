@@ -24,7 +24,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HIGHT);
  * postcondition: a c   ommand is given to main
  *
 */
-string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HIGHT, int score);
+string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm);
 
 /*
  * description: displays and controls the pause page
@@ -89,5 +89,7 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
  *
 */
 string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm);
 
 #endif // PAGEFUNCTIONS_H_INCLUDED
