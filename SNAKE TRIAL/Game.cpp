@@ -1,3 +1,11 @@
+ /*
+ * Author: Peter Whitcomb
+ * Assignment Title: Snake Game
+ * Assignment Description: Create the game Snake
+ * Due Date: 12/7/2022
+ * Date Created: 11/26/2022
+ * Date Last Modified: 12/7/2022
+ */
 #include "Game.h"
 
 using namespace std;
