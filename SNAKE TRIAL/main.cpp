@@ -1,3 +1,12 @@
+ /*
+ * Author: Peter Whitcomb, Peter Stewart, Ben Szabo,
+ *          Logan Rigdon, Justin Yoo
+ * Assignment Title: Snake Game
+ * Assignment Description: Create the game Snake
+ * Due Date: 12/7/2022
+ * Date Created: 11/26/2022
+ * Date Last Modified: 12/7/2022
+ */
 #include <iostream>
 #include "Segment.h"
 #include "SDL_Plotter.h"
@@ -90,9 +99,30 @@ int main(int argc, char **argv)
                     command = "failed load";
                 }
             }
+            ///NEW CODE
+            else if(input == "top score")
+            {
+                gm.readHighScores("highScores.txt");
+                command = "top scores";
+            }
+            ///END CODE
             else if(input == "controls")
             {
                 command = "controls page";
+            }
+            else if(input == "credits")
+            {
+                command = "credits";
+            }
+        }
+
+        ///credits page
+        else if(command == "credits")
+        {
+            input = creditPage(g, WIDTH, HEIGHT);
+            if(input == "main page")
+            {
+                command = "main page";
             }
         }
 
@@ -251,14 +281,13 @@ int main(int argc, char **argv)
         }
 
 
-        ///Game over
+	///Game over
         else if(command == "game over")
         {
             int* my_array = gm.getHighScores();
             if(gm.getScore() > my_array[9])
             {
                 command = "set score";
-                g.playSound("highscore.mp3");
                 initals = "___";
                 g.Sleep(100);
             }
@@ -268,7 +297,7 @@ int main(int argc, char **argv)
             }
         }
 
-        ///Game Over Page
+	///Game Over Page
         else if(command == "game over page")
         {
             input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
@@ -288,7 +317,7 @@ int main(int argc, char **argv)
             }
         }
 
-        ///Set Score Screen
+	///Set Score Screen
         else if(command == "set score")
         {
             input = SetScorePage(g, WIDTH, HEIGHT, gm, initals);
@@ -302,6 +331,17 @@ int main(int argc, char **argv)
                 initals = input;
             }
         }
+
+        ///NEW CODE
+        ///TOP SCORES
+        else if(command == "top scores")
+        {
+            input = topScore(g, WIDTH, HEIGHT, gm);
+            if(input == "clicked"){
+                command = "main page";
+            }
+        }
+        ///END CODE
 
         g.update();
     }
