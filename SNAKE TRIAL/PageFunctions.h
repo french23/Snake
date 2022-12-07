@@ -1,5 +1,15 @@
 #ifndef PAGEFUNCTIONS_H_INCLUDED
 #define PAGEFUNCTIONS_H_INCLUDED
+
+/*
+* Author: Benjamin Szabo, Peter Stuart
+* Assignment Title: Snake Game
+* Assignment Description: Create a snake game
+* Due Date: 12/7/2022
+* Date Created: 12/1/2022
+* Date Last Modified: 12/7/2022
+ */
+
 #include <iostream>
 #include "Apple.h"
 #include "Game.h"
