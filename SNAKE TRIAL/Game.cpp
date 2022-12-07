@@ -453,7 +453,9 @@ void Game::hardGamemode(SDL_Plotter& g){
         g.update();
     }
 }
+bool froze = false;
 void Game::RampageGamemode(SDL_Plotter& g){
+    int freezer;
     gameMode = "rampage";
     ///Resets game
     if(isReset){
@@ -486,8 +488,18 @@ void Game::RampageGamemode(SDL_Plotter& g){
             g.playSound("appleappleeateat.mp3");
             //Scales score based on speed
             score+= (180 / speed);
-            if(speed > 15){
+            if(froze){
+                speed += 20;
+            }
+            if(speed > 15 && !froze){
                 speed -= 5;
+                freezer = (rand()%10)+1;
+            }
+            if(freezer == 10){
+                froze = true;
+            }
+            else{
+                froze = false;
             }
 
         }
@@ -498,6 +510,12 @@ void Game::RampageGamemode(SDL_Plotter& g){
 
         /// Draw snake and apple
         a.drawApple(g);
+        if(froze){//Silver Color
+            a.setColor(192, 192, 192);
+        }
+        else{
+            a.setColor(255, 215, 0);
+        }
         if(!s.isSnakeDead()){
             s.eraseSnake(g);
             s.drawSnake(g);

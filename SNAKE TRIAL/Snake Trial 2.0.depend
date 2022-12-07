@@ -496,3 +496,95 @@
 1670376506 source:c:\users\peter\onedrive\desktop\snake trial\text_box.cpp
 	"text_box.h"
 
+1669937061 source:c:\users\logan\onedrive\documents\github\snake\snake trial\grid_square.cpp
+	"grid_square.h"
+
+1669937061 c:\users\logan\onedrive\documents\github\snake\snake trial\grid_square.h
+	<vector>
+	"Segment.h"
+
+1670446896 c:\users\logan\onedrive\documents\github\snake\snake trial\segment.h
+	"Point.h"
+	"SDL_Plotter.h"
+
+1670372221 c:\users\logan\onedrive\documents\github\snake\snake trial\point.h
+
+1669921390 c:\users\logan\onedrive\documents\github\snake\snake trial\sdl_plotter.h
+	<SDL2/SDL.h>
+	<SDL2/SDL_mixer.h>
+	<string.h>
+	<iostream>
+	<string>
+	<string.h>
+	<map>
+	<queue>
+
+1670446915 source:c:\users\logan\onedrive\documents\github\snake\snake trial\main.cpp
+	<iostream>
+	"Segment.h"
+	"SDL_Plotter.h"
+	"Snake.h"
+	"grid_square.h"
+	"Apple.h"
+	"Game.h"
+	"text_box.h"
+	"PageFunctions.h"
+	<cmath>
+	<ctime>
+
+1670446896 c:\users\logan\onedrive\documents\github\snake\snake trial\snake.h
+	"Segment.h"
+
+1670450470 c:\users\logan\onedrive\documents\github\snake\snake trial\apple.h
+	"Snake.h"
+	"ctime"
+
+1670446896 c:\users\logan\onedrive\documents\github\snake\snake trial\game.h
+	"Snake.h"
+	"SDL_Plotter.h"
+	"Apple.h"
+	<fstream>
+
+1670372200 c:\users\logan\onedrive\documents\github\snake\snake trial\text_box.h
+	<string>
+	<vector>
+	"symbol.h"
+
+1670446897 c:\users\logan\onedrive\documents\github\snake\snake trial\symbol.h
+	"grid_square.h"
+	<fstream>
+
+1670446915 c:\users\logan\onedrive\documents\github\snake\snake trial\pagefunctions.h
+	<iostream>
+	"Apple.h"
+	"Game.h"
+	"text_box.h"
+	<cmath>
+
+1670446915 source:c:\users\logan\onedrive\documents\github\snake\snake trial\pagefunctions.cpp
+	"PageFunctions.h"
+
+1670372221 source:c:\users\logan\onedrive\documents\github\snake\snake trial\point.cpp
+	"Point.h"
+
+1668724344 source:c:\users\logan\onedrive\documents\github\snake\snake trial\sdl_plotter.cpp
+	"SDL_Plotter.h"
+
+1670446897 source:c:\users\logan\onedrive\documents\github\snake\snake trial\symbol.cpp
+	"symbol.h"
+
+1670372200 source:c:\users\logan\onedrive\documents\github\snake\snake trial\text_box.cpp
+	"text_box.h"
+
+1670446896 source:c:\users\logan\onedrive\documents\github\snake\snake trial\segment.cpp
+	"Segment.h"
+
+1670446896 source:c:\users\logan\onedrive\documents\github\snake\snake trial\snake.cpp
+	"Snake.h"
+
+1670450359 source:c:\users\logan\onedrive\documents\github\snake\snake trial\apple.cpp
+	"Apple.h"
+
+1670449563 source:c:\users\logan\onedrive\documents\github\snake\snake trial\game.cpp
+	"Game.h"
+

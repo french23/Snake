@@ -87,6 +87,7 @@ bool Apple::checkAppleCollision(Snake s){
 
     return appleEaten;
 }
+
 void Apple::drawApple(SDL_Plotter& g){
    for(int y = 0; y < appleSize; y++){
         for(int x = 0; x < appleSize; x++){
