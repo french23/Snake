@@ -36,7 +36,7 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
-1670446604 source:c:\modules\github\snake\snake trial\main.cpp
+1670448513 source:c:\modules\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -49,7 +49,7 @@
 	<cmath>
 	<ctime>
 
-1670444876 c:\modules\github\snake\snake trial\segment.h
+1670448513 c:\modules\github\snake\snake trial\segment.h
 	"Point.h"
 	"SDL_Plotter.h"
 
@@ -65,16 +65,16 @@
 	<map>
 	<queue>
 
-1670444876 c:\modules\github\snake\snake trial\snake.h
+1670448513 c:\modules\github\snake\snake trial\snake.h
 	"Segment.h"
 
 1668558035 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1670444876 source:c:\modules\github\snake\snake trial\segment.cpp
+1670448513 source:c:\modules\github\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1670444876 source:c:\modules\github\snake\snake trial\snake.cpp
+1670448513 source:c:\modules\github\snake\snake trial\snake.cpp
 	"Snake.h"
 
 1670445226 source:c:\modules\github\snake\snake trial\point.cpp
@@ -154,26 +154,26 @@
 	"Apple.h"
 	<fstream>
 
-1670444876 source:c:\modules\github\snake\snake trial\apple.cpp
+1670448513 source:c:\modules\github\snake\snake trial\apple.cpp
 	"Apple.h"
 
-1670444876 c:\modules\github\snake\snake trial\apple.h
+1670448513 c:\modules\github\snake\snake trial\apple.h
 	"Snake.h"
 	"ctime"
 
-1670444876 source:c:\modules\github\snake\snake trial\game.cpp
+1670448629 source:c:\modules\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670444876 c:\modules\github\snake\snake trial\game.h
+1670448670 c:\modules\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
 	<fstream>
 
-1670445226 source:c:\modules\github\snake\snake trial\symbol.cpp
+1670448513 source:c:\modules\github\snake\snake trial\symbol.cpp
 	"symbol.h"
 
-1670445226 c:\modules\github\snake\snake trial\symbol.h
+1670448513 c:\modules\github\snake\snake trial\symbol.h
 	"grid_square.h"
 	<fstream>
 
@@ -185,14 +185,14 @@
 	<vector>
 	"symbol.h"
 
-1670446111 c:\modules\github\snake\snake trial\pagefunctions.h
+1670448513 c:\modules\github\snake\snake trial\pagefunctions.h
 	<iostream>
 	"Apple.h"
 	"Game.h"
 	"text_box.h"
 	<cmath>
 
-1670445226 source:c:\modules\github\snake\snake trial\pagefunctions.cpp
+1670448772 source:c:\modules\github\snake\snake trial\pagefunctions.cpp
 	"PageFunctions.h"
 
 1670377792 source:c:\users\benny\onedrive\documents\github\snake\snake trial\apple.cpp

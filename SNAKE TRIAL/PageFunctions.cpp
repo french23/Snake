@@ -488,25 +488,33 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     {
         //cout << "insisde new high score" << endl;
         // This is the current highScore
-        textBox HighScore(Point(10,50),9,"NEW HIGH SCORE!!!");
+        textBox HighScore(Point(60,75),9,"!! HIGH SCORE!!");
         HighScore.draw(g);
     }
     else
     {
-        textBox HighScore(Point(10,50),9,"HIGH SCORE");
+        textBox HighScore(Point(45,75),9,"! TOP 10 SCORE!");
         HighScore.draw(g);
     }
 
-    // Now ask for input
-    textBox enterInitials(Point(10,200),8,"ENTER YOUR INITIALS");
-    textBox hitBackSlashh(Point(10,300),5,"HIT BACKSLASH TO DELTE A LETTER");
-    textBox userInitials(Point(400,400),8, initials);
-    textBox score(Point(550,600),8, to_string(gm.getScore()));
+    //score create
+    textBox gameScore(Point(320,250),8,"SCORE");
+    textBox score(Point(720,250),8, to_string(gm.getScore()));
 
+    //score draw
+    gameScore.draw(g);
+    score.draw(g);
+
+    // Now ask for input
+    textBox enterInitials(Point(100,450),7,"ENTER YOUR INITIALS");
+    textBox userInitials(Point(500,540),7, initials);
+    textBox hitBackSlashh(Point(250,610),3,"HIT BACKSLASH TO DELTE A LETTER");
+
+    //ask input draw
     enterInitials.draw(g);
     userInitials.draw(g);
     hitBackSlashh.draw(g);
-    score.draw(g);
+
 
     //Listen for input
     if(g.kbhit())
@@ -549,7 +557,7 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
         background_color.R = 75;
         background_color.G = 32;
         background_color.B = 102;
-        textBox okay(Point(600,400),8, "OKAY");
+        textBox okay(Point(450,710),8, "OKAY");
         okay.draw(g, border_color, background_color);
 
         if(g.mouseClick())
@@ -565,8 +573,6 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
             }
         }
     }
-
-    //cout << system("pause");
 
     return return_command;
 }

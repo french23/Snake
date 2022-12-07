@@ -249,26 +249,36 @@ bool Game::loadGame(string fName){
 ///Methods regarding HighScore
 void Game::readHighScores(string fName){
     fileRead.open(fName);
-    string name;
+    string name, mode;
     int fileScore;
 
     if(fileRead.is_open())
     {
         for(int i = 0; i < 10; i++)
         {
-            fileRead >>  name >> fileScore;
+            fileRead >>  name >> fileScore >> mode;
             highScoreNames[i] = name;
             highScores[i] = fileScore;
+            highScoresMode[i] = mode;
         }
     }
 
     fileRead.close();
 }
 void Game::setHighScores(string fName, string username){
+    string mode;
     readHighScores(fName);
     filePush.open(fName);
     highScoreNames[10] = username;
     highScores[10] = score;
+
+    //set game mode and convert to upper
+    mode = getGamemode();
+    for(int i = 0; i < mode.size(); i++){
+        mode.at(i) = toupper(mode.at(i));
+    }
+
+    highScoresMode[10] = mode;
 
     //Sort data
     for(int pass = 0; pass < 10; pass++){
@@ -276,13 +286,15 @@ void Game::setHighScores(string fName, string username){
             if(highScores[j] < highScores[j+1]){
                 swap(highScores[j], highScores[j+1]);
                 swap(highScoreNames[j], highScoreNames[j+1]);
+                swap(highScoresMode[j], highScoresMode[j+1]);
             }
         }
     }
 
     for(int i = 0; i < 10; i++){
         filePush << highScoreNames[i] << " "
-                 <<highScores[i] << endl;
+                 <<highScores[i] << " "
+                 << highScoresMode[i] << endl;
     }
 
     filePush.close();
