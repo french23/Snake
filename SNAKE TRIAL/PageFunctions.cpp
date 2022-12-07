@@ -404,12 +404,10 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 
 }
 
-string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials)
 {
     string return_command = "null";
     string file_name = "highScores.txt";
-    string Initials = "___";
-    int initials_counter = 0;
     char input;
     color background_color;
     background_color.R = 55;
@@ -423,8 +421,6 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
 
     fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
-    while(keep_going)
-    {
         // Print to the screen
         if(gm.getScore() > my_array[0])
         {
@@ -441,7 +437,7 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
 
         // Now ask for input
         textBox enterInitials(Point(100,200),8,"ENTER YOUR INITIALS");
-        textBox userInitials(Point(400,400),8,Initials);
+        textBox userInitials(Point(400,400),8, initials);
         enterInitials.draw(g);
         userInitials.draw(g);
 
@@ -449,22 +445,28 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm)
         if(g.kbhit())
         {
             input = g.getKey();
-            if(initials_counter < 3)
+            int i = 0;
+            while( i < 3 and keep_going)
             {
-                Initials[initials_counter] = input;
-                initials_counter++;
+                if(initials[i] == '_')
+                {
+                    input = toupper(input);
+                    initials[i] = input;
+                    keep_going = false;
+                }
+                i++;
             }
-
+            //cout << "key was hit " << input << endl; system("pause");
         }
 
+        // Check to see if all initials have been entered
+       if(initials[0] != '_' and initials[1] != '_' and initials[2] != '_')
+       {
+           textBox okay(Point(400,400),8, "OKAY");
+       }
 
-        g.update();
-    }
-
-
-
-
-
+    //cout << system("pause");
+    return_command = initials;
 
     return return_command;
 }

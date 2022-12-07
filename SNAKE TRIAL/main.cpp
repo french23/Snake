@@ -20,6 +20,7 @@ int main(int argc, char **argv)
     SDL_Plotter g(WIDTH, HEIGHT);
     string command = "main page";
     string input;
+    string initals = "___";
     Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
     color background_color;
@@ -218,7 +219,8 @@ int main(int argc, char **argv)
 
         else if(command == "set score")
         {
-            input = SetScorePage(g,WIDTH,HEIGHT,gm);
+            //cout << "in main.cpp about to enter SetScorePage" << endl;system("pause");
+            initals = SetScorePage(g, WIDTH, HEIGHT, gm, initals);
         }
 
         g.update();

@@ -90,6 +90,6 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
 */
 string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
-string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm);
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials);
 
 #endif // PAGEFUNCTIONS_H_INCLUDED
