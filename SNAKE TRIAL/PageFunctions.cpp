@@ -576,7 +576,7 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
 
     return return_command;
 }
-
+//edit
 string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     string return_command = "null";
     color background_color;
