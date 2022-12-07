@@ -4,27 +4,107 @@
 	<ActiveTarget name="Debug" />
 	<File name="Game.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="745" topLine="0" />
+			<Cursor1 position="1330" topLine="18" />
 		</Cursor>
 	</File>
-	<File name="PageFunctions.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="Apple.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="15699" topLine="233" />
+			<Cursor1 position="3931" topLine="38" />
 		</Cursor>
-		<Folding>
-			<Collapse line="140" />
-			<Collapse line="195" />
-			<Collapse line="229" />
-			<Collapse line="262" />
-			<Collapse line="296" />
-			<Collapse line="337" />
-			<Collapse line="399" />
-			<Collapse line="579" />
-		</Folding>
+	</File>
+	<File name="symbol.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3607" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="Apple.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="149" />
+		</Cursor>
+	</File>
+	<File name="Snake.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="409" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9330" topLine="306" />
+		</Cursor>
+	</File>
+	<File name="SDL_Plotter.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="12" />
+		</Cursor>
+	</File>
+	<File name="Point.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="175" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="Point.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="352" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="symbol.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1244" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="PageFunctions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13525" topLine="531" />
+		</Cursor>
 	</File>
 	<File name="Game.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5975" topLine="242" />
+			<Cursor1 position="3178" topLine="561" />
+		</Cursor>
+	</File>
+	<File name="text_box.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1100" topLine="73" />
+		</Cursor>
+	</File>
+	<File name="SDL_Plotter.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5981" topLine="198" />
+		</Cursor>
+	</File>
+	<File name="text_box.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1542" topLine="22" />
+		</Cursor>
+	</File>
+	<File name="grid_square.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="654" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="Snake.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5882" topLine="270" />
+		</Cursor>
+	</File>
+	<File name="Segment.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="683" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="grid_square.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="304" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Segment.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="381" topLine="40" />
+		</Cursor>
+	</File>
+	<File name="PageFunctions.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3019" topLine="84" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

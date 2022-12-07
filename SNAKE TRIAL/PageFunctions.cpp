@@ -58,7 +58,8 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
             g.playSound("uibuttonclick2.mp3");
             return_comand = "start game";
         }
-         else if(loadSaved.isClicked(Point(temp.x,temp.y))){
+        else if(loadSaved.isClicked(Point(temp.x,temp.y)))
+        {
             return_comand = "load saved";
             g.playSound("uibuttonclick2.mp3");
         }
@@ -80,7 +81,8 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 
 string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score)
 {
-    string return_comand = "null";color border_color;
+    string return_comand = "null";
+    color border_color;
     string scoreVal = to_string(score);
 
     border_color.R = 227;
@@ -95,19 +97,15 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
     textBox gameOver(Point(100,100),13,"GAME OVER!");
     textBox play_again(Point(280,540),8,"PLAY AGAIN");
     textBox main_page(Point(320,650),8,"MAIN PAGE");
-    ///NEW STUFF
     textBox gameScore(Point(300,350),8,"SCORE");
     textBox scoreValue(Point(700,350),8,scoreVal);
-    ///END
 
 
     gameOver.draw(g);
     play_again.draw(g, border_color, background_color);
     main_page.draw(g, border_color, background_color);
-    ///NEW STUFF
     gameScore.draw(g);
     scoreValue.draw(g);
-    ///END
 
     if(g.mouseClick())
     {
@@ -119,8 +117,8 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
         }
         else if(main_page.isClicked(Point(temp.x,temp.y)))
         {
-               g.playSound("uibuttonclick2.mp3");
-               return_comand = "main page";
+            g.playSound("uibuttonclick2.mp3");
+            return_comand = "main page";
         }
     }
 
@@ -138,7 +136,8 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
     }
 }
 
-string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+{
     string return_command = "null";
     color border_color;
     border_color.R = 227;
@@ -193,7 +192,8 @@ string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 }
 
-string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+{
     string return_command = "null";
     color background_color;
     background_color.R = 55;
@@ -227,7 +227,8 @@ string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 
 }
 
-string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+{
     string return_command = "null";
     color background_color;
     background_color.R = 55;
@@ -260,7 +261,8 @@ string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 }
 
-string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+{
     string return_command = "null";
     color background_color;
     background_color.R = 55;
@@ -335,7 +337,8 @@ string load_time(SDL_Plotter& g, int load_time, const int WIDTH, const int HEIGH
     return return_command;
 }
 
-string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+{
     string return_command = "null";
     color background_color;
     background_color.R = 55;
@@ -396,8 +399,8 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
 
 }
 
-///NEW STUFF
-string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+{
     string return_command = "null";
     color background_color;
     background_color.R = 55;
@@ -486,8 +489,6 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     // Print to the screen
     if(gm.getScore() > my_array[0])
     {
-        //cout << "insisde new high score" << endl;
-        // This is the current highScore
         textBox HighScore(Point(60,75),9,"!! HIGH SCORE!!");
         HighScore.draw(g);
     }
@@ -577,7 +578,8 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     return return_command;
 }
 
-string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+{
     string return_command = "null";
     color background_color;
     background_color.R = 55;
