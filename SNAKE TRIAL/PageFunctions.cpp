@@ -88,10 +88,8 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
     gameOver.draw(g);
     play_again.draw(g, border_color, background_color);
     main_page.draw(g, border_color, background_color);
-    ///NEW STUFF
     gameScore.draw(g);
     scoreValue.draw(g);
-    ///END
 
     if(g.mouseClick())
     {
