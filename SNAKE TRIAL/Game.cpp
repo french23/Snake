@@ -96,10 +96,13 @@ void Game::playClassicSnake(SDL_Plotter& g){
     if(isReset){
         resetGame(g);
     }
+
     ///Keyboard detection
     if(g.kbhit()){
         key = g.getKey();
-        s.setDirection(g, key);
+        if(!isPaused){
+            s.setDirection(g, key);
+        }
         switch(key){
             case 'p': isPaused = !isPaused; /// 'p' pauses game
                     break;

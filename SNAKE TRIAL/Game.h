@@ -59,6 +59,8 @@ class Game{
         void readHighScores(string fName);
         void setHighScores(string fName, string username);
 
+        ///Methods regarding gamemodes
+
 
 };
 
