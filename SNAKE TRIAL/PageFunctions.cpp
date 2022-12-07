@@ -433,7 +433,7 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     {
         //cout << "insisde new high score" << endl;
         // This is the current highScore
-        textBox HighScore(Point(10,50),9,"NEW HIGH SCORE");
+        textBox HighScore(Point(10,50),9,"NEW HIGH SCORE!!!");
         HighScore.draw(g);
     }
     else
@@ -443,29 +443,42 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     }
 
     // Now ask for input
-    textBox enterInitials(Point(100,200),8,"ENTER YOUR INITIALS");
+    textBox enterInitials(Point(10,200),8,"ENTER YOUR INITIALS");
+    textBox hitBackSlashh(Point(10,300),5,"HIT BACKSLASH TO DELTE A LETTER");
     textBox userInitials(Point(400,400),8, initials);
+    textBox score(Point(550,600),8, to_string(gm.getScore()));
+
     enterInitials.draw(g);
     userInitials.draw(g);
+    hitBackSlashh.draw(g);
+    score.draw(g);
 
     //Listen for input
     if(g.kbhit())
     {
         input = g.getKey();
-        int i = 0;
-        if(input == 8)
+        if(input == '\\')
         {
-            cout << "this is a backspace" << endl;
-            system("pause");
+            int i = 2;
+            while( i >= 0 and keep_going)
+            {
+                if(initials[i] != '_')
+                {
+                    initials[i] = '_';
+                    keep_going = false;
+                }
+
+                i--;
+            }
         }
         else
         {
+            int i = 0;
             while( i < 3 and keep_going)
             {
                 if(initials[i] == '_')
                 {
-                    input = toupper(input);
-                    initials[i] = input;
+                    initials[i] = toupper(input);
                     keep_going = false;
                 }
                 i++;
@@ -489,7 +502,11 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
             point temp = g.getMouseClick();
             if(okay.isClicked(Point(temp.x,temp.y)))
             {
+                g.playSound("uibuttonclick2.mp3");
                 return_command = "game over page";
+
+                // Save the score
+                gm.setHighScores( file_name, initials);
             }
         }
     }
