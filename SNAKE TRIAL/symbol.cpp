@@ -6,7 +6,7 @@
 * Date Created: 11/14/2022
 * Date Last Modified: 12/7/2022
  */
-#include "symbol.h"
+ #include "symbol.h"
 
 symbol::symbol(string fileName, char input_symbol, int fount_size, Point starting_location)
 {
@@ -95,15 +95,15 @@ void symbol::parse_and_fill_file()
 
                     // Loop though all though all the points
                     // X
-                    for(int i = 0; i < m_size; i++)
+                    for(int i = 0; i < m_size;i++)
                     {
                         // Y
-                        for(int j = 0; j < m_size; j++)
+                        for(int j = 0; j < m_size;j++)
                         {
                             file >> input_int;
 
                             // Need to loop though all of the colors to check
-                            for(int k = 1; k < m_colors.size(); k++)
+                            for(int k = 1; k < m_colors.size();k++)
                             {
                                 // Checks to see if the color is what was passed in
                                 if(input_int == k)
@@ -140,7 +140,7 @@ void symbol::draw_symbol(SDL_Plotter& g)
 
 void symbol::erase_symbol(SDL_Plotter& g, color background_color)
 {
-    grid_square canvas(m_size, m_fount_size, m_starting_location);
+     grid_square canvas(m_size, m_fount_size, m_starting_location);
     for(int i = 0; i < m_v_sqr_points.size(); i++)
     {
         canvas.color_sqr(m_v_sqr_points[i], background_color,g);
