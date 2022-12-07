@@ -27,10 +27,6 @@ int main(int argc, char **argv)
     background_color.G = 2;
     background_color.B = 82;
     bool first_time = true;
-    //New
-    bool highScore = true;
-    bool resetTopFive = false;
-
     int start_title_music_time;
     const int title_music_time = 37;
     char key;
@@ -40,7 +36,8 @@ int main(int argc, char **argv)
     g.initSound("gameover.mp3");
     g.initSound("highscore.mp3");
     g.initSound("uibuttonclick2.mp3");
-    g.Sleep(300);
+    //g.Sleep(300);
+    load_time(g,2000,WIDTH,HEIGHT);
 
     while(!g.getQuit())
     {
@@ -55,7 +52,7 @@ int main(int argc, char **argv)
 
                 //cout << "about to play sound file" << endl; system("pause");
                 g.initSound("TITLESCREEN.mp3");
-                g.Sleep(500);
+                load_time(g,1000,WIDTH,HEIGHT);
                 g.playSound("TITLESCREEN.mp3");
                 start_title_music_time = time(0);
                 first_time = false;
@@ -81,9 +78,9 @@ int main(int argc, char **argv)
             {
                 g.setQuit(true);
             }
-            else if(input == "load saved"){
+            else if(input == "load saved")
+            {
                 if(gm.loadGame("save1")){
-                    remove("save1");
                     first_time = true;
                     g.quitSound("TITLESCREEN.mp3");
                     command = "loaded game";
@@ -92,11 +89,10 @@ int main(int argc, char **argv)
                     command = "failed load";
                 }
             }
-            ///NEW STUFF
-            else if(input == "controls"){
+            else if(input == "controls")
+            {
                 command = "controls page";
             }
-            ///END
         }
 
         ///Classic Snake Game
@@ -104,27 +100,15 @@ int main(int argc, char **argv)
         {
             gm.playClassicSnake(g);
 
-            if(gm.isTopFive() && highScore){
-                g.playSound("highscore.mp3");
-                highScore = false;
-                resetTopFive = true;
-
-            }
-
             if(gm.getIsPaused()){
                 command = "pause game";
             }
 
-            //test  case
-            if(gm.getGameCond()&& resetTopFive){
-                gm.addTopFive(gm.getScore());
-                command = "game over";
-            }
-
             if(gm.getGameCond())
             {
-
                 command = "game over";
+                    g.playSound("gameover.mp3");
+                //cout << "game over" << endl;
             }
         }
 
@@ -186,19 +170,18 @@ int main(int argc, char **argv)
             }
         }
 
-        ///NEW STUFF
-        else if(command == "controls page"){
+        // Controls page
+        else if(command == "controls page")
+        {
             input = controlsPage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
                 command = "main page";
             }
         }
-        ///END
 
         ///Losing Screen
         else if(command == "game over")
         {
-
             input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
 
             if(input == "play again")

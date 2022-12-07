@@ -4,8 +4,6 @@
 #include "SDL_Plotter.h"
 #include "Apple.h"
 #include <fstream>
-#include <ostream>
-#include <cassert>
 
 using namespace std;
 
@@ -23,8 +21,6 @@ class Game{
 
         int highScores[11];
         string highScoreNames[11];
-
-        int highScoreVals[5];
 
     public:
         ///Constructors///
@@ -62,14 +58,6 @@ class Game{
         ///Methods regarding HighScore
         void readHighScores(string fName);
         void setHighScores(string fName, string username);
-
-        //Ben Method for HighScores
-        bool isTopFive();
-        void addTopFive(int score);
-
-        int whichTopFive();
-        bool isHighScore();
-        void setHighScores(string fName);
 
 
 };

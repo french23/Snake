@@ -5,7 +5,6 @@
 #include "Game.h"
 #include "text_box.h"
 #include <cmath>
-#include <sstream>
 
 using namespace std;
 
@@ -65,6 +64,15 @@ string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
 /*
+ * description: load for x amount of time
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: takes the amount of time passed to load
+ *
+*/
+string load_time(SDL_Plotter& g, int load_time, const int WIDTH, const int HEIGHT);
+
+/*
  * description: cover the page in a specific color
  * return: void
  * precondition: plotter and color given
@@ -73,8 +81,6 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 */
 void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WIDTH, const int& HIGHT);
 
-
-///NEW STUFF
 /*
  * description: displays the controls page
  * return: string

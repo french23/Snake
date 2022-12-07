@@ -17,9 +17,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox play(Point(450,200),10,"PLAY");
     textBox loadSaved(Point(220,320),10,"LOAD SAVED");
     textBox exit(Point(450,600),10,"EXIT");
-    ///NEW STUFF
     textBox controls(Point(900,750),4,"CONTROLS");
-    ///END
 
     fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
@@ -31,9 +29,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     play.draw(g,border_color,background_color);
     loadSaved.draw(g,border_color,background_color);
     exit.draw(g,border_color,background_color);
-    ///NEW STUFF
     controls.draw(g,border_color,background_color);
-    ///END
 
     if(g.mouseClick())
     {
@@ -55,12 +51,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
             return_comand = "load saved";
             g.playSound("uibuttonclick2.mp3");
         }
-        ///NEW STUFF
-        else if(controls.isClicked(Point(temp.x,temp.y))){
+        else if(controls.isClicked(Point(temp.x,temp.y)))
+        {
             return_comand = "controls";
             g.playSound("uibuttonclick2.mp3");
         }
-        ///END
 
     }
 
@@ -70,11 +65,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score)
 {
     string return_comand = "null";color border_color;
-    string scoreVal;
-    stringstream transform;
-
-    transform << score;
-    transform >> scoreVal;
+    string scoreVal = to_string(score);
 
     border_color.R = 227;
     border_color.G = 27;
@@ -286,7 +277,48 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 }
 
-///NEW STUFF
+string load_time(SDL_Plotter& g, int load_time, const int WIDTH, const int HEIGHT)
+{
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+    string return_command = "null";
+
+    for(int i = 0; i < load_time; i+=100)
+    {
+        fill_screen_with_color(g,background_color, WIDTH,HEIGHT);
+        if(i%300 == 0)
+        {
+            if(i%600 == 0)
+            {
+                textBox loading(Point(220,320),10,"LOADING!!");
+                loading.draw(g);
+            }
+            else if(i %900 == 0)
+            {
+                textBox loading(Point(220,320),10,"LOADING!!!");
+                loading.draw(g);
+            }
+            else
+            {
+                textBox loading(Point(220,320),10,"LOADING!");
+                loading.draw(g);
+            }
+        }
+        else
+        {
+            textBox loading(Point(220,320),10,"LOADING");
+            loading.draw(g);
+        }
+
+        g.update();
+        g.Sleep(150);
+    }
+
+    return return_command;
+}
+
 string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     string return_command = "null";
     color background_color;
@@ -347,6 +379,3 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 
 }
-
-
-
