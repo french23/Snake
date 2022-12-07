@@ -36,7 +36,7 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
-1670296121 source:c:\modules\github\snake\snake trial\main.cpp
+1670375434 source:c:\modules\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -156,10 +156,10 @@
 	"Snake.h"
 	"ctime"
 
-1670294861 source:c:\modules\github\snake\snake trial\game.cpp
+1670375434 source:c:\modules\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670291200 c:\modules\github\snake\snake trial\game.h
+1670375434 c:\modules\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
@@ -180,14 +180,14 @@
 	<vector>
 	"symbol.h"
 
-1670295805 c:\modules\github\snake\snake trial\pagefunctions.h
+1670375434 c:\modules\github\snake\snake trial\pagefunctions.h
 	<iostream>
 	"Apple.h"
 	"Game.h"
 	"text_box.h"
 	<cmath>
 
-1670296148 source:c:\modules\github\snake\snake trial\pagefunctions.cpp
+1670375434 source:c:\modules\github\snake\snake trial\pagefunctions.cpp
 	"PageFunctions.h"
 
 1670269890 source:c:\users\benny\onedrive\documents\github\snake\snake trial\apple.cpp

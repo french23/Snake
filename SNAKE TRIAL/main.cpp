@@ -102,6 +102,7 @@ int main(int argc, char **argv)
             if(gm.getGameCond())
             {
                 command = "game over";
+                    g.playSound("gameover.mp3");
                 //cout << "game over" << endl;
             }
         }

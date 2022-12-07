@@ -71,7 +71,6 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox play_again(Point(300,320),8,"PLAY AGAIN");
     textBox main_page(Point(340,440),8,"MAIN PAGE");
 
-    g.playSound("gameover.mp3");
     gameOver.draw(g);
     play_again.draw(g, border_color, background_color);
     main_page.draw(g, border_color, background_color);
