@@ -99,9 +99,47 @@ class Apple{
 
 
         /// Methods ///
+
+        //******************************************************************
+        // Description: Checks to see if the snake hit the apple.          *
+        // Return: Boolean                                                 *
+        // Precondition: The Apple object exists                           *
+        // Postcondition: Returns true if the snake hit the apple, false   *
+        //                  otherwise.                                     *
+        //                The object is unchanged.                         *
+        //                                                                 *
+        //******************************************************************
         bool checkAppleCollision(Snake);
+
+        //******************************************************************
+        // Description: Draws the apple to a SDL Plotter                   *
+        // Return: Void                                                    *
+        // Precondition: The Apple object exists                           *
+        // Postcondition: Apple is drawn to screen                         *
+        //                The object is unchanged.                         *
+        //                                                                 *
+        //******************************************************************
         void drawApple(SDL_Plotter&);
+
+        //******************************************************************
+        // Description: Erases the apple from a SDL Plotter                *
+        // Return: Void                                                    *
+        // Precondition: The Apple object exists                           *
+        // Postcondition: Apple is erased from the screen.                 *
+        //                The object is unchanged.                         *
+        //                                                                 *
+        //******************************************************************
         void eraseApple(SDL_Plotter&);
+
+        //******************************************************************
+        // Description: Creates an available point the apple can be drawn  *
+        // Return: Point                                                   *
+        // Precondition: The Apple object exists                           *
+        // Postcondition: An available point that apple can be drawn on    *
+        //                  is returned                                    *
+        //                The object is changed.                           *
+        //                                                                 *
+        //******************************************************************
         Point createPoint(Snake);
 };
 
