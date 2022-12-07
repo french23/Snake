@@ -20,6 +20,9 @@ int main(int argc, char **argv)
     SDL_Plotter g(WIDTH, HEIGHT);
     string command = "main page";
     string input;
+    ///NEW DATA
+    string gameMode;
+    ///END NEW DATA
     Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
     color background_color;
@@ -71,7 +74,7 @@ int main(int argc, char **argv)
             {
                 first_time = true;
                 g.quitSound("TITLESCREEN.mp3");
-                command = "play snake";
+                command = "play menu";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "exit")
@@ -97,9 +100,55 @@ int main(int argc, char **argv)
         }
 
         ///Classic Snake Game
-        else if(command == "play snake")
+
+        ///NEW
+        else if(command == "play menu")
         {
-            gm.playClassicSnake(g);
+            input = gameModes(g, WIDTH, HEIGHT);
+
+            if(input == "classic snake"){
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "medium mode"){
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "hard mode"){
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "rampage mode"){
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "clicked"){
+                command = "main page";
+            }
+        }
+
+
+        else if(command == "play snake"){
+
+            if(gameMode == "classic snake"){
+                gm.playClassicSnake(g);
+            }
+            else if(gameMode == "medium mode"){
+                //gm.mediumGamemode(g);
+            }
+            else if(gameMode == "hard mode"){
+                //gm.hardGamemode(g);
+            }
+            else if(gameMode == "rampage mode"){
+                //gm.RampageGamemode(g);
+            }
+            else if(gameMode == "clicked"){
+                command = "main page";
+            }
 
             if(gm.getIsPaused()){
                 command = "pause game";
@@ -112,6 +161,7 @@ int main(int argc, char **argv)
                 g.playSound("gameover.mp3");
             }
         }
+        ///END NEW
 
         else if(command == "pause game"){
             fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
@@ -119,7 +169,6 @@ int main(int argc, char **argv)
 
             if(input == "resume game")
             {
-
                 command = "play snake";
                 gm.setPause(false);
                 fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
@@ -170,6 +219,8 @@ int main(int argc, char **argv)
                 command = "main page";
             }
         }
+
+
 
         // Controls page
         else if(command == "controls page")

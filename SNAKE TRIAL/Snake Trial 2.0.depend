@@ -232,7 +232,7 @@
 	<vector>
 	"Segment.h"
 
-1670379533 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
+1670386427 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -254,14 +254,14 @@
 	"grid_square.h"
 	<fstream>
 
-1670377792 c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.h
+1670383894 c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.h
 	<iostream>
 	"Apple.h"
 	"Game.h"
 	"text_box.h"
 	<cmath>
 
-1670377792 source:c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.cpp
+1670384939 source:c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.cpp
 	"PageFunctions.h"
 
 1670295034 source:c:\users\benny\onedrive\documents\github\snake\snake trial\point.cpp

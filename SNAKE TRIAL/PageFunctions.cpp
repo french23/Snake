@@ -379,3 +379,68 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 
 }
+
+///NEW STUFF
+string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
+    textBox classic(Point(375,220),8,"CLASSIC");
+    textBox medium(Point(410,340),8,"MEDIUM");
+    textBox hard(Point(480,460),8,"HARD");
+    textBox rampage(Point(375,580),8,"RAMPAGE");
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+    selectDifficult.draw(g);
+    classic.draw(g, border_color, background_color);
+    medium.draw(g, border_color, background_color);
+    hard.draw(g, border_color, background_color);
+    rampage.draw(g, border_color, background_color);
+    mainPage.draw(g, border_color, background_color);
+
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(classic.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "classic snake";
+        }
+        else if(medium.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "medium mode";
+        }
+        else if(hard.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "hard mode";
+        }
+        else if(rampage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "rampage mode";
+        }
+        else if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
+}
+
