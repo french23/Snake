@@ -164,7 +164,7 @@ int main(int argc, char **argv)
                 g.playSound("gameover.mp3");
             }
         }
-   
+
 
         ///Pause Page
         else if(command == "pause game"){
@@ -250,14 +250,15 @@ int main(int argc, char **argv)
             }
         }
 
-	
-	///Game over
+
+        ///Game over
         else if(command == "game over")
         {
             int* my_array = gm.getHighScores();
             if(gm.getScore() > my_array[9])
             {
                 command = "set score";
+                g.playSound("highscore.mp3");
                 initals = "___";
                 g.Sleep(100);
             }
@@ -265,9 +266,9 @@ int main(int argc, char **argv)
             {
                 command = "game over page";
             }
-        }        
+        }
 
-	///Game Over Page
+        ///Game Over Page
         else if(command == "game over page")
         {
             input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
@@ -287,7 +288,7 @@ int main(int argc, char **argv)
             }
         }
 
-	///Set Score Screen
+        ///Set Score Screen
         else if(command == "set score")
         {
             input = SetScorePage(g, WIDTH, HEIGHT, gm, initals);
