@@ -103,6 +103,20 @@ int main(int argc, char **argv)
             {
                 command = "controls page";
             }
+            else if(input == "credits")
+            {
+                command = "credits";
+            }
+        }
+
+        ///credits page
+        else if(command == "credits")
+        {
+            input = creditPage(g, WIDTH, HEIGHT);
+            if(input == "main page")
+            {
+                command = "main page";
+            }
         }
 
         ///Snake Game

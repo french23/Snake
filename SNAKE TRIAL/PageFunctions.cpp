@@ -27,6 +27,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox loadSaved(Point(220,320),10,"LOAD SAVED");
     textBox exit(Point(450,600),10,"EXIT");
     textBox controls(Point(900,750),4,"CONTROLS");
+    textBox credits(Point(10,750),4,"CREDITS");
 
     fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
@@ -39,6 +40,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     loadSaved.draw(g,border_color,background_color);
     exit.draw(g,border_color,background_color);
     controls.draw(g,border_color,background_color);
+    credits.draw(g,border_color,background_color);
 
     if(g.mouseClick())
     {
@@ -63,6 +65,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         else if(controls.isClicked(Point(temp.x,temp.y)))
         {
             return_comand = "controls";
+            g.playSound("uibuttonclick2.mp3");
+        }
+        else if(credits.isClicked(Point(temp.x,temp.y)))
+        {
+            return_comand = "credits";
             g.playSound("uibuttonclick2.mp3");
         }
 
@@ -564,4 +571,45 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     return return_command;
 }
 
+string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
 
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+   textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
+    textBox classic(Point(375,220),8,"CLASSIC");
+    textBox medium(Point(410,340),8,"MEDIUM");
+    textBox hard(Point(480,460),8,"HARD");
+    textBox rampage(Point(375,580),8,"RAMPAGE");
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+    selectDifficult.draw(g);
+    classic.draw(g, border_color, background_color);
+    medium.draw(g, border_color, background_color);
+    hard.draw(g, border_color, background_color);
+    rampage.draw(g, border_color, background_color);
+    mainPage.draw(g, border_color, background_color);
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "main page";
+        }
+    }
+
+    return return_command;
+
+}

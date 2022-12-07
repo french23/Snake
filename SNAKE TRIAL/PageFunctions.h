@@ -119,6 +119,13 @@ string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 */
 string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials);
 
-
+/*
+ * description: displays the amazing makers of the game
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
 #endif // PAGEFUNCTIONS_H_INCLUDED
