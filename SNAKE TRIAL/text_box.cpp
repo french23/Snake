@@ -9,7 +9,8 @@
 
 #include "text_box.h"
 
-textBox::textBox(Point loc, int fontSize, string text){
+textBox::textBox(Point loc, int fontSize, string text)
+{
     inputStr = text;
     char inputChar;
     Point tempPoint;
@@ -17,7 +18,8 @@ textBox::textBox(Point loc, int fontSize, string text){
     startLoc = loc;
     this->fontSize = fontSize;
 
-    for(int i = 0; i < inputStr.size(); i++){
+    for(int i = 0; i < inputStr.size(); i++)
+    {
         inputChar = inputStr.at(i);
         tempPoint.setX(startLoc.getX() + fontSize * 7.5 * i);
         tempPoint.setY(startLoc.getY());
@@ -25,7 +27,8 @@ textBox::textBox(Point loc, int fontSize, string text){
     }
 }
 
-bool textBox::isClicked(Point mouseLoc){
+bool textBox::isClicked(Point mouseLoc)
+{
     bool withinRange = false;
     int x, x2;
     int y, y2;
@@ -35,30 +38,31 @@ bool textBox::isClicked(Point mouseLoc){
     checkY = mouseLoc.getY();
 
     x = startLoc.getX();
-    //x2 = (startLoc.getX() * 7.5 * text.size()+ text.at(0).get_size() * fontSize);
     x2 = startLoc.getX() + ((text[0].get_size() * fontSize)* (text.size()));
     y = startLoc.getY();
     y2 = (startLoc.getY() + text.at(0).get_size() * fontSize);
 
-    /*cout << "size of x2 is " << x2 << endl;
-    cout << "size of y2 is " << y2 << endl; system("pause");*/
-
     if((checkX >= x && checkX <= x2) &&
-       (checkY >= y && checkY <= y2)){
+            (checkY >= y && checkY <= y2))
+    {
         withinRange = true;
-       }
+    }
 
     return withinRange;
 }
 
-void textBox::draw(SDL_Plotter& g){
-   for(int i = 0; i < text.size(); i++){
+void textBox::draw(SDL_Plotter& g)
+{
+    for(int i = 0; i < text.size(); i++)
+    {
         text.at(i).draw_symbol(g);
     }
 }
 
-void textBox::eraseText(SDL_Plotter& g, color backgroundColor){
-    for(int i = 0; i < text.size(); i++){
+void textBox::eraseText(SDL_Plotter& g, color backgroundColor)
+{
+    for(int i = 0; i < text.size(); i++)
+    {
         text.at(i).erase_symbol(g, backgroundColor);
     }
 }

@@ -19,26 +19,11 @@ grid_square::grid_square(int grid_size, int sqr_size, Point location)
     create_grid();
 }
 
-/*
-* description: colors a square
-* return: none
-* precondition: the location and color of the sqr
-* postcondition: colors the sqr to the correct color
-*
-*/
 void grid_square::color_sqr(Point location, color fill_color, SDL_Plotter& g)
 {
     m_grid[location.getX()][location.getY()].draw(g, fill_color);
-    //m_grid[3][3].get_size();
 }
 
-/*
-   * description: fills the vecor with pixel squares
-   * return: none
-   * precondition: fills the vecor with pixel squares
-   * postcondition: vector is full
-   *
-   */
 void grid_square::create_grid()
 {
     for(int x = 0; x < m_grid_size; x++)
