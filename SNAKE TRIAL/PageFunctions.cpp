@@ -124,6 +124,10 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
         }
     }
 
+    if(g.kbhit())
+    {
+        char key = g.getKey();
+    }
     return return_comand;
 }
 
