@@ -40,6 +40,7 @@ class Game{
         char getKey();
         string getGamemode();
         int getSpeed();
+        int* getHighScores();
 
         ///Mutators///
         void setSnake(const Snake snk);

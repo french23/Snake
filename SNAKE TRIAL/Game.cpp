@@ -49,6 +49,9 @@ string Game::getGamemode(){
 int    Game::getSpeed(){
     return speed;
 }
+int* Game::getHighScores(){
+    return this->highScores;
+}
 
 ///Mutators///
 void Game::setSnake(const Snake snk){
@@ -241,10 +244,14 @@ void Game::readHighScores(string fName){
     string name;
     int fileScore;
 
-    for(int i = 0; i < 10; i++){
-        fileRead >>  name >> fileScore;
-        highScoreNames[i] = name;
-        highScores[i] = fileScore;
+    if(fileRead.is_open())
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            fileRead >>  name >> fileScore;
+            highScoreNames[i] = name;
+            highScores[i] = fileScore;
+        }
     }
 
     fileRead.close();
@@ -273,6 +280,7 @@ void Game::setHighScores(string fName, string username){
     filePush.close();
 
 }
+
 
 
 ///Methods regarding gamemodes

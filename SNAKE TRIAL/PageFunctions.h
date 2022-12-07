@@ -90,8 +90,25 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
 */
 string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
-///NEW STUFF
+/*
+ * description: displays the game mode selection page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
 string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+
+/*
+ * description: displays the Set Score page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials);
+
 
 
 #endif // PAGEFUNCTIONS_H_INCLUDED

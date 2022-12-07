@@ -444,3 +444,115 @@ string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
     return return_command;
 }
 
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials)
+{
+    string return_command = "null";
+    string file_name = "highScores.txt";
+    char input;
+
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+    bool keep_going = true;
+
+    gm.readHighScores(file_name);
+    int* my_array = gm.getHighScores();
+
+
+    fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
+
+    // Print to the screen
+    if(gm.getScore() > my_array[0])
+    {
+        //cout << "insisde new high score" << endl;
+        // This is the current highScore
+        textBox HighScore(Point(10,50),9,"NEW HIGH SCORE!!!");
+        HighScore.draw(g);
+    }
+    else
+    {
+        textBox HighScore(Point(10,50),9,"HIGH SCORE");
+        HighScore.draw(g);
+    }
+
+    // Now ask for input
+    textBox enterInitials(Point(10,200),8,"ENTER YOUR INITIALS");
+    textBox hitBackSlashh(Point(10,300),5,"HIT BACKSLASH TO DELTE A LETTER");
+    textBox userInitials(Point(400,400),8, initials);
+    textBox score(Point(550,600),8, to_string(gm.getScore()));
+
+    enterInitials.draw(g);
+    userInitials.draw(g);
+    hitBackSlashh.draw(g);
+    score.draw(g);
+
+    //Listen for input
+    if(g.kbhit())
+    {
+        input = g.getKey();
+        if(input == '\\')
+        {
+            int i = 2;
+            while( i >= 0 and keep_going)
+            {
+                if(initials[i] != '_')
+                {
+                    initials[i] = '_';
+                    keep_going = false;
+                }
+
+                i--;
+            }
+        }
+        else
+        {
+            int i = 0;
+            while( i < 3 and keep_going)
+            {
+                if(initials[i] == '_')
+                {
+                    initials[i] = toupper(input);
+                    keep_going = false;
+                }
+                i++;
+            }
+        }
+    }
+
+    return_command = initials;
+
+    // Check to see if all initials have been entered
+    if(initials[0] != '_' and initials[1] != '_' and initials[2] != '_')
+    {
+        background_color.R = 75;
+        background_color.G = 32;
+        background_color.B = 102;
+        textBox okay(Point(600,400),8, "OKAY");
+        okay.draw(g, border_color, background_color);
+
+        if(g.mouseClick())
+        {
+            point temp = g.getMouseClick();
+            if(okay.isClicked(Point(temp.x,temp.y)))
+            {
+                g.playSound("uibuttonclick2.mp3");
+                return_command = "game over page";
+
+                // Save the score
+                gm.setHighScores( file_name, initials);
+            }
+        }
+    }
+
+    //cout << system("pause");
+
+    return return_command;
+}
+
+

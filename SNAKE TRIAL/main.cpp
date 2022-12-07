@@ -20,9 +20,8 @@ int main(int argc, char **argv)
     SDL_Plotter g(WIDTH, HEIGHT);
     string command = "main page";
     string input;
-    ///NEW DATA
     string gameMode;
-    ///END NEW DATA
+    string initals = "___";
     Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
     color background_color;
@@ -97,9 +96,7 @@ int main(int argc, char **argv)
             }
         }
 
-        ///Classic Snake Game
-
-        ///NEW
+        ///Snake Game
         else if(command == "play menu")
         {
             input = gameModes(g, WIDTH, HEIGHT);
@@ -167,8 +164,7 @@ int main(int argc, char **argv)
                 g.playSound("gameover.mp3");
             }
         }
-        ///END NEW
-
+   
 
         ///Pause Page
         else if(command == "pause game"){
@@ -254,8 +250,25 @@ int main(int argc, char **argv)
             }
         }
 
-        ///Losing Screen
+	
+	///Game over
         else if(command == "game over")
+        {
+            int* my_array = gm.getHighScores();
+            if(gm.getScore() > my_array[9])
+            {
+                command = "set score";
+                initals = "___";
+                g.Sleep(100);
+            }
+            else
+            {
+                command = "game over page";
+            }
+        }        
+
+	///Game Over Page
+        else if(command == "game over page")
         {
             input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
 
@@ -271,6 +284,21 @@ int main(int argc, char **argv)
                 command = "main page";
                 gm.resetGame(g);
                 fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            }
+        }
+
+	///Set Score Screen
+        else if(command == "set score")
+        {
+            input = SetScorePage(g, WIDTH, HEIGHT, gm, initals);
+            if(input == "game over page")
+            {
+                command = "game over page";
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            }
+            else
+            {
+                initals = input;
             }
         }
 
