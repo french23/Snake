@@ -72,8 +72,6 @@ int main(int argc, char **argv)
             input = mainPage(g, WIDTH, HEIGHT);
             if(input == "start game")
             {
-                first_time = true;
-                g.quitSound("TITLESCREEN.mp3");
                 command = "play menu";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
@@ -107,21 +105,29 @@ int main(int argc, char **argv)
             input = gameModes(g, WIDTH, HEIGHT);
 
             if(input == "classic snake"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
                 gameMode = input;
                 command = "play snake";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "medium mode"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
                 gameMode = input;
                 command = "play snake";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "hard mode"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
                 gameMode = input;
                 command = "play snake";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "rampage mode"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
                 gameMode = input;
                 command = "play snake";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
