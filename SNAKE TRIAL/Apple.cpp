@@ -1,3 +1,11 @@
+ /*
+ * Author: Peter Whitcomb
+ * Assignment Title: Snake Game
+ * Assignment Description: Create the game Snake
+ * Due Date: 12/7/2022
+ * Date Created: 11/26/2022
+ * Date Last Modified: 12/7/2022
+ */
 #include "Apple.h"
 
 
@@ -31,15 +39,7 @@ bool Apple::hasBeenHit(){
 int Apple::getAppleSize(){
     return appleSize;
 }
-int Apple::getR(){
-    return R;
-}
-int Apple::getG(){
-    return G;
-}
-int Apple::getB(){
-    return B;
-}
+
 /// Mutators ///
 void Apple::setSegment(const Segment s){
     appSeg = s;

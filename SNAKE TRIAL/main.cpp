@@ -1,3 +1,12 @@
+ /*
+ * Author: Peter Whitcomb, Peter Stewart, Ben Szabo,
+ *          Logan Rigdon, Justin Yoo
+ * Assignment Title: Snake Game
+ * Assignment Description: Create the game Snake
+ * Due Date: 12/7/2022
+ * Date Created: 11/26/2022
+ * Date Last Modified: 12/7/2022
+ */
 #include <iostream>
 #include "Segment.h"
 #include "SDL_Plotter.h"
@@ -164,7 +173,7 @@ int main(int argc, char **argv)
                 g.playSound("gameover.mp3");
             }
         }
-   
+
 
         ///Pause Page
         else if(command == "pause game"){
@@ -250,7 +259,7 @@ int main(int argc, char **argv)
             }
         }
 
-	
+
 	///Game over
         else if(command == "game over")
         {
@@ -265,7 +274,7 @@ int main(int argc, char **argv)
             {
                 command = "game over page";
             }
-        }        
+        }
 
 	///Game Over Page
         else if(command == "game over page")
