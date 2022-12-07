@@ -1,5 +1,15 @@
 #ifndef PAGEFUNCTIONS_H_INCLUDED
 #define PAGEFUNCTIONS_H_INCLUDED
+
+/*
+* Author: Benjamin Szabo, Peter Stuart
+* Assignment Title: Snake Game
+* Assignment Description: Create a snake game
+* Due Date: 12/7/2022
+* Date Created: 12/1/2022
+* Date Last Modified: 12/7/2022
+ */
+
 #include <iostream>
 #include "Apple.h"
 #include "Game.h"
@@ -89,5 +99,33 @@ void fill_screen_with_color(SDL_Plotter& g, color background_color,const int& WI
  *
 */
 string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+/*
+ * description: displays the game mode selection page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
+
+
+/*
+ * description: displays the Set Score page
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials);
+
+/*
+ * description: displays the amazing makers of the game
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
 #endif // PAGEFUNCTIONS_H_INCLUDED

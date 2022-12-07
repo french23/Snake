@@ -1,3 +1,12 @@
+ /*
+ * Author: Peter Whitcomb, Peter Stewart, Ben Szabo,
+ *          Logan Rigdon, Justin Yoo
+ * Assignment Title: Snake Game
+ * Assignment Description: Create the game Snake
+ * Due Date: 12/7/2022
+ * Date Created: 11/26/2022
+ * Date Last Modified: 12/7/2022
+ */
 #include <iostream>
 #include "Segment.h"
 #include "SDL_Plotter.h"
@@ -20,6 +29,8 @@ int main(int argc, char **argv)
     SDL_Plotter g(WIDTH, HEIGHT);
     string command = "main page";
     string input;
+    string gameMode;
+    string initals = "___";
     Snake s(2);
     Apple a(25, Point(Point(((rand() % (825/ 25)) * 25), ((rand() % (575/ 25)) * 25))));
     color background_color;
@@ -69,9 +80,7 @@ int main(int argc, char **argv)
             input = mainPage(g, WIDTH, HEIGHT);
             if(input == "start game")
             {
-                first_time = true;
-                g.quitSound("TITLESCREEN.mp3");
-                command = "play snake";
+                command = "play menu";
                 fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
             }
             else if(input == "exit")
@@ -94,12 +103,78 @@ int main(int argc, char **argv)
             {
                 command = "controls page";
             }
+            else if(input == "credits")
+            {
+                command = "credits";
+            }
         }
 
-        ///Classic Snake Game
-        else if(command == "play snake")
+        ///credits page
+        else if(command == "credits")
         {
-            gm.playClassicSnake(g);
+            input = creditPage(g, WIDTH, HEIGHT);
+            if(input == "main page")
+            {
+                command = "main page";
+            }
+        }
+
+        ///Snake Game
+        else if(command == "play menu")
+        {
+            input = gameModes(g, WIDTH, HEIGHT);
+
+            if(input == "classic snake"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "medium mode"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "hard mode"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "rampage mode"){
+                first_time = true;
+                g.quitSound("TITLESCREEN.mp3");
+                gameMode = input;
+                command = "play snake";
+                fill_screen_with_color(g,background_color,WIDTH,HEIGHT);
+            }
+            else if(input == "clicked"){
+                command = "main page";
+            }
+        }
+
+
+        else if(command == "play snake"){
+
+            if(gameMode == "classic snake"){
+                gm.playClassicSnake(g);
+            }
+            else if(gameMode == "medium mode"){
+                gm.mediumGamemode(g);
+            }
+            else if(gameMode == "hard mode"){
+                gm.hardGamemode(g);
+            }
+            else if(gameMode == "rampage mode"){
+                gm.RampageGamemode(g);
+            }
+            else if(gameMode == "clicked"){
+                command = "main page";
+            }
 
             if(gm.getIsPaused()){
                 command = "pause game";
@@ -107,19 +182,20 @@ int main(int argc, char **argv)
 
             if(gm.getGameCond())
             {
+                remove("save1");
                 command = "game over";
-                    g.playSound("gameover.mp3");
-                //cout << "game over" << endl;
+                g.playSound("gameover.mp3");
             }
         }
 
+
+        ///Pause Page
         else if(command == "pause game"){
             fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
             input = pauseGamePage(g, WIDTH, HEIGHT);
 
             if(input == "resume game")
             {
-
                 command = "play snake";
                 gm.setPause(false);
                 fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
@@ -148,6 +224,7 @@ int main(int argc, char **argv)
             }
         }
 
+        ///Save Page
         else if(command == "save screen"){
             input = saveGamePage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
@@ -155,15 +232,29 @@ int main(int argc, char **argv)
             }
         }
 
+        ///Loaded Game Page
         else if(command == "loaded game"){
             input = successLoadPage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
                 command = "play snake";
+                if(gm.getGamemode() == "classic"){
+                    gameMode = "classic snake";
+                }
+                else if(gm.getGamemode() == "medium"){
+                    gameMode = "medium mode";
+                }
+                else if(gm.getGamemode() == "hard"){
+                    gameMode = "hard mode";
+                }
+                else if(gm.getGamemode() == "rampage"){
+                    gameMode = "rampage mode";
+                }
                 fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
 
             }
         }
 
+        ///Failed Load Page
         else if(command == "failed load"){
             input = failedLoadPage(g, WIDTH, HEIGHT);
             if(input == "clicked"){
@@ -171,7 +262,9 @@ int main(int argc, char **argv)
             }
         }
 
-        // Controls page
+
+
+        /// Controls page
         else if(command == "controls page")
         {
             input = controlsPage(g, WIDTH, HEIGHT);
@@ -180,8 +273,25 @@ int main(int argc, char **argv)
             }
         }
 
-        ///Losing Screen
+
+	///Game over
         else if(command == "game over")
+        {
+            int* my_array = gm.getHighScores();
+            if(gm.getScore() > my_array[9])
+            {
+                command = "set score";
+                initals = "___";
+                g.Sleep(100);
+            }
+            else
+            {
+                command = "game over page";
+            }
+        }
+
+	///Game Over Page
+        else if(command == "game over page")
         {
             input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
 
@@ -197,6 +307,21 @@ int main(int argc, char **argv)
                 command = "main page";
                 gm.resetGame(g);
                 fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            }
+        }
+
+	///Set Score Screen
+        else if(command == "set score")
+        {
+            input = SetScorePage(g, WIDTH, HEIGHT, gm, initals);
+            if(input == "game over page")
+            {
+                command = "game over page";
+                fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+            }
+            else
+            {
+                initals = input;
             }
         }
 

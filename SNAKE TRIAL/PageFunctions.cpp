@@ -1,3 +1,12 @@
+/*
+* Author: Benjamin Szabo, Peter Stuart
+* Assignment Title: Snake Game
+* Assignment Description: Create a snake game
+* Due Date: 12/7/2022
+* Date Created: 12/1/2022
+* Date Last Modified: 12/7/2022
+ */
+
 #include "PageFunctions.h"
 
 string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
@@ -18,6 +27,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox loadSaved(Point(220,320),10,"LOAD SAVED");
     textBox exit(Point(450,600),10,"EXIT");
     textBox controls(Point(900,750),4,"CONTROLS");
+    textBox credits(Point(10,750),4,"CREDITS");
 
     fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
@@ -30,6 +40,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     loadSaved.draw(g,border_color,background_color);
     exit.draw(g,border_color,background_color);
     controls.draw(g,border_color,background_color);
+    credits.draw(g,border_color,background_color);
 
     if(g.mouseClick())
     {
@@ -54,6 +65,11 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         else if(controls.isClicked(Point(temp.x,temp.y)))
         {
             return_comand = "controls";
+            g.playSound("uibuttonclick2.mp3");
+        }
+        else if(credits.isClicked(Point(temp.x,temp.y)))
+        {
+            return_comand = "credits";
             g.playSound("uibuttonclick2.mp3");
         }
 
@@ -88,8 +104,10 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score
     gameOver.draw(g);
     play_again.draw(g, border_color, background_color);
     main_page.draw(g, border_color, background_color);
+    ///NEW STUFF
     gameScore.draw(g);
     scoreValue.draw(g);
+    ///END
 
     if(g.mouseClick())
     {
@@ -371,6 +389,240 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
         {
             g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
+        }
+    }
+
+    return return_command;
+
+}
+
+///NEW STUFF
+string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
+    textBox classic(Point(375,220),8,"CLASSIC");
+    textBox medium(Point(410,340),8,"MEDIUM");
+    textBox hard(Point(480,460),8,"HARD");
+    textBox rampage(Point(375,580),8,"RAMPAGE");
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+    selectDifficult.draw(g);
+    classic.draw(g, border_color, background_color);
+    medium.draw(g, border_color, background_color);
+    hard.draw(g, border_color, background_color);
+    rampage.draw(g, border_color, background_color);
+    mainPage.draw(g, border_color, background_color);
+
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(classic.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "classic snake";
+        }
+        else if(medium.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "medium mode";
+        }
+        else if(hard.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "hard mode";
+        }
+        else if(rampage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "rampage mode";
+        }
+        else if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
+}
+
+string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm, string initials)
+{
+    string return_command = "null";
+    string file_name = "highScores.txt";
+    char input;
+
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+    bool keep_going = true;
+
+    gm.readHighScores(file_name);
+    int* my_array = gm.getHighScores();
+
+
+    fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
+
+    // Print to the screen
+    if(gm.getScore() > my_array[0])
+    {
+        //cout << "insisde new high score" << endl;
+        // This is the current highScore
+        textBox HighScore(Point(10,50),9,"NEW HIGH SCORE!!!");
+        HighScore.draw(g);
+    }
+    else
+    {
+        textBox HighScore(Point(10,50),9,"HIGH SCORE");
+        HighScore.draw(g);
+    }
+
+    // Now ask for input
+    textBox enterInitials(Point(10,200),8,"ENTER YOUR INITIALS");
+    textBox hitBackSlashh(Point(10,300),5,"HIT BACKSLASH TO DELTE A LETTER");
+    textBox userInitials(Point(400,400),8, initials);
+    textBox score(Point(550,600),8, to_string(gm.getScore()));
+
+    enterInitials.draw(g);
+    userInitials.draw(g);
+    hitBackSlashh.draw(g);
+    score.draw(g);
+
+    //Listen for input
+    if(g.kbhit())
+    {
+        input = g.getKey();
+        if(input == '\\')
+        {
+            int i = 2;
+            while( i >= 0 and keep_going)
+            {
+                if(initials[i] != '_')
+                {
+                    initials[i] = '_';
+                    keep_going = false;
+                }
+
+                i--;
+            }
+        }
+        else
+        {
+            int i = 0;
+            while( i < 3 and keep_going)
+            {
+                if(initials[i] == '_')
+                {
+                    initials[i] = toupper(input);
+                    keep_going = false;
+                }
+                i++;
+            }
+        }
+    }
+
+    return_command = initials;
+
+    // Check to see if all initials have been entered
+    if(initials[0] != '_' and initials[1] != '_' and initials[2] != '_')
+    {
+        background_color.R = 75;
+        background_color.G = 32;
+        background_color.B = 102;
+        textBox okay(Point(600,400),8, "OKAY");
+        okay.draw(g, border_color, background_color);
+
+        if(g.mouseClick())
+        {
+            point temp = g.getMouseClick();
+            if(okay.isClicked(Point(temp.x,temp.y)))
+            {
+                g.playSound("uibuttonclick2.mp3");
+                return_command = "game over page";
+
+                // Save the score
+                gm.setHighScores( file_name, initials);
+            }
+        }
+    }
+
+    //cout << system("pause");
+
+    return return_command;
+}
+
+string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+
+    /*
+    textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
+    textBox classic(Point(375,220),8,"CLASSIC");
+    textBox medium(Point(410,340),8,"MEDIUM");
+    textBox hard(Point(480,460),8,"HARD");
+    textBox rampage(Point(375,580),8,"RAMPAGE");
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+    */
+
+    textBox Rigdon(Point(200,100),8,"LOGAN RIGDON");
+    textBox Stewart(Point(200,200),8,"PETER STEWART");
+    textBox Szabo(Point(200,300),8,"BEN SZABO");
+    textBox Whitcomb(Point(200,400),8,"PETER WHITCOMB");
+    textBox Yoo(Point(200, 500),8, "JUSTIN YOO");
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+
+    Rigdon.draw(g);
+    Stewart.draw(g);
+    Szabo.draw(g);
+    Whitcomb.draw(g);
+    Yoo.draw(g);
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
+    mainPage.draw(g, border_color, background_color);
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "main page";
         }
     }
 
