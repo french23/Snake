@@ -1,12 +1,4 @@
-/*
-* Author: Peter Stewart
-* Assignment Title: Snake
-* Assignment Description: make a snake game
-* Due Date: 12/7/2022
-* Date Created: 11/14/2022
-* Date Last Modified: 12/7/2022
- */
- #include "symbol.h"
+#include "symbol.h"
 
 symbol::symbol(string fileName, char input_symbol, int fount_size, Point starting_location)
 {

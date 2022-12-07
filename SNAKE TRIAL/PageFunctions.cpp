@@ -1,12 +1,3 @@
-/*
-* Author: Benjamin Szabo, Peter Stuart
-* Assignment Title: Snake Game
-* Assignment Description: Create a snake game
-* Due Date: 12/7/2022
-* Date Created: 12/1/2022
-* Date Last Modified: 12/7/2022
- */
-
 #include "PageFunctions.h"
 
 string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
