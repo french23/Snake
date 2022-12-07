@@ -88,7 +88,7 @@ class Apple{
         void setColor(int, int, int);
 
         //******************************************************************
-        // Description: Sets the colision of the apple.                    *
+        // Description: Sets the collision of the apple.                   *
         // Return: Void                                                    *
         // Precondition: The Apple object exists                           *
         // Postcondition: The apple's collision is set to parameter value. *
