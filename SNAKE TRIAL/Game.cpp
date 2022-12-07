@@ -60,6 +60,13 @@ int    Game::getSpeed(){
 int* Game::getHighScores(){
     return this->highScores;
 }
+///NEW CODE
+string* Game::getHighScoreNames(){
+    return this->highScoreNames;
+}
+string* Game::getHighScoresMode(){
+    return this->highScoresMode;
+}
 
 ///Mutators///
 void Game::setSnake(const Snake snk){

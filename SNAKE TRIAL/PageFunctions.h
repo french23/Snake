@@ -128,4 +128,14 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
 */
 string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT);
 
+///NEW CODE
+/*
+ * description: displays top scores
+ * return: string
+ * precondition: plotter is given and width and hight
+ * postcondition: a command is given to main
+ *
+*/
+string topScore(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm);
+
 #endif // PAGEFUNCTIONS_H_INCLUDED
