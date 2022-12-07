@@ -189,6 +189,11 @@ string pauseGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         }
     }
 
+    if(g.kbhit())
+    {
+        char key = g.getKey();
+    }
+
     return return_command;
 }
 
@@ -256,6 +261,11 @@ string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
             g.playSound("uibuttonclick2.mp3");
             return_command = "clicked";
         }
+    }
+
+    if(g.kbhit())
+    {
+        char key = g.getKey();
     }
 
     return return_command;
@@ -460,6 +470,11 @@ string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         }
     }
 
+    if(g.kbhit())
+    {
+        char key = g.getKey();
+    }
+
     return return_command;
 }
 
@@ -590,16 +605,6 @@ string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     border_color.R = 227;
     border_color.G = 27;
     border_color.B = 190;
-
-
-    /*
-    textBox selectDifficult(Point(30, 75),9, "SELECT DIFFICULTY");
-    textBox classic(Point(375,220),8,"CLASSIC");
-    textBox medium(Point(410,340),8,"MEDIUM");
-    textBox hard(Point(480,460),8,"HARD");
-    textBox rampage(Point(375,580),8,"RAMPAGE");
-    textBox mainPage(Point(300,700),8,"MAIN PAGE");
-    */
 
     textBox Rigdon(Point(200,100),8,"LOGAN RIGDON");
     textBox Stewart(Point(200,200),8,"PETER STEWART");
