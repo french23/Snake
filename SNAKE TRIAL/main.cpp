@@ -81,6 +81,7 @@ int main(int argc, char **argv)
             else if(input == "load saved")
             {
                 if(gm.loadGame("save1")){
+                    remove("save1");
                     first_time = true;
                     g.quitSound("TITLESCREEN.mp3");
                     command = "loaded game";
@@ -106,9 +107,9 @@ int main(int argc, char **argv)
 
             if(gm.getGameCond())
             {
+                remove("save1");
                 command = "game over";
-                    g.playSound("gameover.mp3");
-                //cout << "game over" << endl;
+                g.playSound("gameover.mp3");
             }
         }
 
