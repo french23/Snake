@@ -17,6 +17,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox play(Point(450,200),10,"PLAY");
     textBox loadSaved(Point(220,320),10,"LOAD SAVED");
     textBox exit(Point(450,600),10,"EXIT");
+    textBox controls(Point(900,750),4,"CONTROLS");
 
     fill_screen_with_color(g,background_color, WIDTH, HEIGHT);
 
@@ -28,6 +29,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     play.draw(g,border_color,background_color);
     loadSaved.draw(g,border_color,background_color);
     exit.draw(g,border_color,background_color);
+    controls.draw(g,border_color,background_color);
 
     if(g.mouseClick())
     {
@@ -49,15 +51,22 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
             return_comand = "load saved";
             g.playSound("uibuttonclick2.mp3");
         }
+        else if(controls.isClicked(Point(temp.x,temp.y)))
+        {
+            return_comand = "controls";
+            g.playSound("uibuttonclick2.mp3");
+        }
 
     }
 
     return return_comand;
 }
 
-string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
+string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, int score)
 {
     string return_comand = "null";color border_color;
+    string scoreVal = to_string(score);
+
     border_color.R = 227;
     border_color.G = 27;
     border_color.B = 190;
@@ -67,13 +76,22 @@ string gameOverPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     background_color.G = 32;
     background_color.B = 102;
 
-    textBox gameOver(Point(100,200),13,"GAME OVER!");
-    textBox play_again(Point(300,320),8,"PLAY AGAIN");
-    textBox main_page(Point(340,440),8,"MAIN PAGE");
+    textBox gameOver(Point(100,100),13,"GAME OVER!");
+    textBox play_again(Point(280,540),8,"PLAY AGAIN");
+    textBox main_page(Point(320,650),8,"MAIN PAGE");
+    ///NEW STUFF
+    textBox gameScore(Point(300,350),8,"SCORE");
+    textBox scoreValue(Point(700,350),8,scoreVal);
+    ///END
+
 
     gameOver.draw(g);
     play_again.draw(g, border_color, background_color);
     main_page.draw(g, border_color, background_color);
+    ///NEW STUFF
+    gameScore.draw(g);
+    scoreValue.draw(g);
+    ///END
 
     if(g.mouseClick())
     {
@@ -301,3 +319,63 @@ string load_time(SDL_Plotter& g, int load_time, const int WIDTH, const int HEIGH
     return return_command;
 }
 
+string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT){
+    string return_command = "null";
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    //use WASD
+    textBox use(Point(125, 150),8, "USE");
+    textBox W(Point(450, 80), 8, "W");
+    textBox A(Point(370, 160), 8, "A");
+    textBox S(Point(450, 160), 8, "S");
+    textBox D(Point(530, 160), 8, "D");
+    textBox toMove(Point(650, 150),8, "TO MOVE");
+
+    //press pause
+    textBox press(Point(125, 450),8, "PRESS");
+    textBox P(Point(475, 450), 8, "P");
+    textBox toPause(Point(600, 450),8, "TO PAUSE");
+
+    //main button
+    textBox mainPage(Point(300,700),8,"MAIN PAGE");
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+
+    //use WASD
+    use.draw(g);
+    W.draw(g, border_color);
+    S.draw(g, border_color);
+    A.draw(g, border_color);
+    D.draw(g, border_color);
+    toMove.draw(g);
+
+    //press Pause
+    press.draw(g);
+    P.draw(g, border_color);
+    toPause.draw(g);
+
+    //main page
+    mainPage.draw(g, border_color, background_color);
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
+
+}

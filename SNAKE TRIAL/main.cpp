@@ -78,7 +78,8 @@ int main(int argc, char **argv)
             {
                 g.setQuit(true);
             }
-            else if(input == "load saved"){
+            else if(input == "load saved")
+            {
                 if(gm.loadGame("save1")){
                     first_time = true;
                     g.quitSound("TITLESCREEN.mp3");
@@ -87,6 +88,10 @@ int main(int argc, char **argv)
                 else{
                     command = "failed load";
                 }
+            }
+            else if(input == "controls")
+            {
+                command = "controls page";
             }
         }
 
@@ -165,10 +170,19 @@ int main(int argc, char **argv)
             }
         }
 
+        // Controls page
+        else if(command == "controls page")
+        {
+            input = controlsPage(g, WIDTH, HEIGHT);
+            if(input == "clicked"){
+                command = "main page";
+            }
+        }
+
         ///Losing Screen
         else if(command == "game over")
         {
-            input = gameOverPage(g, WIDTH, HEIGHT);
+            input = gameOverPage(g, WIDTH, HEIGHT, gm.getScore());
 
             if(input == "play again")
             {
