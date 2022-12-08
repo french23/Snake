@@ -157,6 +157,16 @@ public:
     //******************************************************************
     void setRefPoint(int i, Point p);
 
+    //******************************************************************
+    // Description: Sets the snake's key character                     *
+    // Return: Void                                                    *
+    // Precondition: The Snake object exists.                          *
+    // Postcondition: The snake's key char is set to parameter value.  *
+    //                The object is changed.                           *
+    //                                                                 *
+    //******************************************************************
+    void setKey(const char k);
+
 
 
     /// Methods ///

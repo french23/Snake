@@ -140,7 +140,10 @@ void Snake::setDirection(Direction d)
 {
     dir = d;
 }
-
+void Snake::setKey(const char k)
+{
+    key = k;
+}
 /// Methods///
 void Snake::checkSelfColision(SDL_Plotter& g)
 {

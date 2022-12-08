@@ -161,7 +161,12 @@ void Game::resetGame(SDL_Plotter& g)
     s.setSnakeDeath(false);
     score = 0;
     speed = 100;
+    s.setDirection(g, 'd');
     s.setDirection(RIGHT);
+
+    s.setKey('d');
+
+
     key = rightKey;
 
 
@@ -205,7 +210,7 @@ void Game::saveGame(string fName)
     filePush << "ApplePoint: " << endl
              << a.getSegment().getX() << " "
              << a.getSegment().getY() << endl << endl;
-    // Gamem ode and speed
+    // Gamemode and speed
     filePush << "Gamemode: " << endl
              << gameMode << endl << endl
              << "Speed:" << endl
@@ -536,7 +541,8 @@ void Game::hardGamemode(SDL_Plotter& g)
         g.update();
     }
 }
-void Game::RampageGamemode(SDL_Plotter& g){
+void Game::RampageGamemode(SDL_Plotter& g)
+{
     int freezer;
     gameMode = "rampage";
     ///Resets game
