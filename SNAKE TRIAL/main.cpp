@@ -96,6 +96,11 @@ int main(int argc, char **argv)
                     command = "failed load";
                 }
             }
+            else if(input == "top score")
+            {
+                gm.readHighScores("highScores.txt");
+                command = "top scores";
+            }
             else if(input == "controls")
             {
                 command = "controls page";
@@ -343,6 +348,15 @@ int main(int argc, char **argv)
             else
             {
                 initals = input;
+            }
+        }
+
+        ///TOP SCORES
+        else if(command == "top scores")
+        {
+            input = topScore(g, WIDTH, HEIGHT, gm);
+            if(input == "clicked"){
+                command = "main page";
             }
         }
 

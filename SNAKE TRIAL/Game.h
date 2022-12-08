@@ -21,6 +21,7 @@ private:
     Snake s;
     Apple a;
     int score;
+    int highestSpeed;
     int speed;
     bool gameOver;
     bool isPaused;
@@ -51,6 +52,8 @@ public:
     string getGamemode();
     int getSpeed();
     int* getHighScores();
+    string* getHighScoreNames();
+    string* getHighScoresMode();
 
     ///Mutators///
     void setSnake(const Snake snk);

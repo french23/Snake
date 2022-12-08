@@ -43,6 +43,9 @@ int Apple::getAppleSize()
 {
     return appleSize;
 }
+bool Apple::getFroze(){
+    return froze;
+}
 
 /// Mutators ///
 void Apple::setSegment(const Segment s)
@@ -62,6 +65,13 @@ void Apple::setColor(int r, int g, int b)
 void Apple::setAppleColision(const bool b)
 {
     beenHit = b;
+}
+void Apple::setFrozeTrue(){
+    froze = true;
+}
+
+void Apple::setFrozeFalse(){
+    froze = false;
 }
 
 /// Methods ///
