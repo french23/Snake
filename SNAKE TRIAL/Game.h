@@ -21,6 +21,7 @@ private:
     Snake s;
     Apple a;
     int score;
+    int highestSpeed;
     int speed;
     bool gameOver;
     bool isPaused;

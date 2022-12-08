@@ -16,6 +16,7 @@ Game::Game()
     s = Snake();
     a = Apple();
     score = 0;
+    highestSpeed = 100;
     speed = 100;
     gameOver = false;
     isPaused = false;
@@ -27,6 +28,7 @@ Game::Game(Snake snk, Apple app)
 {
     s = snk;
     a = app;
+    highestSpeed = 100;
     speed = 100;
     score = 0;
     gameOver = false;
@@ -534,27 +536,22 @@ void Game::hardGamemode(SDL_Plotter& g)
         g.update();
     }
 }
-void Game::RampageGamemode(SDL_Plotter& g)
-{
+void Game::RampageGamemode(SDL_Plotter& g){
+    int freezer;
     gameMode = "rampage";
     ///Resets game
-    if(isReset)
-    {
+    if(isReset){
         resetGame(g);
     }
     ///Keyboard detection
-    if(g.kbhit())
-    {
+    if(g.kbhit()){
         key = g.getKey();
 
-        switch(key)
-        {
-        case 'p':
-            isPaused = !isPaused; /// 'p' pauses game
-            break;
+        switch(key){
+            case 'p': isPaused = !isPaused; /// 'p' pauses game
+                    break;
         }
-        if(!isPaused)
-        {
+        if(!isPaused){
             s.setDirection(g, key);
         }
     }
@@ -563,21 +560,31 @@ void Game::RampageGamemode(SDL_Plotter& g)
 
 
 
-    if(!s.isSnakeDead() && !isPaused)
-    {
+    if(!s.isSnakeDead() && !isPaused){
         ///Apple Collision
-        if(a.checkAppleCollision(s))
-        {
+        if(a.checkAppleCollision(s)){
             a.eraseApple(g);
             a.setPoint(a.createPoint(s));
 
             s.incrementLength();
             g.playSound("appleappleeateat.mp3");
             //Scales score based on speed
-            score+= (180 / speed);
-            if(speed > 15)
-            {
+            score+= (180 / highestSpeed);
+            if(a.getFroze()){
+                speed += 20;
+            }
+            if(speed > 15 && !a.getFroze()){
                 speed -= 5;
+                freezer = (rand()%10)+1;
+            }
+            if(freezer == 10){
+                a.setFrozeTrue();
+            }
+            else{
+                a.setFrozeFalse();
+            }
+            if(speed < highestSpeed){
+                highestSpeed = speed;
             }
 
         }
@@ -588,8 +595,13 @@ void Game::RampageGamemode(SDL_Plotter& g)
 
         /// Draw snake and apple
         a.drawApple(g);
-        if(!s.isSnakeDead())
-        {
+        if(a.getFroze()){//Silver Color
+            a.setColor(192, 192, 192);
+        }
+        else{
+            a.setColor(255, 215, 0);
+        }
+        if(!s.isSnakeDead()){
             s.eraseSnake(g);
             s.drawSnake(g);
         }
