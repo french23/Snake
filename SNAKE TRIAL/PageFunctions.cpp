@@ -225,6 +225,11 @@ string saveGamePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 
     fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
     saveGame.draw(g);
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
     okay.draw(g, border_color, background_color);
 
 
@@ -260,6 +265,11 @@ string successLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 
     fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
     loadedGame.draw(g);
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
     play.draw(g, border_color, background_color);
 
 
@@ -298,6 +308,11 @@ string failedLoadPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox mainPage(Point(300,500),8,"MAIN PAGE");
 
     fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
     loadedGame.draw(g);
     mainPage.draw(g, border_color, background_color);
 
@@ -402,6 +417,11 @@ string controlsPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     toPause.draw(g);
 
     //main page
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
     mainPage.draw(g, border_color, background_color);
 
 
@@ -442,6 +462,11 @@ string gameModes(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 
     fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
     selectDifficult.draw(g);
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
     classic.draw(g, border_color, background_color);
     medium.draw(g, border_color, background_color);
     hard.draw(g, border_color, background_color);
@@ -682,6 +707,11 @@ string topScore(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm){
 
     fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
     loadedGame.draw(g);
+
+    background_color.R = 75;
+    background_color.G = 32;
+    background_color.B = 102;
+
     mainPage.draw(g, border_color, background_color);
 
 
