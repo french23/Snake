@@ -36,7 +36,7 @@
 1669674482 c:\users\peter\onedrive\documents\baylor docs\csi 1430\final project\snake trial 2.0\snake.h
 	"Segment.h"
 
-1670448513 source:c:\modules\github\snake\snake trial\main.cpp
+1670460125 source:c:\modules\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -49,11 +49,11 @@
 	<cmath>
 	<ctime>
 
-1670448513 c:\modules\github\snake\snake trial\segment.h
+1670460125 c:\modules\github\snake\snake trial\segment.h
 	"Point.h"
 	"SDL_Plotter.h"
 
-1670445226 c:\modules\github\snake\snake trial\point.h
+1670460125 c:\modules\github\snake\snake trial\point.h
 
 1670444876 c:\modules\github\snake\snake trial\sdl_plotter.h
 	<SDL2/SDL.h>
@@ -65,25 +65,25 @@
 	<map>
 	<queue>
 
-1670448513 c:\modules\github\snake\snake trial\snake.h
+1670460125 c:\modules\github\snake\snake trial\snake.h
 	"Segment.h"
 
-1668558035 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
+1670451273 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1670448513 source:c:\modules\github\snake\snake trial\segment.cpp
+1670460125 source:c:\modules\github\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1670448513 source:c:\modules\github\snake\snake trial\snake.cpp
+1670460125 source:c:\modules\github\snake\snake trial\snake.cpp
 	"Snake.h"
 
-1670445226 source:c:\modules\github\snake\snake trial\point.cpp
+1670460125 source:c:\modules\github\snake\snake trial\point.cpp
 	"Point.h"
 
-1670444876 source:c:\modules\github\snake\snake trial\grid_square.cpp
+1670460125 source:c:\modules\github\snake\snake trial\grid_square.cpp
 	"grid_square.h"
 
-1670444876 c:\modules\github\snake\snake trial\grid_square.h
+1670460125 c:\modules\github\snake\snake trial\grid_square.h
 	<vector>
 	"Segment.h"
 
@@ -154,62 +154,62 @@
 	"Apple.h"
 	<fstream>
 
-1670448513 source:c:\modules\github\snake\snake trial\apple.cpp
+1670458745 source:c:\modules\github\snake\snake trial\apple.cpp
 	"Apple.h"
 
-1670448513 c:\modules\github\snake\snake trial\apple.h
+1670460380 c:\modules\github\snake\snake trial\apple.h
 	"Snake.h"
 	"ctime"
 
-1670448629 source:c:\modules\github\snake\snake trial\game.cpp
+1670453816 source:c:\modules\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670448670 c:\modules\github\snake\snake trial\game.h
+1670460517 c:\modules\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
 	<fstream>
 
-1670448513 source:c:\modules\github\snake\snake trial\symbol.cpp
+1670460125 source:c:\modules\github\snake\snake trial\symbol.cpp
 	"symbol.h"
 
 1670448513 c:\modules\github\snake\snake trial\symbol.h
 	"grid_square.h"
 	<fstream>
 
-1670444876 source:c:\modules\github\snake\snake trial\text_box.cpp
+1670460125 source:c:\modules\github\snake\snake trial\text_box.cpp
 	"text_box.h"
 
-1670444876 c:\modules\github\snake\snake trial\text_box.h
+1670460125 c:\modules\github\snake\snake trial\text_box.h
 	<string>
 	<vector>
 	"symbol.h"
 
-1670448513 c:\modules\github\snake\snake trial\pagefunctions.h
+1670460125 c:\modules\github\snake\snake trial\pagefunctions.h
 	<iostream>
 	"Apple.h"
 	"Game.h"
 	"text_box.h"
 	<cmath>
 
-1670448772 source:c:\modules\github\snake\snake trial\pagefunctions.cpp
+1670460125 source:c:\modules\github\snake\snake trial\pagefunctions.cpp
 	"PageFunctions.h"
 
-1670449081 source:c:\users\benny\onedrive\documents\github\snake\snake trial\apple.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\apple.cpp
 	"Apple.h"
 
-1670449081 c:\users\benny\onedrive\documents\github\snake\snake trial\apple.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\apple.h
 	"Snake.h"
 	"ctime"
 
-1670449081 c:\users\benny\onedrive\documents\github\snake\snake trial\snake.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\snake.h
 	"Segment.h"
 
-1670449081 c:\users\benny\onedrive\documents\github\snake\snake trial\segment.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\segment.h
 	"Point.h"
 	"SDL_Plotter.h"
 
-1670295034 c:\users\benny\onedrive\documents\github\snake\snake trial\point.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\point.h
 
 1670275314 c:\users\benny\onedrive\documents\github\snake\snake trial\sdl_plotter.h
 	<SDL2/SDL.h>
@@ -221,23 +221,23 @@
 	<map>
 	<queue>
 
-1670452312 source:c:\users\benny\onedrive\documents\github\snake\snake trial\game.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\game.cpp
 	"Game.h"
 
-1670452338 c:\users\benny\onedrive\documents\github\snake\snake trial\game.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
 	<fstream>
 
-1670275365 source:c:\users\benny\onedrive\documents\github\snake\snake trial\grid_square.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\grid_square.cpp
 	"grid_square.h"
 
-1670275365 c:\users\benny\onedrive\documents\github\snake\snake trial\grid_square.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\grid_square.h
 	<vector>
 	"Segment.h"
 
-1670452420 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -250,7 +250,7 @@
 	<cmath>
 	<ctime>
 
-1670275526 c:\users\benny\onedrive\documents\github\snake\snake trial\text_box.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\text_box.h
 	<string>
 	<vector>
 	"symbol.h"
@@ -259,29 +259,29 @@
 	"grid_square.h"
 	<fstream>
 
-1670452389 c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.h
+1670460995 c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.h
 	<iostream>
 	"Apple.h"
 	"Game.h"
 	"text_box.h"
 	<cmath>
 
-1670454936 source:c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\pagefunctions.cpp
 	"PageFunctions.h"
 
-1670295034 source:c:\users\benny\onedrive\documents\github\snake\snake trial\point.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\point.cpp
 	"Point.h"
 
 1670270413 source:c:\users\benny\onedrive\documents\github\snake\snake trial\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1670449081 source:c:\users\benny\onedrive\documents\github\snake\snake trial\segment.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1670449081 source:c:\users\benny\onedrive\documents\github\snake\snake trial\snake.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\snake.cpp
 	"Snake.h"
 
-1670449081 source:c:\users\benny\onedrive\documents\github\snake\snake trial\symbol.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\symbol.cpp
 	"symbol.h"
 
 1670276951 c:\modules\github\snake\snake trial\constantvars.h
@@ -312,24 +312,24 @@
 1670348191 source:c:\users\peter\onedrive\documents\github\snake\snake trial\text_box.cpp
 	"text_box.h"
 
-1670275526 source:c:\users\benny\onedrive\documents\github\snake\snake trial\text_box.cpp
+1670460995 source:c:\users\benny\onedrive\documents\github\snake\snake trial\text_box.cpp
 	"text_box.h"
 
-1670377792 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\apple.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\apple.cpp
 	"Apple.h"
 
-1670295056 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\apple.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\apple.h
 	"Snake.h"
 	"ctime"
 
-1670387802 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\snake.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\snake.h
 	"Segment.h"
 
-1670275365 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\segment.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\segment.h
 	"Point.h"
 	"SDL_Plotter.h"
 
-1670295034 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\point.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\point.h
 
 1670275314 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\sdl_plotter.h
 	<SDL2/SDL.h>
@@ -341,23 +341,23 @@
 	<map>
 	<queue>
 
-1670387809 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\game.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\game.cpp
 	"Game.h"
 
-1670387809 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\game.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\game.h
 	"Snake.h"
 	"SDL_Plotter.h"
 	"Apple.h"
 	<fstream>
 
-1670275365 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\grid_square.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\grid_square.cpp
 	"grid_square.h"
 
-1670275365 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\grid_square.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\grid_square.h
 	<vector>
 	"Segment.h"
 
-1670388491 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\main.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\main.cpp
 	<iostream>
 	"Segment.h"
 	"SDL_Plotter.h"
@@ -370,41 +370,41 @@
 	<cmath>
 	<ctime>
 
-1670275526 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\text_box.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\text_box.h
 	<string>
 	<vector>
 	"symbol.h"
 
-1670275526 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\symbol.h
+1670449081 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\symbol.h
 	"grid_square.h"
 	<fstream>
 
-1670387865 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\pagefunctions.h
+1670460995 c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\pagefunctions.h
 	<iostream>
 	"Apple.h"
 	"Game.h"
 	"text_box.h"
 	<cmath>
 
-1670387865 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\pagefunctions.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\pagefunctions.cpp
 	"PageFunctions.h"
 
-1670295034 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\point.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\point.cpp
 	"Point.h"
 
 1670270413 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\sdl_plotter.cpp
 	"SDL_Plotter.h"
 
-1670275365 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\segment.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\segment.cpp
 	"Segment.h"
 
-1670387802 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\snake.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\snake.cpp
 	"Snake.h"
 
-1670275526 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\symbol.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\symbol.cpp
 	"symbol.h"
 
-1670275526 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\text_box.cpp
+1670460995 source:c:\users\benny\onedrive\documents\fall 2022\intro to csi\snake\snake trial\text_box.cpp
 	"text_box.h"
 
 1670376622 source:c:\users\peter\onedrive\desktop\snake trial\apple.cpp
