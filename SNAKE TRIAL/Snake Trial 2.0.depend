@@ -65,7 +65,7 @@
 	<map>
 	<queue>
 
-1670460125 c:\modules\github\snake\snake trial\snake.h
+1670464440 c:\modules\github\snake\snake trial\snake.h
 	"Segment.h"
 
 1670451273 source:c:\modules\github\snake\snake trial\sdl_plotter.cpp
@@ -154,7 +154,7 @@
 	"Apple.h"
 	<fstream>
 
-1670458745 source:c:\modules\github\snake\snake trial\apple.cpp
+1670460478 source:c:\modules\github\snake\snake trial\apple.cpp
 	"Apple.h"
 
 1670460380 c:\modules\github\snake\snake trial\apple.h

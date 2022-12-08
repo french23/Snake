@@ -161,7 +161,12 @@ void Game::resetGame(SDL_Plotter& g)
     s.setSnakeDeath(false);
     score = 0;
     speed = 100;
+    s.setDirection(g, 'd');
     s.setDirection(RIGHT);
+
+    s.setKey('d');
+
+
     key = rightKey;
 
 
