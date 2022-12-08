@@ -154,14 +154,14 @@
 	"Apple.h"
 	<fstream>
 
-1670458745 source:c:\modules\github\snake\snake trial\apple.cpp
+1670460478 source:c:\modules\github\snake\snake trial\apple.cpp
 	"Apple.h"
 
 1670460380 c:\modules\github\snake\snake trial\apple.h
 	"Snake.h"
 	"ctime"
 
-1670453816 source:c:\modules\github\snake\snake trial\game.cpp
+1670463383 source:c:\modules\github\snake\snake trial\game.cpp
 	"Game.h"
 
 1670460517 c:\modules\github\snake\snake trial\game.h

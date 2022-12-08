@@ -208,8 +208,10 @@ void Game::saveGame(string fName)
     // Gamem ode and speed
     filePush << "Gamemode: " << endl
              << gameMode << endl << endl
-             << "Speed:" << endl
-             << speed << endl;
+             << "Speed:" << endl << endl
+             << speed << endl << endl
+             << "HighSpeed:" << endl << endl
+             << highestSpeed << endl;
 
 
 
@@ -284,6 +286,11 @@ bool Game::loadGame(string fName)
         fileRead >> junk;
         fileRead >> num;
         speed = num;
+
+        // Read highest speed
+        fileRead >> junk;
+        fileRead >> num;
+        highestSpeed = num;
 
 
         fileRead.close();
