@@ -171,18 +171,34 @@ int main(int argc, char **argv)
             if(gameMode == "classic snake")
             {
                 gm.playClassicSnake(g);
+                if(g.mouseClick())
+                {
+                    point temp = g.getMouseClick();
+                }
             }
             else if(gameMode == "medium mode")
             {
                 gm.mediumGamemode(g);
+                if(g.mouseClick())
+                {
+                    point temp = g.getMouseClick();
+                }
             }
             else if(gameMode == "hard mode")
             {
                 gm.hardGamemode(g);
+                if(g.mouseClick())
+                {
+                    point temp = g.getMouseClick();
+                }
             }
             else if(gameMode == "rampage mode")
             {
                 gm.RampageGamemode(g);
+                if(g.mouseClick())
+                {
+                    point temp = g.getMouseClick();
+                }
             }
             else if(gameMode == "clicked")
             {
