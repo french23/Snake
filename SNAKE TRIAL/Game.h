@@ -51,6 +51,8 @@ public:
     string getGamemode();
     int getSpeed();
     int* getHighScores();
+    string* getHighScoreNames();
+    string* getHighScoresMode();
 
     ///Mutators///
     void setSnake(const Snake snk);

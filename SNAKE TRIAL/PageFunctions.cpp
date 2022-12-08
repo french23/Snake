@@ -25,6 +25,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     textBox title(Point(250,50),15,"SNAKE!");
     textBox play(Point(450,200),10,"PLAY");
     textBox loadSaved(Point(220,320),10,"LOAD SAVED");
+    textBox topScore(Point(220,470),10,"TOP SCORES");
     textBox exit(Point(450,600),10,"EXIT");
     textBox controls(Point(900,750),4,"CONTROLS");
     textBox credits(Point(10,750),4,"CREDITS");
@@ -38,6 +39,7 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
     title.draw(g);
     play.draw(g,border_color,background_color);
     loadSaved.draw(g,border_color,background_color);
+    topScore.draw(g,border_color,background_color);
     exit.draw(g,border_color,background_color);
     controls.draw(g,border_color,background_color);
     credits.draw(g,border_color,background_color);
@@ -61,6 +63,10 @@ string mainPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
         else if(loadSaved.isClicked(Point(temp.x,temp.y)))
         {
             return_comand = "load saved";
+            g.playSound("uibuttonclick2.mp3");
+        }
+        else if(topScore.isClicked(Point(temp.x,temp.y))){
+            return_comand = "top score";
             g.playSound("uibuttonclick2.mp3");
         }
         else if(controls.isClicked(Point(temp.x,temp.y)))
@@ -528,7 +534,7 @@ string SetScorePage(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm,
     // Now ask for input
     textBox enterInitials(Point(100,450),7,"ENTER YOUR INITIALS");
     textBox userInitials(Point(500,540),7, initials);
-    textBox hitBackSlashh(Point(250,610),3,"HIT BACKSLASH TO DELTE A LETTER");
+    textBox hitBackSlashh(Point(230,610),3,"HIT BACKSLASH TO DELETE A LETTER");
 
     //ask input draw
     enterInitials.draw(g);
@@ -645,4 +651,152 @@ string creditPage(SDL_Plotter& g, const int WIDTH, const int HEIGHT)
 
     return return_command;
 
+}
+
+string topScore(SDL_Plotter& g, const int WIDTH, const int HEIGHT, Game& gm){
+    string return_command = "null";
+
+    int* highScores = gm.getHighScores();
+    string* highScoreNames = gm.getHighScoreNames();
+    string* highScoreModes = gm.getHighScoresMode();
+
+    string data[10];
+    string num;
+
+    int pointx = 100;
+    int pointy = 150;
+
+
+    color background_color;
+    background_color.R = 55;
+    background_color.G = 2;
+    background_color.B = 82;
+
+    color border_color;
+    border_color.R = 227;
+    border_color.G = 27;
+    border_color.B = 190;
+
+    textBox loadedGame(Point(250, 8),9, "TOP SCORES");
+    textBox mainPage(Point(375,720),6,"MAIN PAGE");
+
+    fill_screen_with_color(g, background_color, WIDTH, HEIGHT);
+    loadedGame.draw(g);
+    mainPage.draw(g, border_color, background_color);
+
+
+    //titles
+    textBox score(Point(230, 90),5, "SCORE");
+    score.draw(g);
+    textBox initials(Point(480, 90),5, "INITIALS");
+    initials.draw(g);
+    textBox mode(Point(850, 90),5, "MODE");
+    mode.draw(g);
+
+    //fill score logic
+
+
+    for(int i = 0; i < 9; i++){
+        if(highScoreModes[i] != "000"){
+            num = to_string(i + 1);
+            if(highScores[i] < 10){
+                data[i] = num + "     " + to_string(highScores[i]) + "     " +
+                highScoreNames[i] + "     " + highScoreModes[i];
+            }
+            else if(highScores[i] > 9 && highScores[i] < 100){
+                data[i] = num + "     " + to_string(highScores[i]) + "    " +
+                highScoreNames[i] + "     " + highScoreModes[i];
+            }
+            else if(highScores[i] >= 100){
+                data[i] = num + "     " + to_string(highScores[i]) + "   " +
+                highScoreNames[i] + "     " + highScoreModes[i];
+            }
+        }
+        else{
+            data[i] = "nodata";
+        }
+    }
+    //last value
+    if(highScoreModes[9] != "000"){
+        if(highScores[9] < 10){
+            data[9] = to_string(10) + "    " + to_string(highScores[9]) + "     " +
+            highScoreNames[9] + "     " + highScoreModes[9];
+        }
+        else if(highScores[9] > 9 && highScores[9] < 100){
+            data[9] = to_string(10) + "    " + to_string(highScores[9]) + "    " +
+            highScoreNames[9] + "     " + highScoreModes[9];
+        }
+        else if(highScores[9] >= 100){
+            data[9] = to_string(10) + "    " + to_string(highScores[9]) + "   " +
+            highScoreNames[9] + "     " + highScoreModes[9];
+        }
+    }
+    else{
+        data[9] = "nodata";
+    }
+
+    textBox score0(Point(pointx, pointy), 5, data[0]);
+    pointy += 55;
+    textBox score1(Point(pointx, pointy), 5, data[1]);
+    pointy += 55;
+    textBox score2(Point(pointx, pointy), 5, data[2]);
+    pointy += 55;
+    textBox score3(Point(pointx, pointy), 5, data[3]);
+    pointy += 55;
+    textBox score4(Point(pointx, pointy), 5, data[4]);
+    pointy += 55;
+    textBox score5(Point(pointx, pointy), 5, data[5]);
+    pointy += 55;
+    textBox score6(Point(pointx, pointy), 5, data[6]);
+    pointy += 55;
+    textBox score7(Point(pointx, pointy), 5, data[7]);
+    pointy += 55;
+    textBox score8(Point(pointx, pointy), 5, data[8]);
+    pointy += 55;
+    textBox score9(Point(pointx, pointy), 5, data[9]);
+
+    if(data[0] != "nodata"){
+        score0.draw(g);
+    }
+    if(data[1] != "nodata"){
+        score1.draw(g);
+    }
+    if(data[2] != "nodata"){
+        score2.draw(g);
+    }
+    if(data[3] != "nodata"){
+        score3.draw(g);
+    }
+    if(data[4] != "nodata"){
+        score4.draw(g);
+    }
+    if(data[5] != "nodata"){
+        score5.draw(g);
+    }
+    if(data[6] != "nodata"){
+        score6.draw(g);
+    }
+    if(data[7] != "nodata"){
+        score7.draw(g);
+    }
+    if(data[8] != "nodata"){
+        score8.draw(g);
+    }
+    if(data[9] != "nodata"){
+        score9.draw(g);
+    }
+
+
+
+    if(g.mouseClick())
+    {
+        point temp = g.getMouseClick();
+        if(mainPage.isClicked(Point(temp.x,temp.y)))
+        {
+            g.playSound("uibuttonclick2.mp3");
+            return_command = "clicked";
+        }
+    }
+
+    return return_command;
 }

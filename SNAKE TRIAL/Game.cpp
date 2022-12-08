@@ -71,6 +71,12 @@ int* Game::getHighScores()
 {
     return this->highScores;
 }
+string* Game::getHighScoreNames(){
+    return this->highScoreNames;
+}
+string* Game::getHighScoresMode(){
+    return this->highScoresMode;
+}
 
 ///Mutators///
 void Game::setSnake(const Snake snk)
@@ -285,8 +291,7 @@ bool Game::loadGame(string fName)
 }
 
 ///Methods regarding HighScore
-void Game::readHighScores(string fName)
-{
+void Game::readHighScores(string fName){
     fileRead.open(fName);
     string name, mode;
     int fileScore;
@@ -304,8 +309,7 @@ void Game::readHighScores(string fName)
 
     fileRead.close();
 }
-void Game::setHighScores(string fName, string username)
-{
+void Game::setHighScores(string fName, string username){
     string mode;
     readHighScores(fName);
     filePush.open(fName);
@@ -314,20 +318,16 @@ void Game::setHighScores(string fName, string username)
 
     //set game mode and convert to upper
     mode = getGamemode();
-    for(int i = 0; i < mode.size(); i++)
-    {
+    for(int i = 0; i < mode.size(); i++){
         mode.at(i) = toupper(mode.at(i));
     }
 
     highScoresMode[10] = mode;
 
     //Sort data
-    for(int pass = 0; pass < 10; pass++)
-    {
-        for(int j = 0; j < 10 - pass; j++)
-        {
-            if(highScores[j] < highScores[j+1])
-            {
+    for(int pass = 0; pass < 10; pass++){
+        for(int j = 0; j < 10 - pass; j++){
+            if(highScores[j] < highScores[j+1]){
                 swap(highScores[j], highScores[j+1]);
                 swap(highScoreNames[j], highScoreNames[j+1]);
                 swap(highScoresMode[j], highScoresMode[j+1]);
@@ -335,8 +335,7 @@ void Game::setHighScores(string fName, string username)
         }
     }
 
-    for(int i = 0; i < 10; i++)
-    {
+    for(int i = 0; i < 10; i++){
         filePush << highScoreNames[i] << " "
                  <<highScores[i] << " "
                  << highScoresMode[i] << endl;
@@ -345,8 +344,6 @@ void Game::setHighScores(string fName, string username)
     filePush.close();
 
 }
-
-
 
 ///Methods regarding gamemodes
 void Game::playClassicSnake(SDL_Plotter& g)
